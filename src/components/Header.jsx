@@ -1,0 +1,19 @@
+import Nav from "./Nav";
+import logo from "../assets/logonr.svg"
+
+function Header() {
+    return(
+        <div className="flex bg-blue-200">
+        <div className="w-2/5 flex flex-col items-center justify-center">
+            <img src={logo} alt="logo" className="w-36 h-36"/>
+            <h1 className="text-4xl font-bold">Necochea Rent</h1>
+            <span className="font-bold">Alquileres Temporarios</span> 
+        </div>
+        <div className="w-3/5">
+            <Nav/>
+        </div>
+    </div>
+    )
+}
+
+export default Header;
