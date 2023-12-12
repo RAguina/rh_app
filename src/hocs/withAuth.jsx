@@ -8,7 +8,7 @@ export function withAuth(Component) {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      console.error('Acceso no autorizado. Redirigiendo a', redirectTo);
+      console.error('Acceso no autorizado. Redirigiendo a /login');
       navigate('/login');
       return null; 
     }
