@@ -6,7 +6,7 @@ function Header() {
         <div className="flex bg-blue-200">
         <div className="w-2/5 flex flex-col items-center justify-center">
             <img src={logo} alt="logo" className="w-36 h-36"/>
-            <h1 className="text-4xl font-bold">Necochea Rent</h1>
+            <h1 className="text-4xl font-bold">Necochea Rent House</h1>
             <span className="font-bold">Alquileres Temporarios</span> 
         </div>
         <div className="w-3/5">
