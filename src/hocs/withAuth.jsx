@@ -9,7 +9,7 @@ export function withAuth(Component) {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      <ErrorPage mensaje={"Acceso no autorizado. Redirigiendo a /login" } tipo={error}/>
+      <ErrorPage mensaje={"Acceso no autorizado. Redirigiendo a /login" }/>
       console.error('Acceso no autorizado. Redirigiendo a /login');
       
       setTimeout(() => {
