@@ -18,13 +18,12 @@ export const subirImagen = async (file) => {
     
 
     // Realiza la solicitud POST al servidor
-    const response = await axios.post('http://localhost:3000/imagen_inmuebles/upload', formData, {
+    const response = await axios.post('https://rhapi-dev-kkbb.3.us-1.fl0.io/imagen_inmuebles/upload', formData, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`, // Agrega el token de autenticación si es necesario
       },
     });
 
-    console.log("hola4",response.data.url);
     return response.data.url;
   } catch (error) {
     console.error('Error subiendo la imagen', error.response.data);
