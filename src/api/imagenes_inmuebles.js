@@ -16,11 +16,12 @@ export const subirImagen = async (file,idPropietario) => {
       console.log(pair[0] + ', ' + pair[1]);
     }
     
-    
+
 
     // Realiza la solicitud POST al servidor
     const response = await axios.post('https://rhapi-dev-kkbb.3.us-1.fl0.io/imagen_inmuebles/upload', formData, {
       headers: {
+        'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${localStorage.getItem('token')}`, // Agrega el token de autenticación si es necesario
       },
     });
