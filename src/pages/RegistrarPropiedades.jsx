@@ -34,7 +34,7 @@ function RegistrarPropiedades() {
     setSelectedFile(fileConNombreUnico);
   };
   
-
+/*vIEJO HANDLE CHANG
   const handleChange = (e) => {
     const name = e.target.name;
     let value = e.target.type === 'file' ? e.target.files[0] : e.target.value;
@@ -44,6 +44,17 @@ function RegistrarPropiedades() {
       [name]: value,
       propietario_id: name === 'propietario_id' ? value : form.propietario_id,
     });
+  };
+  */
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.type === 'file' ? e.target.files[0] : e.target.value;
+  
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
   };
   
   const camposRequeridos = [
@@ -65,7 +76,7 @@ function RegistrarPropiedades() {
         setErrores((prevErrores) => [...prevErrores, mensaje]);
       }
     });
-    */
+    
     const errores = camposRequeridos
     .filter(({ nombre }) => !form[nombre])
     .map(({ mensaje }) => mensaje);
@@ -74,7 +85,7 @@ function RegistrarPropiedades() {
       setErrorMessage({ mensaje: errores.map((error, index) => <p key={index}>{error}</p>), tipo: 'error' });
       return;
     }
-
+    */
     console.log("nombre archivo:", selectedFile.name);
 
     try {
