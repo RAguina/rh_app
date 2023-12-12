@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// Cambia tu función subirImagen en RegistrarPropiedades.jsx a algo así:
 
 export const subirImagen = async (file) => {
   try {
@@ -23,10 +22,11 @@ export const subirImagen = async (file) => {
         'Authorization': `Bearer ${localStorage.getItem('token')}`, // Agrega el token de autenticación si es necesario
       },
     });
+    console.log('Respuesta del servidor:', response.data); // Agrega esta línea para obtener más información
 
     return response.data.url;
   } catch (error) {
-    console.error('Error subiendo la imagen', error.response.data);
-    throw error; // Re-lanza el error para que pueda ser manejado en el componente llamador
+    console.error('Error subiendo la imagen', error.response ? error.response.data : error.message);
+    throw error;
   }
 };
