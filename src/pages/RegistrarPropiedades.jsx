@@ -74,7 +74,7 @@ function RegistrarPropiedades() {
       return;
     }
 
-    console.log(selectedFile);
+    console.log("nombre archivo:", selectedFile.name);
 
     try {
       await subirImagen(selectedFile);
