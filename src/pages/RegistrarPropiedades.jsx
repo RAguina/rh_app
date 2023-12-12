@@ -78,7 +78,7 @@ function RegistrarPropiedades() {
     console.log("nombre archivo:", selectedFile.name);
 
     try {
-      await subirImagen(selectedFile);
+      await subirImagen(selectedFile,propietario_id);
       console.log("archivo seleccionado:",selectedFile.name);
       console.log("hola3");
       const newProperty = await registrarInmueble({
