@@ -79,7 +79,7 @@ function RegistrarPropiedades() {
 
     try {
       await subirImagen(selectedFile);
-      console.log(selectedFile.name);
+      console.log("archivo seleccionado:",selectedFile.name);
       console.log("hola3");
       const newProperty = await registrarInmueble({
         ...form,
