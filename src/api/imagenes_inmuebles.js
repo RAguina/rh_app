@@ -11,8 +11,8 @@ export const subirImagen = async (file) => {
      //Muestra el contenido de FormData
     for (let pair of formData.entries()) {
       console.log(`Nombre del archivo: ${file.name}`);
-console.log(`Tamaño del archivo: ${file.size}`);
-console.log(`Tipo de archivo: ${file.type}`);
+      console.log(`Tamaño del archivo: ${file.size}`);
+      console.log(`Tipo de archivo: ${file.type}`);
       console.log(pair[0] + ', ' + pair[1]);
     }
     

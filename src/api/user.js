@@ -1,8 +1,10 @@
 import axios from 'axios';
 
+const API_URL = "https://rhapi-dev-kkbb.3.us-1.fl0.io/usuarios"
+
 export const registerUser = async (user) => {
   try {
-    const response = await axios.post("http://localhost:3000/usuarios", user);
+    const response = await axios.post(API_URL, user);
     return response.data;
   } catch (error) {
     console.error('Error registrando al usuario', error);
@@ -12,7 +14,7 @@ export const registerUser = async (user) => {
 
 export const actualizarUsuario = async (id, usuarioModificado) => {
   try {
-    const response = await axios.put(`http://localhost:3000/usuarios/${id}`, usuarioModificado);
+    const response = await axios.put(`https://rhapi-dev-kkbb.3.us-1.fl0.io/usuarios/${id}`, usuarioModificado);
     return response.data;
   } catch (error) {
     console.error(`Error actualizando el usuario con id ${id}`, error);
@@ -23,7 +25,7 @@ export const actualizarUsuario = async (id, usuarioModificado) => {
 
 export const obtenerUsuarios = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/usuarios');
+    const response = await axios.get(API_URL);
     return response.data;
   } catch (error) {
     console.error('Error obteniendo los usuarios', error);
@@ -33,7 +35,7 @@ export const obtenerUsuarios = async () => {
 
 export const obtenerUsuarioPorId = async (id) => {
   try {
-    const response = await axios.get(`http://localhost:3000/usuarios/${id}`);
+    const response = await axios.get(`https://rhapi-dev-kkbb.3.us-1.fl0.io/usuarios/${id}`);
     return response.data;
   } catch (error) {
     console.error(`Error obteniendo el usuario con id ${id}`, error);
@@ -43,7 +45,7 @@ export const obtenerUsuarioPorId = async (id) => {
 
 export const eliminarUsuario = async (id) => {
   try {
-    const response = await axios.delete(`http://localhost:3000/usuarios/${id}`);
+    const response = await axios.delete(`https://rhapi-dev-kkbb.3.us-1.fl0.io/usuarios/${id}`);
     return response.data;
   } catch (error) {
     console.error(`Error eliminando el usuario con id ${id}`, error);
