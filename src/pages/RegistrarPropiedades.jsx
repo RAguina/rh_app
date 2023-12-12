@@ -42,6 +42,7 @@ function RegistrarPropiedades() {
     setForm({
       ...form,
       [name]: value,
+      propietario_id: name === 'propietario_id' ? value : form.propietario_id,
     });
   };
   
