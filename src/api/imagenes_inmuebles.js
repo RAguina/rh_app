@@ -6,7 +6,7 @@ export const subirImagen = async (file,idPropietario) => {
     // Crea un objeto FormData
     const formData = new FormData();
     formData.append('image', file);
-    formData.append('propiedad_id', idPropietario);
+    formData.append('propietario_id', idPropietario);
 
      /*Muestra el contenido de FormData
     for (let pair of formData.entries()) {
