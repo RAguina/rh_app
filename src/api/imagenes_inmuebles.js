@@ -24,8 +24,8 @@ export const subirImagen = async (file,idPropietario) => {
       },
     });
     console.log('Respuesta del servidor:', response.data); // Agrega esta línea para obtener más información
-
-    return response.data.url;
+console.log("response.data.public_id",response.data.public_id);
+    return response.data;
   } catch (error) {
     console.error('Error subiendo la imagen', error.response ? error.response.data : error.message);
     throw error;
