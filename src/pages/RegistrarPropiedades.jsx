@@ -88,7 +88,6 @@ function RegistrarPropiedades() {
     */
     console.log("nombre archivo:", selectedFile.name);
     console.log("id propietario de form:", form.propietario_id);
-
     try {
       await subirImagen(selectedFile,form.propietario_id);  
       const newProperty = await registrarInmueble({

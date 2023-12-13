@@ -7,11 +7,11 @@ export const registrarInmueble = async (inmueble) => {
   console.log("registrarInmueble:",inmueble);
   try {
     const response = await axios.post(API_URL, inmueble,
-      //{headers: {'Authorization': `Bearer ${token}`}}
+      {headers: {'Authorization': `Bearer ${token}`}}
       );
     return response.data;
   } catch (error) {
-    console.error('Error registrando el inmueble', error.response.data);
+    console.error('Error registrando el inmueble en registrarInmueble', error.response.data);
     throw error;
   }
 };  
