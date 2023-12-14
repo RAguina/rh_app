@@ -18,7 +18,7 @@ export const registrarInmueble = async (inmueble) => {
 
 export const actualizarInmueble = async (id, inmuebleModificado) => {
   try {
-    const response = await axios.put(`https://rhapi-dev-kkbb.3.us-1.fl0.io/${id}`, inmuebleModificado);
+    const response = await axios.put(`${API_URL}/${id}`, inmuebleModificado);
     return response.data;
   } catch (error) {
     console.error(`Error actualizando el inmueble con id ${id}`, error);
@@ -28,7 +28,7 @@ export const actualizarInmueble = async (id, inmuebleModificado) => {
 
 export const eliminarInmueble = async (id) => {
   try {
-    const response = await axios.delete(`https://rhapi-dev-kkbb.3.us-1.fl0.io/${id}`);
+    const response = await axios.delete(`${API_URL}/${id}`);
     return response.data;
   } catch (error) {
     console.error(`Error eliminando el inmueble con id ${id}`, error);
@@ -50,7 +50,7 @@ export const obtenerInmuebles = async () => {
 
 export const obtenerInmueblePorId = async (id) => {
   try {
-    const response = await axios.get(`https://rhapi-dev-kkbb.3.us-1.fl0.io/${id}`);
+    const response = await axios.get(`${API_URL}/${id}`);
     return response.data;
   } catch (error) {
     console.error(`Error obteniendo el inmueble con id ${id}`, error);
