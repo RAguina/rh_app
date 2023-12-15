@@ -6,6 +6,7 @@ const API_URL = "https://rhapi-dev-kkbb.3.us-1.fl0.io/inmuebles"
 export const registrarInmueble = async (inmueble) => {
   console.log("registrarInmueble:",inmueble);
   try {
+    console.log("Llega a regisrarInmueble step 1");
     const response = await axios.post(API_URL, inmueble,
       {headers: {'Authorization': `Bearer ${token}`}}
       );
