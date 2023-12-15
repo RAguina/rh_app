@@ -6,15 +6,7 @@ export const subirImagen = async (file,idPropietario) => {
     // Crea un objeto FormData
     const formData = new FormData();
     formData.append('image', file);
-    formData.append('propietario_id', idPropietario);
-
-    // Muestra el contenido de FormData
-    for (let pair of formData.entries()) {
-      console.log(`Nombre del archivo: ${file.name}`);
-      console.log(`Tamaño del archivo: ${file.size}`);
-      console.log(`Tipo de archivo: ${file.type}`);
-      console.log(pair[0] + ', ' + pair[1]);
-    }
+    formData.append('propietario_id', idPropietario); 
     
     // Realiza la solicitud POST al servidor
     const response = await axios.post("https://rhapi-dev-kkbb.3.us-1.fl0.io/imagen_inmuebles/upload", formData, {
