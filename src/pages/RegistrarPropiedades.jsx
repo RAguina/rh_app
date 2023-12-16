@@ -112,6 +112,12 @@ function RegistrarPropiedades() {
       throw error;
     }
   };
+
+  const handleSubmit2 = async (e) => {
+    e.preventDefault()
+
+
+  }
   
 
   return (
@@ -163,8 +169,8 @@ function RegistrarPropiedades() {
         className="w-full p-2 border border-gray-300 rounded" />
         <input 
           type="file" 
-          name="image" 
-          onChange={handleFileChange} 
+          name="imagen_propiedad" 
+          onChange={handleChange} 
           className="w-full p-2 border border-gray-300 rounded" 
         />
         <button 
