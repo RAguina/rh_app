@@ -66,10 +66,8 @@ function RegistrarPropiedades() {
     { nombre: 'estado_propiedad', mensaje: 'Falta completar el estado de la propiedad.' },
   ];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    // Validaciones
+      // Validaciones de handleSubmit
     /*
     camposRequeridos.forEach(({ nombre, mensaje }) => {
       if (!form[nombre]) {
@@ -86,15 +84,20 @@ function RegistrarPropiedades() {
       return;
     }
     */
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+
     console.log("nombre archivo:", selectedFile.name);
     console.log("id propietario de form:", form.propietario_id);
     try {
-      await subirImagen(selectedFile,form.propietario_id);  
       const newProperty = await registrarInmueble({
         ...form,
         imagen_propiedad: selectedFile ? selectedFile.name : null,
       });
       // Subir imagen
+      await subirImagen(selectedFile,form.propietario_id);  
       if (newProperty) {
         console.log('hola');
       }
