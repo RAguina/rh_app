@@ -2,12 +2,13 @@ import axios from 'axios';
 
 //const API_URL = "http://localhost:3000/inmuebles"
 const API_URL = "https://rhapi-dev-kkbb.3.us-1.fl0.io/inmuebles"
+const API_URL2 = "https://rhapi-dev-kkbb.3.us-1.fl0.io/cargarInmueble"
 
 export const registrarInmueble = async (inmueble) => {
   console.log("registrarInmueble:",inmueble);
   try {
     console.log("Llega a regisrarInmueble step 1");
-    const response = await axios.post(API_URL, inmueble,
+    const response = await axios.post(API_URL2, inmueble,
       {headers: {'Authorization': `Bearer ${token}`}}
       );
       if (response.status === 200 || response.status === 201) {

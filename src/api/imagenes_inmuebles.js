@@ -20,7 +20,8 @@ export const subirImagen = async (file,idPropietario) => {
     console.log("response.data.public_id",response.data.nombre_imagen);
     return response.data;
   } catch (error) {
-    console.error('Error subiendo la imagen', error.response ? error.response.data : error.message);
+    console.log("Error subiendo imagen 25");
+    //console.error('Error subiendo la imagen', error.response ? error.response.data : error.message);
     throw error;
   }
 };
