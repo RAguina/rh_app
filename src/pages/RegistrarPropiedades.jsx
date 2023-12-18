@@ -48,15 +48,19 @@ function RegistrarPropiedades() {
   */
 
   const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.type === 'file' ? e.target.files[0] : e.target.value;
+    console.log('Event Target:', e.target);
+    if(e.target) {
+      const name = e.target.name;
+      const value = e.target.type === 'file' ? e.target.files[0] : e.target.value;
   
-    setForm((prevForm) => ({
-      ...prevForm,
-      [name]: value,
-    }));
+      setForm((prevForm) => ({
+        ...prevForm,
+        [name]: value,
+      }));
+    } else {
+      console.log('e.target es null o undefined');
+    }
   };
-  
   const camposRequeridos = [
     { nombre: 'nombre_propiedad', mensaje: 'Falta completar el nombre de la propiedad.' },
     { nombre: 'descripcion', mensaje: 'Falta completar la descripción.' },
