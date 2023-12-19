@@ -77,6 +77,7 @@
           <input 
             type="password" name="password" id="password"
             placeholder="Contraseña" 
+            autoComplete='password'
             value={form.password}
             onChange={handleChange} 
             className="w-full p-2 border border-gray-300 rounded" />
