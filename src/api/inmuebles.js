@@ -8,8 +8,8 @@ export const registrarInmueble = async (inmueble) => {
   console.log("registrarInmueble:",inmueble);
   try {
     console.log("Llega a regisrarInmueble step 1");
-    const response = await axios.post(API_URL2, inmueble,
-      {headers: {'Authorization': `Bearer ${token}`}}
+    const response = await axios.post(API_URL, inmueble,
+      //{headers: {'Authorization': `Bearer ${token}`}}
       );
       if (response.status === 200 || response.status === 201) {
         return response.data;

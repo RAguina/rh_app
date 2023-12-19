@@ -12,10 +12,10 @@ const ListadoPropiedades = () => {
       try {
         const respuesta = await obtenerInmuebles();
         setPropiedades(respuesta);
-        setCargando(false); // Indicamos que la carga ha finalizado
+        setCargando(false); 
       } catch (error) {
         console.error('Hubo un error al obtener las propiedades: ', error);
-        setCargando(false); // Incluso en caso de error, indicamos que la carga ha finalizado
+        setCargando(false);
       }
     }
   

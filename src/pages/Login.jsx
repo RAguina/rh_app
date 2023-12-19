@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import ErrorPage from './ErrorPage';
+import ErrorPage from '../components/ErrorPage';
 
 function Login() {
   const [username, setUsername] = useState('');

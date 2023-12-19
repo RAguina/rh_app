@@ -7,7 +7,7 @@ import RegistrarPropiedades from '../pages/RegistrarPropiedades';
 import AdminPanel from '../pages/AdminPanel';
 import ListadoPropiedades from '../components/ListadoPropiedades'
 import DetalleInmueble from '../components/DetalleInmueble'
-import Login from '../components/Login.jsx';
+import Login from '../pages/Login.jsx';
 import { withAuth } from '../hocs/withAuth';
 
 /*
