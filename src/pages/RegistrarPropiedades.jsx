@@ -174,7 +174,7 @@ function RegistrarPropiedades() {
         <input 
           type="file" 
           name="imagen_propiedad" 
-          onChange={handleChange} 
+          onChange={handleFileChange} 
           className="w-full p-2 border border-gray-300 rounded" 
         />
         <button 
