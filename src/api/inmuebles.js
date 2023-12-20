@@ -6,13 +6,7 @@ const API_URL2 = "https://rhapi-dev-kkbb.3.us-1.fl0.io/cargarInmueble"
 
 export const registrarInmueble = async (inmueble) => {
   try {
-    const response = await axios.post(API_URL, inmueble
-      ,{headers: {'Authorization': `Bearer ${token}`}}
-      );
-      if (response.status === 200 || response.status === 201) {
-        return response.data;
-
-      }
+    const response = await axios.post(API_URL, inmueble)
   } catch (error) {
     console.error('Error registrando el inmueble en registrarInmueble'/*, error.response.data*/);
     throw error;
