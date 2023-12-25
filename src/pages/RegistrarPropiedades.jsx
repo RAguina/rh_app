@@ -48,7 +48,6 @@ function RegistrarPropiedades() {
   */
 
   const handleChange = (e) => {
-    console.log('Event Target:', e.target);
     if(e.target) {
       const name = e.target.name;
       const value = e.target.type === 'file' ? e.target.files[0] : e.target.value;
@@ -115,13 +114,8 @@ function RegistrarPropiedades() {
       setErrorMessage({ mensaje: 'Hubo un error registrando la propiedad. Por favor, inténtalo de nuevo.', tipo: 'error' });
       throw error;
     }
-  };
-
-  const handleSubmit2 = async (e) => {
-    e.preventDefault()
-
-
   }
+
   
 
   return (
