@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 import Contact from '../pages/Contact';
 import RegistrarPropiedades from '../pages/RegistrarPropiedades';
 import AdminPanel from '../pages/AdminPanel';
+import FormUploadImages from '../components/FormUploadImages.jsx';
 import ListadoPropiedades from '../components/ListadoPropiedades'
 import DetalleInmueble from '../components/DetalleInmueble'
 import Login from '../pages/Login.jsx';
@@ -31,7 +32,7 @@ const AppRoutes = () => (
     <Route path="/inmuebles/:id" element={<DetalleInmueble />} />
     <Route path="/adminPanel" element={<AdminPanel />} />
     <Route path="/login" element={<Login/>} />
-    
+    <Route path="/formUploadImages" element={<FormUploadImages/>} />
 
   </Routes>
 );

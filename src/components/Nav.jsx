@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import handleLogout from '../config/handleLogout'
 
 const Nav = () => {
 
     const isAdmin = true;
+    const [token, setToken] = useState(localStorage.getItem('token'));
     return (
         
         <nav className="flex flex-wrap justify-center mt-10 gap-2">
@@ -48,11 +50,26 @@ const Nav = () => {
                 </Link>
             )}
 
-            <Link 
-                to="/login" 
-                className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${location.pathname === '/login' ? 'active' : ''}`}
-                >Iniciar Sesion
-            </Link>
+            {token ? (
+                <Link 
+                    to="/" 
+                    onClick={handleLogout}
+                    className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded`}
+                >Cerrar Sesión</Link>
+            ) : (
+                <Link 
+                    to="/login" 
+                    className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${location.pathname === '/login' ? 'active' : ''}`}
+                >Iniciar Sesión</Link>
+            )}
+
+            {token &&
+                <Link 
+                    to="/formUploadImages" 
+                    className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${location.pathname === '/formUploadImages' ? 'active' : ''}`}
+                    >Subir Imagenes
+                </Link>
+            }
         </nav>
 
     )
