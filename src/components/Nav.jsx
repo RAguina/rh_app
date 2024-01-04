@@ -6,6 +6,18 @@ const Nav = () => {
 
     const isAdmin = true;
     const [token, setToken] = useState(localStorage.getItem('token'));
+    const [isLoggedIn, setIsLoggedIn] = useState(!!token);
+
+    const handleLoginSuccess = (newToken) => {
+      setToken(newToken);
+      setIsLoggedIn(true);
+    };
+  
+    const handleLogoutClick = () => {
+      handleLogout();
+      setIsLoggedIn(false);
+    };
+
     return (
         
         <nav className="flex flex-wrap justify-center mt-10 gap-2">
@@ -50,7 +62,7 @@ const Nav = () => {
                 </Link>
             )}
 
-            {token ? (
+            {isLoggedIn ? (
                 <Link 
                     to="/" 
                     onClick={handleLogout}
@@ -63,7 +75,7 @@ const Nav = () => {
                 >Iniciar Sesión</Link>
             )}
 
-            {token &&
+            {isLoggedIn &&
                 <Link 
                     to="/formUploadImages" 
                     className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${location.pathname === '/formUploadImages' ? 'active' : ''}`}
