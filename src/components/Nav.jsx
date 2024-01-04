@@ -50,7 +50,7 @@ const Nav = () => {
 
             <Link 
                 to="/login" 
-                className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${location.pathname === '/contact' ? 'active' : ''}`}
+                className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${location.pathname === '/login' ? 'active' : ''}`}
                 >Iniciar Sesion
             </Link>
         </nav>

@@ -21,6 +21,11 @@ function Login() {
       setMensaje({ texto: 'Inicio de sesión exitoso', tipo: 'exito' });
       console.log(response.data);
       localStorage.setItem('token', response.data.token);
+      
+      // Establece un temporizador para eliminar el token después de una hora
+      setTimeout(() => {
+        localStorage.removeItem('token');
+      }, 3600000);
     } catch (error) {
       setMensaje({ texto: 'Error al iniciar sesión', tipo: 'error' });
       console.error(error);
