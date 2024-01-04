@@ -1,22 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import handleLogout from '../config/handleLogout'
-
+import { handleLoginSuccess, handleLogout } from '../config/authHelpers';
 const Nav = () => {
 
     const isAdmin = true;
-    const [token, setToken] = useState(localStorage.getItem('token'));
-    const [isLoggedIn, setIsLoggedIn] = useState(!!token);
+    const [token] = useState(localStorage.getItem('token'));
+    const [isLoggedIn] = useState(!!token);
 
-    const handleLoginSuccess = (newToken) => {
-      setToken(newToken);
-      setIsLoggedIn(true);
-    };
-  
-    const handleLogoutClick = () => {
-      handleLogout();
-      setIsLoggedIn(false);
-    };
 
     return (
         
