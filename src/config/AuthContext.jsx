@@ -7,7 +7,10 @@ export const AuthProvider = ({ children }) => {
 
   const handleLoginSuccess = (newToken) => {
     localStorage.setItem('token', newToken);
-    setIsLoggedIn(true);
+    setIsLoggedIn(true, () => {
+      // Accede al estado aquí, después de que se haya actualizado
+      console.log(isLoggedIn); // Debería ser 'true'
+    });
     return newToken;
   };
 
