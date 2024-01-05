@@ -10,7 +10,7 @@ import ListadoPropiedades from '../components/ListadoPropiedades'
 import DetalleInmueble from '../components/DetalleInmueble'
 import Login from '../pages/Login.jsx';
 import { withAuth } from '../hocs/withAuth';
-
+import { AuthProvider } from '../config/AuthContext';
 /*
 const isAuthenticated = true
 const hasRequiredRoles = true
@@ -31,7 +31,9 @@ const AppRoutes = () => (
     <Route path="/contact" element={<Contact />} />
     <Route path="/inmuebles/:id" element={<DetalleInmueble />} />
     <Route path="/adminPanel" element={<AdminPanel />} />
-    <Route path="/login" element={<Login/>} />
+    <AuthProvider>
+      <Route path="/login" element={<Login/>} />
+    </AuthProvider>
     <Route path="/formUploadImages" element={<FormUploadImages/>} />
 
   </Routes>
