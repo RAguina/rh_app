@@ -1,7 +1,5 @@
 import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../config/AuthContext';
-
 
 const Nav = () => {
 
