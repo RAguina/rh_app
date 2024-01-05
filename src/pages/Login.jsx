@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import ErrorPage from '../components/ErrorPage';
-import { handleLoginSuccess } from '../config/authHelpers';
+import { AuthContext } from '../config/AuthContext';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [mensaje, setMensaje] = useState({ texto: null, tipo: null });
+  
+  const { handleLoginSuccess, handleLogout } = useContext(AuthContext);
+
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
@@ -25,7 +28,7 @@ function Login() {
 
       // Establece un temporizador para eliminar el token después de una hora
       setTimeout(() => {
-        localStorage.removeItem('token');
+        handleLogout();
       }, 3600000);
     } catch (error) {
       setMensaje({ texto: 'Error al iniciar sesión', tipo: 'error' });
