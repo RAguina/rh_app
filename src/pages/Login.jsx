@@ -26,14 +26,15 @@ function Login() {
       setMensaje({ texto: 'Inicio de sesión exitoso', tipo: 'exito' });
       console.log(response.data);
       handleLoginSuccess(response.data.token);
-      setTimeout(() => {
-        navigate('/home');
-      }, 3000);
-        
+      
       // Establece un temporizador para eliminar el token después de una hora
       setTimeout(() => {
         handleLogout();
       }, 3600000);
+
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
     } catch (error) {
       setMensaje({ texto: 'Error al iniciar sesión', tipo: 'error' });
       console.error(error);
