@@ -6,11 +6,8 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
 
   const handleLoginSuccess = (newToken) => {
+    setIsLoggedIn(true);
     localStorage.setItem('token', newToken);
-    setIsLoggedIn(true, () => {
-      // Accede al estado aquí, después de que se haya actualizado
-      console.log(isLoggedIn); // Debería ser 'true'
-    });
     return newToken;
   };
 
