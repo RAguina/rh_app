@@ -1,5 +1,6 @@
 import Nav from "./Nav";
 import logo from "../assets/logonr.svg"
+import { AuthProvider } from "../config/AuthContext";
 
 function Header() {
     return(
@@ -10,7 +11,9 @@ function Header() {
             <span className="font-bold">Alquileres Temporarios</span> 
         </div>
         <div className="w-3/5">
-            <Nav/>
+            <AuthProvider>
+                <Nav/>
+            </AuthProvider>
         </div>
     </div>
     )
