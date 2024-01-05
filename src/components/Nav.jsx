@@ -1,10 +1,12 @@
 import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../config/AuthContext';
 
 const Nav = () => {
 
     const isAdmin = true;
     const { isLoggedIn, handleLogout, setIsLoggedIn } = useContext(AuthContext);
+    
 
     useEffect(() => {
         const token = localStorage.getItem('token');
