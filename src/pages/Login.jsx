@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import ErrorPage from '../components/ErrorPage';
 import { AuthContext, AuthProvider } from '../config/AuthContext';
@@ -8,7 +8,8 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [mensaje, setMensaje] = useState({ texto: null, tipo: null });
-  const navigate = useNavigate()
+  //const navigate = useNavigate()
+  const [redirectToHome, setRedirectToHome] = useState(false);
   const { handleLoginSuccess, handleLogout } = useContext(AuthContext);
 
   const handleUsernameChange = (event) => {
@@ -33,7 +34,7 @@ function Login() {
       }, 3600000);
 
       setTimeout(() => {
-        navigate('/');
+        setRedirectToHome(true)
       }, 3000);
     } catch (error) {
       setMensaje({ texto: 'Error al iniciar sesión', tipo: 'error' });
@@ -43,6 +44,7 @@ function Login() {
 
   return (
     <>
+    {redirectToHome ? <Redirect to="/home" /> : null}
     <ErrorPage mensaje={mensaje.texto} tipo={mensaje.tipo} />
     <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <div className="mb-4">
