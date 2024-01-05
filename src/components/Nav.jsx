@@ -1,15 +1,19 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { handleLoginSuccess, handleLogout } from '../config/authHelpers';
 import { AuthContext } from '../config/AuthContext';
 
 
 const Nav = () => {
 
     const isAdmin = true;
-    const { isLoggedIn, handleLogout } = useContext(AuthContext);
+    const { isLoggedIn, handleLogout, setIsLoggedIn } = useContext(AuthContext);
 
-
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+          setIsLoggedIn(true);
+        }
+      }, []);
     return (
         
         <nav className="flex flex-wrap justify-center mt-10 gap-2">
