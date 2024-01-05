@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import ErrorPage from '../components/ErrorPage';
 import { AuthContext, AuthProvider } from '../config/AuthContext';
@@ -7,7 +8,8 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [mensaje, setMensaje] = useState({ texto: null, tipo: null });
-  
+  const history = useHistory();
+
   const { handleLoginSuccess, handleLogout } = useContext(AuthContext);
 
   const handleUsernameChange = (event) => {
@@ -25,7 +27,7 @@ function Login() {
       setMensaje({ texto: 'Inicio de sesión exitoso', tipo: 'exito' });
       console.log(response.data);
       handleLoginSuccess(response.data.token);
-
+      history.push('/home');
       // Establece un temporizador para eliminar el token después de una hora
       setTimeout(() => {
         handleLogout();
