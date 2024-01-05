@@ -22,19 +22,20 @@ const hasRequiredRoles = true
 const ProtectedRegistrarPropiedades = withAuth(RegistrarPropiedades);
 
 const AppRoutes = () => (
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/listadoPropiedades" element={<ListadoPropiedades />} />
-    <Route path="/registrarPropiedad" element={<ProtectedRegistrarPropiedades />} />
-    <Route path="/queHacer" element={<QueHacer />} /> 
-    <Route path="/registrarUsuario" element={<RegistroUsuario />} />
-    <Route path="/contact" element={<Contact />} />
-    <Route path="/inmuebles/:id" element={<DetalleInmueble />} />
-    <Route path="/adminPanel" element={<AdminPanel />} />
-    <Route path="/login" element={<Login/>} />
-    <Route path="/formUploadImages" element={<FormUploadImages/>} />
-
-  </Routes>
+  <AuthProvider>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/listadoPropiedades" element={<ListadoPropiedades />} />
+      <Route path="/registrarPropiedad" element={<ProtectedRegistrarPropiedades />} />
+      <Route path="/queHacer" element={<QueHacer />} /> 
+      <Route path="/registrarUsuario" element={<RegistroUsuario />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/inmuebles/:id" element={<DetalleInmueble />} />
+      <Route path="/adminPanel" element={<AdminPanel />} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/formUploadImages" element={<FormUploadImages/>} />
+    </Routes>
+  </AuthProvider>
 );
 
 export default AppRoutes

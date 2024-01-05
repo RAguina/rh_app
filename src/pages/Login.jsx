@@ -37,7 +37,6 @@ function Login() {
   };
 
   return (
-    <AuthProvider>
     <>
     <ErrorPage mensaje={mensaje.texto} tipo={mensaje.tipo} />
     <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -71,7 +70,6 @@ function Login() {
       </div>
     </form>
     </>
-    </AuthProvider>
   );
 }
 
