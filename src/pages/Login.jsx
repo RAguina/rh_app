@@ -27,7 +27,10 @@ function Login() {
       setMensaje({ texto: 'Inicio de sesión exitoso', tipo: 'exito' });
       console.log(response.data);
       handleLoginSuccess(response.data.token);
-      history.push('/home');
+      setTimeout(() => {
+        history.push('/home');
+      }, 3000);
+        
       // Establece un temporizador para eliminar el token después de una hora
       setTimeout(() => {
         handleLogout();
