@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { handleLoginSuccess, handleLogout } from '../config/authHelpers';
 import { AuthContext } from '../config/AuthContext';
