@@ -31,9 +31,7 @@ const AppRoutes = () => (
     <Route path="/contact" element={<Contact />} />
     <Route path="/inmuebles/:id" element={<DetalleInmueble />} />
     <Route path="/adminPanel" element={<AdminPanel />} />
-    <AuthProvider>
-      <Route path="/login" component={<Login/>} />
-    </AuthProvider>
+    <Route path="/login" component={<Login/>} />
     <Route path="/formUploadImages" element={<FormUploadImages/>} />
 
   </Routes>
