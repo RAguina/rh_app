@@ -5,15 +5,8 @@ import { AuthContext } from '../config/AuthContext';
 const Nav = () => {
 
     const isAdmin = true;
-    const { isLoggedIn, handleLogout, setIsLoggedIn } = useContext(AuthContext);
+    const { isLoggedIn, handleLogout} = useContext(AuthContext);
     
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-          setIsLoggedIn(true);
-        }
-      }, [setIsLoggedIn]);
     return (
         
         <nav className="flex flex-wrap justify-center mt-10 gap-2">
