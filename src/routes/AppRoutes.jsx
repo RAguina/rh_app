@@ -32,7 +32,7 @@ const AppRoutes = () => (
     <Route path="/inmuebles/:id" element={<DetalleInmueble />} />
     <Route path="/adminPanel" element={<AdminPanel />} />
     <AuthProvider>
-      <Route path="/login" element={<Login/>} />
+      <Route path="/login" component={<Login/>} />
     </AuthProvider>
     <Route path="/formUploadImages" element={<FormUploadImages/>} />
 
