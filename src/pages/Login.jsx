@@ -8,7 +8,7 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [mensaje, setMensaje] = useState({ texto: null, tipo: null });
-
+  const navigate = useNavigate()
   const { handleLoginSuccess, handleLogout } = useContext(AuthContext);
 
   const handleUsernameChange = (event) => {
