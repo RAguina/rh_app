@@ -13,7 +13,7 @@ const Nav = () => {
         if (token) {
           setIsLoggedIn(true);
         }
-      }, []);
+      }, [setIsLoggedIn]);
     return (
         
         <nav className="flex flex-wrap justify-center mt-10 gap-2">
