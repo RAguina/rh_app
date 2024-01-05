@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ErrorPage from '../components/ErrorPage';
 import { AuthContext, AuthProvider } from '../config/AuthContext';
@@ -28,7 +28,7 @@ function Login() {
       console.log(response.data);
       handleLoginSuccess(response.data.token);
       setTimeout(() => {
-        history.push('/home');
+        navigate('/home');
       }, 3000);
         
       // Establece un temporizador para eliminar el token después de una hora
