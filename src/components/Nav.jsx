@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { handleLoginSuccess, handleLogout } from '../config/authHelpers';
+import { AuthContext } from '../config/AuthContext';
+
+
 const Nav = () => {
 
     const isAdmin = true;
-    const [token] = useState(localStorage.getItem('token'));
-    const [isLoggedIn] = useState(!!token);
+    const { isLoggedIn, handleLogout } = useContext(AuthContext);
 
 
     return (
