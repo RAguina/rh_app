@@ -22,7 +22,7 @@ const hasRequiredRoles = true
 const ProtectedRegistrarPropiedades = withAuth(RegistrarPropiedades);
 
 const AppRoutes = () => (
-  <AuthProvider>
+  
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/listadoPropiedades" element={<ListadoPropiedades />} />
@@ -35,7 +35,6 @@ const AppRoutes = () => (
       <Route path="/login" element={<Login/>} />
       <Route path="/formUploadImages" element={<FormUploadImages/>} />
     </Routes>
-  </AuthProvider>
 );
 
 export default AppRoutes

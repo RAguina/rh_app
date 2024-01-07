@@ -7,9 +7,11 @@ function App() {
   return (
     <Router>
       <div>
+        <AuthProvider>
           <Layout/>
           <AppRoutes/>
           <Footer/>
+          </AuthProvider>
       </div>
     </Router>
   )
