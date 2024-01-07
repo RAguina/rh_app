@@ -17,6 +17,7 @@
     }, [isLoggedIn]);
 
     const handleLoginSuccess = (newToken) => {
+      console.log('handleLoginSuccess llamado');
       localStorage.setItem('token', newToken);
       setIsLoggedIn(true);
       return newToken;

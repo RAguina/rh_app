@@ -6,35 +6,7 @@ const Nav = () => {
 
     const isAdmin = true;
     const { isLoggedIn, handleLogout} = useContext(AuthContext);
-    
-    /*useEffect(() => {
-        if(isLoggedIn){
-            {isLoggedIn ? (
-                <Link 
-                    to="/" 
-                    onClick={handleLogout}
-                    className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded`}
-                >Cerrar Sesión</Link>
-            ) : (
-                <Link 
-                    to="/login" 
-                    className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${location.pathname === '/login' ? 'active' : ''}`}
-                >Iniciar Sesión</Link>
-            )}
 
-            {isLoggedIn &&
-                <Link 
-                    to="/formUploadImages" 
-                    className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${location.pathname === '/formUploadImages' ? 'active' : ''}`}
-                    >Subir Imagenes
-                </Link>
-            }
-        }
-      
-    }, [isLoggedIn])
-    */
-
-    
     return (
         
         <nav className="flex flex-wrap justify-center mt-10 gap-2">
