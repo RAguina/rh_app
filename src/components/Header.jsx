@@ -11,9 +11,7 @@ function Header() {
             <span className="font-bold">Alquileres Temporarios</span> 
         </div>
         <div className="w-3/5">
-            <AuthProvider>
             <Nav/>
-            </AuthProvider>
         </div>
     </div>
     )
