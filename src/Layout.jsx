@@ -6,9 +6,7 @@ const Layout = () => {
   const location = useLocation()
   return (
     <div >
-      <AuthProvider>
         <Header/>
-      </AuthProvider>
     </div>
   )
 }
