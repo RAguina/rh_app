@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
+const API_URL_INMUEBLES = "https://rhapi-dev-kkbb.3.us-1.fl0.io/inmuebles"
+const API_URL_IMAGENES = "https://rhapi-dev-kkbb.3.us-1.fl0.io/imagen_inmuebles"
+
 const DetalleInmueble = () => {
   const { id } = useParams();
   const [inmueble, setInmueble] = useState(null);
@@ -10,7 +13,7 @@ const DetalleInmueble = () => {
   useEffect(() => {
     const obtenerInmueble = async () => {
       try {
-        const respuesta = await axios.get(`http://localhost:3000/inmuebles/${id}`);
+        const respuesta = await axios.get(`${API_URL_INMUEBLES}/${id}`);
         setInmueble(respuesta.data);
       } catch (error) {
         console.error('Hubo un error al obtener el inmueble: ', error);
@@ -19,7 +22,7 @@ const DetalleInmueble = () => {
 
     const obtenerImagenes = async () => {
       try {
-        const respuesta = await axios.get(`http://localhost:3000/imagen_inmuebles/${id}`);
+        const respuesta = await axios.get(`${API_URL_IMAGENES}/${id}`);
         setImagenes(respuesta.data);
       } catch (error) {
         console.error('Hubo un error al obtener las imágenes: ', error);
