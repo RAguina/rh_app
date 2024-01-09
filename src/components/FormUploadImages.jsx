@@ -36,7 +36,7 @@ const FormUploadImages = () => {
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
-      <p>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
+      <p className='text-blue-500 mt-10'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
     </div>
   )
 };
