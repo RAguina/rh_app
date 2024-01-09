@@ -32,8 +32,13 @@ const FormUploadImages = () => {
       }
     }
   });
-
-  // El resto de tu componente va aquí...
+  
+  return (
+    <div {...getRootProps()}>
+      <input {...getInputProps()} />
+      <p>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
+    </div>
+  )
 };
 
 export default FormUploadImages;
