@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const API_URL = "https://rhapi-dev-kkbb.3.us-1.fl0.io"
 export const subirImagen = async (file,idPropietario) => {
   try {
@@ -25,6 +24,8 @@ export const subirImagen = async (file,idPropietario) => {
     throw error;
   }
 };
+
+
 
 
 
