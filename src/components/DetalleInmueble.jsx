@@ -39,7 +39,7 @@ const DetalleInmueble = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <Link to="/listadoPropiedades" className="text-blue-500 text-2xl mb-20">&lt; Volver a la página anterior</Link>
+      <Link to="/listadoPropiedades" className="text-blue-500 text-2xl mb-20 mt-10">&lt; Volver a la página anterior</Link>
       <h1 className="text-2xl font-bold mb-4 text-center">{inmueble.nombre_propiedad}</h1>
       <p className="mb-2">Descripcion: <span className='font-bold'>{inmueble.descripcion}</span></p>
       <p className="mb-2">Tipo de propiedad: <span className='font-bold'>{inmueble.tipo_propiedad}</span></p>
@@ -50,7 +50,7 @@ const DetalleInmueble = () => {
       <p className="mb-2">Fecha de subida: <span className='font-bold'>{new Date(inmueble.fecha_subida).toLocaleDateString()}</span></p>
       <div className="grid grid-cols-2 gap-4">
       {imagenes.map((imagen, index) => (
-        <img key={index} src={imagen.url_imagen} alt={`Imagen ${index + 1}`} className="w-full object-cover h-64" />
+        <img key={index} src={inmueble.url_imagen} alt={`Imagen ${index + 1}`} className="w-full object-cover h-64" />
       ))}
       </div>
     </div>
