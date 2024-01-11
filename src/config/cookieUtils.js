@@ -1,4 +1,4 @@
-function setCookie(name, value, days) {
+export function setCookie(name, value, days) {
   var expires = "";
   if (days) {
     var date = new Date();
@@ -8,7 +8,7 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
-function getCookie(name) {
+export function getCookie(name) {
   var nameEQ = name + "=";
   var ca = document.cookie.split(';');
   for(var i=0;i < ca.length;i++) {
@@ -19,6 +19,6 @@ function getCookie(name) {
   return null;
 }
 
-function eraseCookie(name) {   
+export function eraseCookie(name) {   
   document.cookie = name+'=; Max-Age=-99999999;';  
 }
