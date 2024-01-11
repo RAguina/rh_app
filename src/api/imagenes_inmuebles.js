@@ -9,10 +9,8 @@ export const subirImagen = async (files, idPropietario) => {
     // Crea un objeto FormData
     const formData = new FormData();
 
-    // Itera sobre cada archivo y añádelo al objeto FormData
-    files.forEach((file, index) => {
-      formData.append('image' + index, file);
-    });
+
+    formData.append('image', file);
 
     formData.append('propietario_id', idPropietario); 
 

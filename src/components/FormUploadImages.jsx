@@ -14,8 +14,12 @@ const FormUploadImages = () => {
       // Itera sobre cada archivo aceptado
       for (const file of acceptedFiles) {
         try {
+        // Genera un nombre único para el archivo
+        const nombreUnico = generarNombreUnico();
+        // Crea un nuevo objeto File con el nombre único
+        const fileConNombreUnico = new File([file], nombreUnico, { type: file.type });
           // Llama a subirImagen para cada archivo
-          const response = await subirImagen(file, idPropietario);
+          const response = await subirImagen(fileConNombreUnico, idPropietario);
           console.log('Respuesta del servidor:', response);
         } catch (error) {
           console.log("Error subiendo imagen");
