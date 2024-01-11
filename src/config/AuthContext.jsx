@@ -4,9 +4,10 @@
   export const AuthContext = createContext();
 
   export const AuthProvider = ({ children }) => {
+    console.log("console log 1");
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
     const [idPropietario, setIdPropietario] = useState(null);
-
+    console.log("console log 2");
     useEffect(() => {
       const token = localStorage.getItem('token');
       if (token) {
