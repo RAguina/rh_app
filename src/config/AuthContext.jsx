@@ -12,7 +12,9 @@
       if (token) {
         setIsLoggedIn(true);
         const decodedToken = jwt.decode(token);
-        setIdPropietario(decodedToken.idPropietario);
+        if (decodedToken) {
+          setIdPropietario(decodedToken.idPropietario);
+        }
       }
     }, []);
 
@@ -20,7 +22,9 @@
       console.log('handleLoginSuccess llamado');
       localStorage.setItem('token', JSON.stringify({ token: newToken, expiry }));
       const decodedToken = jwt.decode(newToken);
-      setIdPropietario(decodedToken.idPropietario)
+      if (decodedToken) {
+        setIdPropietario(decodedToken.idPropietario);
+      }
       setIsLoggedIn(true);
       return newToken;
     };
