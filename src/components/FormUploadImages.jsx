@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import { useDropzone } from 'react-dropzone'; // Importa useDropzone de react-dropzone
-import axios from 'axios'; // Importa axios
 import { subirImagen } from '../api/imagenes_inmuebles';
 import { AuthContext } from '../config/AuthContext';
+import { generarNombreUnico } from "../config/index.js";
 
 const FormUploadImages = () => {
   const { idPropietario } = useContext(AuthContext);

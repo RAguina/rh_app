@@ -1,6 +1,6 @@
 import axios from "axios";
 import {getCookie} from '../config/cookieUtils.js'
-import { generarNombreUnico } from "../config/index.js";
+
 
 const API_URL = "https://rhapi-dev-kkbb.3.us-1.fl0.io"
 
