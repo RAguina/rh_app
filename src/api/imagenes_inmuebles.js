@@ -5,7 +5,7 @@ import { generarNombreUnico } from "../config/index.js";
 const API_URL = "https://rhapi-dev-kkbb.3.us-1.fl0.io"
 
 
-export const subirImagen = async (files, idPropietario) => {
+export const subirImagen = async (file, idPropietario) => {
   try {
     // Crea un objeto FormData
     const formData = new FormData();
