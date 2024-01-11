@@ -10,6 +10,7 @@ const FormUploadImages = () => {
     accept: 'image/*',
     multiple: true,
     onDrop: async (acceptedFiles) => {
+      console.log(acceptedFiles);
       // Itera sobre cada archivo aceptado
       for (const file of acceptedFiles) {
         try {
