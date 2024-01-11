@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import {getCookie, eraseCookie} from '../config/cookieUtils.js'
 
 export function withAuth(Component) {
   return function ProtectedRoute(props) {
     const navigate = useNavigate();
-    const item = JSON.parse(localStorage.getItem('token'));
+    const item = JSON.parse(getCookie('token'));
 
     if (!item) {
       console.error('Acceso no autorizado. Redirigiendo a /login');
@@ -18,7 +19,7 @@ export function withAuth(Component) {
     const now = new Date();
     if (now.getTime() > item.expiry) {
       // El token ha expirado, eliminarlo y redirigir al usuario a la página de inicio de sesión
-      localStorage.removeItem('token');
+      eraseCookie('token');
       console.error('El token ha expirado. Redirigiendo a /login');
       
       setTimeout(() => {

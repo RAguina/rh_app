@@ -4,11 +4,11 @@ import jwtDecode from 'jwt-decode'; // Importa jwt-decode
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(!!getCookie('token'));
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
   const [idPropietario, setIdPropietario] = useState(null);
 
   useEffect(() => {
-    const token = getCookie('token');
+    const token = localStorage.getItem('token');
     if (token) {
       setIsLoggedIn(true);
       const decodedToken = jwtDecode(token); // Usa jwt-decode para decodificar el token
@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const handleLoginSuccess = (newToken, expiry) => {
-    setCookie('token', JSON.stringify({ token: newToken, expiry }), 1);
+    localStorage.setItem('token', JSON.stringify({ token: newToken, expiry }));
     const decodedToken = jwtDecode(newToken); // Usa jwt-decode para decodificar el token
     if (decodedToken) {
       setIdPropietario(decodedToken.idPropietario);
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const handleLogout = () => {
-    eraseCookie('token');
+    localStorage.removeItem('token');
     setIsLoggedIn(false);
     setIdPropietario(null);
   };
