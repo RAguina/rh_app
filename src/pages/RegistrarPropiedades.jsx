@@ -93,7 +93,7 @@ function RegistrarPropiedades() {
     try {
       const newProperty = await registrarInmueble({...form});
       if (newProperty){
-        navigate(`/formUploadImages/${form.propietario_id}`);
+        navigate(`/formUploadImages/${newProperty.propiedad_id}`);
       }
       setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
       console.log('Propiedad registrada:', newProperty);
