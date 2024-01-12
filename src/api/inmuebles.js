@@ -7,8 +7,9 @@ const API_URL2 = "https://rhapi-dev-kkbb.3.us-1.fl0.io/cargarInmueble"
 export const registrarInmueble = async (inmueble) => {
   try {
     const response = await axios.post(API_URL, inmueble)
+    return response.data;
   } catch (error) {
-    console.error('Error registrando el inmueble en registrarInmueble'/*, error.response.data*/);
+    console.error('Error registrando el inmueble en registrarInmueble', error);
     throw error;
   }
 };  
