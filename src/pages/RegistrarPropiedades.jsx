@@ -2,10 +2,7 @@
 import React, { useState } from 'react';
 import { registrarInmueble } from '../api/inmuebles'; // Asegúrate de tener una función para registrar la propiedad
 import ErrorPage from '../components/ErrorPage'; 
-import { subirImagen } from '../api/imagenes_inmuebles';
-import {generarNombreUnico} from '../config/index'
-
-
+import { useNavigate } from 'react-router-dom';
 
 function RegistrarPropiedades() {
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
@@ -20,8 +17,9 @@ function RegistrarPropiedades() {
     propietario_id: '',
     imagen_propiedad: null,
   }); 
-  const [selectedFile, setSelectedFile] = useState(null);
+  const navigate = useNavigate();
 
+  /* esto o algo asi va a ir en el FormUploadImage
   const handleFileChange = (event) => {
     const file = event.target.files[0];
   
@@ -33,7 +31,7 @@ function RegistrarPropiedades() {
   
     setSelectedFile(fileConNombreUnico);
   };
-  
+  */
 /*vIEJO HANDLE CHANG
   const handleChange = (e) => {
     const name = e.target.name;
@@ -91,18 +89,13 @@ function RegistrarPropiedades() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
-    console.log("nombre archivo:", selectedFile.name);
     console.log("id propietario de form:", form.propietario_id);
     try {
-      const newProperty = await registrarInmueble({
-        ...form,
-        imagen_propiedad: selectedFile ? selectedFile.name : null,
-      });
-      // Subir imagen
-      await subirImagen(selectedFile,form.propietario_id);  
-      if (newProperty) {
-        console.log('hola');
+      const newProperty = await registrarInmueble({...form});
+      if (newProperty){
+        console.log("El id de la nueva propiedad es:",newProperty.id);
+        console.log("El id2 de la nueva propiedad es:",newProperty.idPropiedad);
+        navigate(`/formUploadImages/${newProperty.id}`);
       }
       setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
       console.log('Propiedad registrada:', newProperty);
@@ -165,12 +158,6 @@ function RegistrarPropiedades() {
         placeholder="ID del propietario" 
         onChange={handleChange} 
         className="w-full p-2 border border-gray-300 rounded" />
-        <input 
-          type="file" 
-          name="imagen_propiedad" 
-          onChange={handleFileChange} 
-          className="w-full p-2 border border-gray-300 rounded" 
-        />
         <button 
         type="submit" 
         className="w-full p-2 bg-blue-500 text-white rounded">Registrar</button>

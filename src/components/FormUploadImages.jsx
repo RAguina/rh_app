@@ -3,8 +3,10 @@ import { useDropzone } from 'react-dropzone'; // Importa useDropzone de react-dr
 import { subirImagen } from '../api/imagenes_inmuebles';
 import { AuthContext } from '../config/AuthContext';
 import { generarNombreUnico } from "../config/index.js";
+import { useParams } from 'react-router-dom';
 
 const FormUploadImages = () => {
+  const {idPropiedad} = useParams();
   const { idPropietario } = useContext(AuthContext);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
@@ -19,7 +21,7 @@ const FormUploadImages = () => {
         // Crea un nuevo objeto File con el nombre único
         const fileConNombreUnico = new File([file], nombreUnico, { type: file.type });
           // Llama a subirImagen para cada archivo
-          const response = await subirImagen(fileConNombreUnico, idPropietario);
+          const response = await subirImagen(fileConNombreUnico, idPropiedad);
           console.log('Respuesta del servidor:', response);
         } catch (error) {
           console.log("Error subiendo imagen");
