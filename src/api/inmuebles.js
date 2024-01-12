@@ -2,7 +2,6 @@ import axios from 'axios';
 
 //const API_URL = "http://localhost:3000/inmuebles"
 const API_URL = "https://rhapi-dev-kkbb.3.us-1.fl0.io/inmuebles"
-const API_URL2 = "https://rhapi-dev-kkbb.3.us-1.fl0.io/cargarInmueble"
 
 export const registrarInmueble = async (inmueble) => {
   try {
