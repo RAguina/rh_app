@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import {jwtDecode} from 'jwt-decode'; // Importa jwt-decode
-import { getCookie, setCookie } from './cookieUtils';
+import { getCookie, setCookie, eraseCookie } from './cookieUtils';
 
 export const AuthContext = createContext();
 
