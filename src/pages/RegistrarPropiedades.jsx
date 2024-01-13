@@ -10,7 +10,7 @@ function RegistrarPropiedades() {
   const [errores, setErrores] = useState([]);
   const [step,setStep] = useState(1);
   const [userChanges, setUserChanges] = useState({});
-  const [newProperty, setNewProperty] = useState();
+  const [propiedadId, setPropiedadId] = useState(null);
   const [form, setForm] = useState({
     nombre_propiedad: '',
     descripcion: '',
@@ -93,8 +93,9 @@ function RegistrarPropiedades() {
     try {
       const newProperty = await registrarInmueble({...form});
       console.log("tiene que ser este, porfa",newProperty.propiedad_id);
-      if (property){
-        setNewProperty(property);
+      if (newProperty){
+        setPropiedadId(newProperty.propiedad_id);
+        console.log("este es el inmueble id numero: ",newProperty.propiedad_id);
         // Avanza al siguiente paso después de guardar los datos
         setStep(step + 1);
       }
@@ -120,11 +121,11 @@ function RegistrarPropiedades() {
             <div className="flex items-center justify-between">
               <RoundButton onClick={() => handleClick(1)} className="w-full sm:w-1/4">1</RoundButton>
               <hr className="flex-grow border-t-2 border-gray-300"/>
-              <RoundButton onClick={() => handleClick(2)} disabled={!newProperty} className="w-full sm:w-1/4">2</RoundButton>
+              <RoundButton onClick={() => handleClick(2)} disabled={!propiedadId} className="w-full sm:w-1/4">2</RoundButton>
               <hr className="flex-grow border-t-2 border-gray-300"/>
-              <RoundButton onClick={() => handleClick(3)} disabled={!newProperty} className="w-full sm:w-1/4">3</RoundButton>
+              <RoundButton onClick={() => handleClick(3)} disabled={!propiedadId} className="w-full sm:w-1/4">3</RoundButton>
               <hr className="flex-grow border-t-2 border-gray-300"/>
-              <RoundButton onClick={() => handleClick(4)} disabled={!newProperty} className="w-full sm:w-1/4">4</RoundButton>
+              <RoundButton onClick={() => handleClick(4)} disabled={!propiedadId} className="w-full sm:w-1/4">4</RoundButton>
             </div>
      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
