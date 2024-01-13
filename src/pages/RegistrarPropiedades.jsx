@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function RegistrarPropiedades() {
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const [errores, setErrores] = useState([]);
+  const [step,setStep] = useState(1);
   const [form, setForm] = useState({
     nombre_propiedad: '',
     descripcion: '',
@@ -18,7 +19,11 @@ function RegistrarPropiedades() {
   }); 
   const navigate = useNavigate();
 
-  
+  const handleClick = (value) => {
+    setStep(value);
+    // Aquí puedes agregar el código para guardar las modificaciones del usuario
+  };
+
   const handleChange = (e) => {
     if(e.target) {
       const name = e.target.name;
@@ -85,6 +90,12 @@ function RegistrarPropiedades() {
 
   return (
     <div className="ml-5 mt-10 w-2/5 md:w-1/4">
+      <div>
+        <RoundButton onClick={() => handleClick(1)}>1</RoundButton>
+        <RoundButton onClick={() => handleClick(2)}>2</RoundButton>
+        <RoundButton onClick={() => handleClick(3)}>3</RoundButton>
+        <RoundButton onClick={() => handleClick(4)}>4</RoundButton>
+      </div>
      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       <h1 className="text-2xl font-bold mb-5">Registrar Propiedades</h1>
       <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
