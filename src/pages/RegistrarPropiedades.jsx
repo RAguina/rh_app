@@ -15,36 +15,10 @@ function RegistrarPropiedades() {
     precio_propiedad: '',
     estado_propiedad: '',
     propietario_id: '',
-    imagen_propiedad: null,
   }); 
   const navigate = useNavigate();
 
-  /* esto o algo asi va a ir en el FormUploadImage
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
   
-    // Genera un nombre único para el archivo
-    const nombreUnico = generarNombreUnico();
-  
-    // Crea un nuevo objeto File con el nombre único
-    const fileConNombreUnico = new File([file], nombreUnico, { type: file.type });
-  
-    setSelectedFile(fileConNombreUnico);
-  };
-  */
-/*vIEJO HANDLE CHANG
-  const handleChange = (e) => {
-    const name = e.target.name;
-    let value = e.target.type === 'file' ? e.target.files[0] : e.target.value;
-    
-    setForm({
-      ...form,
-      [name]: value,
-      propietario_id: name === 'propietario_id' ? value : form.propietario_id,
-    });
-  };
-  */
-
   const handleChange = (e) => {
     if(e.target) {
       const name = e.target.name;
@@ -165,3 +139,30 @@ function RegistrarPropiedades() {
 }
 
 export default RegistrarPropiedades;
+
+
+/* esto o algo asi va a ir en el FormUploadImage
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+  
+    // Genera un nombre único para el archivo
+    const nombreUnico = generarNombreUnico();
+  
+    // Crea un nuevo objeto File con el nombre único
+    const fileConNombreUnico = new File([file], nombreUnico, { type: file.type });
+  
+    setSelectedFile(fileConNombreUnico);
+  };
+  */
+/*vIEJO HANDLE CHANG
+  const handleChange = (e) => {
+    const name = e.target.name;
+    let value = e.target.type === 'file' ? e.target.files[0] : e.target.value;
+    
+    setForm({
+      ...form,
+      [name]: value,
+      propietario_id: name === 'propietario_id' ? value : form.propietario_id,
+    });
+  };
+  */
