@@ -91,12 +91,16 @@ function RegistrarPropiedades() {
 
   return (
     <div className="ml-5 mt-10 w-2/5 md:w-1/4">
-      <div>
-        <RoundButton onClick={() => handleClick(1)}>1</RoundButton>
-        <RoundButton onClick={() => handleClick(2)}>2</RoundButton>
-        <RoundButton onClick={() => handleClick(3)}>3</RoundButton>
-        <RoundButton onClick={() => handleClick(4)}>4</RoundButton>
-      </div>
+      <div className="flex items-center justify-between">
+          <RoundButton onClick={() => handleClick(1)} className="w-full sm:w-1/2">1</RoundButton>
+          <hr className="flex-grow mx-2 border-t-2 border-gray-300"/>
+          <RoundButton onClick={() => handleClick(2)} className="w-full sm:w-1/2">2</RoundButton>
+        </div>
+        <div className="flex items-center justify-between">
+          <RoundButton onClick={() => handleClick(3)} className="w-full sm:w-1/2">3</RoundButton>
+          <hr className="flex-grow mx-2 border-t-2 border-gray-300"/>
+          <RoundButton onClick={() => handleClick(4)} className="w-full sm:w-1/2">4</RoundButton>
+        </div>
      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       <h1 className="text-2xl font-bold mb-5">Registrar Propiedades</h1>
       <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
