@@ -18,7 +18,7 @@ function RoundButton({ label, onClick }) {
 
   return (
     <button style={style} onClick={onClick}>
-      {label}
+      {children}
     </button>
   );
 }
