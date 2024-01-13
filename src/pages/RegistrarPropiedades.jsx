@@ -10,6 +10,7 @@ function RegistrarPropiedades() {
   const [errores, setErrores] = useState([]);
   const [step,setStep] = useState(1);
   const [userChanges, setUserChanges] = useState({});
+  const [newProperty, setNewProperty] = useState();
   const [form, setForm] = useState({
     nombre_propiedad: '',
     descripcion: '',
@@ -94,8 +95,8 @@ function RegistrarPropiedades() {
       if (newProperty){
         navigate(`/formUploadImages/${newProperty.propiedad_id}`);
       }
-      setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
       console.log('Propiedad registrada:', newProperty);
+      setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
     } catch (error) {
       console.error('Error registrando la propiedad', error);
       if (error.response && error.response.data) {
