@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!getCookie('token'));
   const [idPropietario, setIdPropietario] = useState(null);
+  const [newProperty, setNewProperty] = useState(null)
 
   useEffect(() => {
     const token = getCookie('token');
@@ -33,12 +34,13 @@ export const AuthProvider = ({ children }) => {
     eraseCookie('token');
     setIsLoggedIn(false);
     setIdPropietario(null);
+    setNewProperty(null);
   };
 
   return (
     <AuthContext.Provider value={{ 
       isLoggedIn, setIsLoggedIn, 
-      idPropietario, 
+      idPropietario, newProperty, setNewProperty,
       handleLoginSuccess, handleLogout }}>
       {children}
     </AuthContext.Provider>
