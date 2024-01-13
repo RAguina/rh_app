@@ -90,7 +90,7 @@ function RegistrarPropiedades() {
   
 
   return (
-    <div className="ml-5 mt-10 w-2/5 md:w-1/4">
+    <div className="ml-5 mt-10 md:w-1/4">
             <div className="flex items-center justify-between">
               <RoundButton onClick={() => handleClick(1)} className="w-full sm:w-1/4">1</RoundButton>
               <hr className="flex-grow border-t-2 border-gray-300"/>
@@ -101,54 +101,57 @@ function RegistrarPropiedades() {
               <RoundButton onClick={() => handleClick(4)} className="w-full sm:w-1/4">4</RoundButton>
           </div>
      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
-      <h1 className="text-2xl font-bold mb-5">Registrar Propiedades</h1>
-      <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
-        <input 
-        type="text" 
-        name="nombre_propiedad" 
-        placeholder="Nombre de la propiedad" 
-        onChange={handleChange} 
-        className="w-full p-2 border border-gray-300 rounded" />
-        <textarea 
-        name="descripcion" 
-        placeholder="Descripción" 
-        onChange={handleChange} 
-        className="w-full p-2 border border-gray-300 rounded" />
-        <input 
-        type="text" 
-        name="tipo_propiedad" 
-        placeholder="Tipo de propiedad" 
-        onChange={handleChange} 
-        className="w-full p-2 border border-gray-300 rounded" />
-        <input 
-        type="text" 
-        name="ubicacion_propiedad" 
-        placeholder="Ubicación de la propiedad" 
-        onChange={handleChange} 
-        className="w-full p-2 border border-gray-300 rounded" />
-        <input 
-        type="number" 
-        step="0.01" 
-        name="precio_propiedad" 
-        placeholder="Precio de la propiedad" 
-        onChange={handleChange} 
-        className="w-full p-2 border border-gray-300 rounded" />
-        <input 
-        type="text" 
-        name="estado_propiedad" 
-        placeholder="Estado de la propiedad" 
-        onChange={handleChange} 
-        className="w-full p-2 border border-gray-300 rounded" />
-        <input 
-        type="number" 
-        name="propietario_id" 
-        placeholder="ID del propietario" 
-        onChange={handleChange} 
-        className="w-full p-2 border border-gray-300 rounded" />
-        <button 
-        type="submit" 
-        className="w-full p-2 bg-blue-500 text-white rounded">Registrar</button>
-      </form>
+      
+      <div className='w-2/5 '>
+        <h1 className="text-2xl font-bold mb-5">Registrar Propiedades</h1>
+        <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
+          <input 
+          type="text" 
+          name="nombre_propiedad" 
+          placeholder="Nombre de la propiedad" 
+          onChange={handleChange} 
+          className="w-full p-2 border border-gray-300 rounded" />
+          <textarea 
+          name="descripcion" 
+          placeholder="Descripción" 
+          onChange={handleChange} 
+          className="w-full p-2 border border-gray-300 rounded" />
+          <input 
+          type="text" 
+          name="tipo_propiedad" 
+          placeholder="Tipo de propiedad" 
+          onChange={handleChange} 
+          className="w-full p-2 border border-gray-300 rounded" />
+          <input 
+          type="text" 
+          name="ubicacion_propiedad" 
+          placeholder="Ubicación de la propiedad" 
+          onChange={handleChange} 
+          className="w-full p-2 border border-gray-300 rounded" />
+          <input 
+          type="number" 
+          step="0.01" 
+          name="precio_propiedad" 
+          placeholder="Precio de la propiedad" 
+          onChange={handleChange} 
+          className="w-full p-2 border border-gray-300 rounded" />
+          <input 
+          type="text" 
+          name="estado_propiedad" 
+          placeholder="Estado de la propiedad" 
+          onChange={handleChange} 
+          className="w-full p-2 border border-gray-300 rounded" />
+          <input 
+          type="number" 
+          name="propietario_id" 
+          placeholder="ID del propietario" 
+          onChange={handleChange} 
+          className="w-full p-2 border border-gray-300 rounded" />
+          <button 
+          type="submit" 
+          className="w-full p-2 bg-blue-500 text-white rounded">Registrar</button>
+        </form>
+      </div>
     </div>
   );
 }
