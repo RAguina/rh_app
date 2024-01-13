@@ -99,10 +99,10 @@ function RegistrarPropiedades() {
               <RoundButton onClick={() => handleClick(3)} className="w-full sm:w-1/4">3</RoundButton>
               <hr className="flex-grow border-t-2 border-gray-300"/>
               <RoundButton onClick={() => handleClick(4)} className="w-full sm:w-1/4">4</RoundButton>
-          </div>
+            </div>
      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
-      <div className='w-2/5 '>
+      <div className='w-3/5 md:w-4/5 '>
         <h1 className="text-2xl font-bold mb-5">Registrar Propiedades</h1>
         <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
           <input 
