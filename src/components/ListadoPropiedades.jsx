@@ -33,11 +33,7 @@ const ListadoPropiedades = () => {
           propiedades.map((propiedad, index) => (
             <div key={propiedad.id_propiedad} className="max-w-md bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-3">
               <div className="md:flex">
-                <div className="md:flex-shrink-0">
-                  <img 
-                  className="mb-10 h-48 w-full object-cover md:w-48" 
-                  //src={`https://res.cloudinary.com/dh8egdhnm/image/upload/v1703458805/inmuebles_images/${propiedad.imagen_propiedad}.png`} 
-                  alt={propiedad.nombre_propiedad} />
+                <div className="md:flex-shrink-0">                  
                   <Link to={`/inmuebles/${propiedad.id_propiedad}`} className='ml-5 font-bold'>Mas informacion</Link>
                 </div>
                 <div className="p-8">
