@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RoundButton({ label, onClick }) {
+function RoundButton({ children, onClick }) {
   const style = {
     borderRadius: '50%',
     width: '50px',
