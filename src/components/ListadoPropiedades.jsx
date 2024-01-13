@@ -36,7 +36,7 @@ const ListadoPropiedades = () => {
                 <div className="md:flex-shrink-0">
                   <img 
                   className="mb-10 h-48 w-full object-cover md:w-48" 
-                  src={`https://res.cloudinary.com/dh8egdhnm/image/upload/v1703458805/inmuebles_images/${propiedad.imagen_propiedad}.png`} 
+                  //src={`https://res.cloudinary.com/dh8egdhnm/image/upload/v1703458805/inmuebles_images/${propiedad.imagen_propiedad}.png`} 
                   alt={propiedad.nombre_propiedad} />
                   <Link to={`/inmuebles/${propiedad.id_propiedad}`} className='ml-5 font-bold'>Mas informacion</Link>
                 </div>
