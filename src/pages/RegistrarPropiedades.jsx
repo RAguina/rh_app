@@ -100,7 +100,7 @@ function RegistrarPropiedades() {
         setStep(step + 1);
       }
       if (newProperty){
-        navigate(`/formUploadImages/${newProperty.propiedad_id}`);
+        navigate('/formUploadImages');
       }
       console.log('Propiedad registrada:', newProperty);
       setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });

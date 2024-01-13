@@ -6,8 +6,7 @@ import { generarNombreUnico } from "../config/index.js";
 import { useParams } from 'react-router-dom';
 
 const FormUploadImages = () => {
-  const {idPropiedad} = useParams();
-  const { idPropietario } = useContext(AuthContext);
+  const { idPropiedad } = useContext(AuthContext);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     multiple: true,
