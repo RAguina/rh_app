@@ -90,7 +90,7 @@ function RegistrarPropiedades() {
   
 
   return (
-    <div className="ml-5 mt-10 md:w-1/4">
+    <div className="ml-5 my-10">
             <div className="flex items-center justify-between">
               <RoundButton onClick={() => handleClick(1)} className="w-full sm:w-1/4">1</RoundButton>
               <hr className="flex-grow border-t-2 border-gray-300"/>
