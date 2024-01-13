@@ -9,6 +9,7 @@ function RegistrarPropiedades() {
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const [errores, setErrores] = useState([]);
   const [step,setStep] = useState(1);
+  const [userChanges, setUserChanges] = useState({});
   const [form, setForm] = useState({
     nombre_propiedad: '',
     descripcion: '',
@@ -23,6 +24,24 @@ function RegistrarPropiedades() {
   const handleClick = (value) => {
     setStep(value);
     // Aquí puedes agregar el código para guardar las modificaciones del usuario
+    setUserChanges(prevChanges => ({...prevChanges, [step]: form}));
+
+    switch (value) {
+      case 1:
+        navigate('/registrarPropiedad');
+        break;
+      case 2:
+        navigate(`/formUploadImages/${newProperty.propiedad_id}`);
+        break;
+      case 3:
+        navigate('/adminPanel');
+        break;
+      case 4:
+        navigate('/queHacer');
+        break;
+      default:
+        break;
+    }
   };
 
   const handleChange = (e) => {
@@ -102,7 +121,7 @@ function RegistrarPropiedades() {
             </div>
      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
-      <div className='w-3/5 md:w-4/5 '>
+      <div className='mt-10 w-3/5'>
         <h1 className="text-2xl font-bold mb-5">Registrar Propiedades</h1>
         <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
           <input 
