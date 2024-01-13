@@ -92,6 +92,12 @@ function RegistrarPropiedades() {
     console.log("id propietario de form:", form.propietario_id);
     try {
       const newProperty = await registrarInmueble({...form});
+      console.log("tiene que ser este, porfa",newProperty.propiedad_id);
+      if (property){
+        setNewProperty(property);
+        // Avanza al siguiente paso después de guardar los datos
+        setStep(step + 1);
+      }
       if (newProperty){
         navigate(`/formUploadImages/${newProperty.propiedad_id}`);
       }
@@ -114,11 +120,11 @@ function RegistrarPropiedades() {
             <div className="flex items-center justify-between">
               <RoundButton onClick={() => handleClick(1)} className="w-full sm:w-1/4">1</RoundButton>
               <hr className="flex-grow border-t-2 border-gray-300"/>
-              <RoundButton onClick={() => handleClick(2)} className="w-full sm:w-1/4">2</RoundButton>
+              <RoundButton onClick={() => handleClick(2)} disabled={!newProperty} className="w-full sm:w-1/4">2</RoundButton>
               <hr className="flex-grow border-t-2 border-gray-300"/>
-              <RoundButton onClick={() => handleClick(3)} className="w-full sm:w-1/4">3</RoundButton>
+              <RoundButton onClick={() => handleClick(3)} disabled={!newProperty} className="w-full sm:w-1/4">3</RoundButton>
               <hr className="flex-grow border-t-2 border-gray-300"/>
-              <RoundButton onClick={() => handleClick(4)} className="w-full sm:w-1/4">4</RoundButton>
+              <RoundButton onClick={() => handleClick(4)} disabled={!newProperty} className="w-full sm:w-1/4">4</RoundButton>
             </div>
      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
