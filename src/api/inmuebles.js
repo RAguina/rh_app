@@ -36,6 +36,7 @@ export const eliminarInmueble = async (id) => {
 export const obtenerInmuebles = async () => {
   try {
     const response = await axios.get(API_URL);
+    console.log(response);
     //const response = await axios.get(`${process.env.REACT_APP_API_URL_LOCAL}/inmuebles`);
     return response.data;
   } catch (error) {
