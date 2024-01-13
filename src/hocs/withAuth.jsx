@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import {getCookie, eraseCookie} from '../config/cookieUtils.js'
+import ErrorPage from "../components/ErrorPage.jsx";
 
 export function withAuth(Component) {
   return function ProtectedRoute(props) {
