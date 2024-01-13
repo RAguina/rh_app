@@ -93,11 +93,11 @@ function RegistrarPropiedades() {
     <div className="ml-5 mt-10 w-2/5 md:w-1/4">
             <div className="flex items-center justify-between">
               <RoundButton onClick={() => handleClick(1)} className="w-full sm:w-1/4">1</RoundButton>
-              <hr className="flex-grow mx-1 border-t-2 border-gray-300"/>
+              <hr className="flex-grow border-t-2 border-gray-300"/>
               <RoundButton onClick={() => handleClick(2)} className="w-full sm:w-1/4">2</RoundButton>
-              <hr className="flex-grow mx-1 border-t-2 border-gray-300"/>
+              <hr className="flex-grow border-t-2 border-gray-300"/>
               <RoundButton onClick={() => handleClick(3)} className="w-full sm:w-1/4">3</RoundButton>
-              <hr className="flex-grow mx-1 border-t-2 border-gray-300"/>
+              <hr className="flex-grow border-t-2 border-gray-300"/>
               <RoundButton onClick={() => handleClick(4)} className="w-full sm:w-1/4">4</RoundButton>
           </div>
      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
