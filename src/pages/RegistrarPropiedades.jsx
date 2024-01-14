@@ -9,6 +9,7 @@ function RegistrarPropiedades() {
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const [errores, setErrores] = useState([]);
   const [step,setStep] = useState(1);
+  const { newProperty, setNewProperty } = useContext(AuthContext);
   const [userChanges, setUserChanges] = useState({});
   const [propiedadId, setPropiedadId] = useState(null);
   console.log('propiedadId en RegistrarPropiedades:',propiedadId);
