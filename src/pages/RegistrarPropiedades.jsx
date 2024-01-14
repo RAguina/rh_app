@@ -11,6 +11,7 @@ function RegistrarPropiedades() {
   const [step,setStep] = useState(1);
   const [userChanges, setUserChanges] = useState({});
   const [propiedadId, setPropiedadId] = useState(null);
+  console.log('propiedadId en RegistrarPropiedades:',propiedadId);
   const [form, setForm] = useState({
     nombre_propiedad: '',
     descripcion: '',
