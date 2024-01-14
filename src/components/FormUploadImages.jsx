@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 
 const FormUploadImages = () => {
   const { idPropiedad } = useContext(AuthContext);
+   console.log('idPropiedad en FormUploadImages:', idPropiedad);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     multiple: true,

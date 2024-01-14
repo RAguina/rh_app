@@ -22,6 +22,7 @@ export const subirImagen = async (file, idPropietario) => {
         , 'Authorization': `Bearer ${getCookie('token')}`, // Token JWT
       },
     });
+    console.log("response.data",response.data);
     console.log("El estado de la respuesta es:", response.status)
     console.log('Respuesta del servidor:', response.data.propiedad_id); 
     console.log("response.data.public_id",response.data.nombre_imagen);
