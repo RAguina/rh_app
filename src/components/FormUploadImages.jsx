@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 
 const FormUploadImages = () => {
   const { newProperty } = useContext(AuthContext);
-   console.log('idPropiedad en FormUploadImages:', newProperty.idPropiedad);
+   console.log('idPropiedad en FormUploadImages:', newProperty);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     multiple: true,
@@ -32,9 +32,14 @@ const FormUploadImages = () => {
   });
   
   return (
-    <div className='min-h-screen' {...getRootProps()}>
-      <input {...getInputProps()} />
-      <p className='text-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
+    <div className='grid'>
+      <div className=''>
+        <h1 className='text-blue-500'>Vista en Miniatura</h1>
+      </div>
+      <div className='min-h-50vh' {...getRootProps()}>
+        <input {...getInputProps()} />
+        <p className='text-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
+      </div>
     </div>
   )
 };
