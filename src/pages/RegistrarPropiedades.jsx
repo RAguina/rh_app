@@ -97,6 +97,7 @@ function RegistrarPropiedades() {
         setPropiedadId(newProperty.propiedad_id);
         console.log("este es el inmueble id numero: ",newProperty.propiedad_id);
         // Avanza al siguiente paso después de guardar los datos
+        setNewProperty(newProperty);
         setStep(step + 1);
       }
       if (newProperty){
