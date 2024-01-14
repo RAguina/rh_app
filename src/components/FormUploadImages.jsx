@@ -4,6 +4,7 @@ import { subirImagen } from '../api/imagenes_inmuebles';
 import { AuthContext } from '../config/AuthContext';
 import { generarNombreUnico } from "../config/index.js";
 import { useParams } from 'react-router-dom';
+import NavBarLine from './NavBarLine.jsx';
 
 const FormUploadImages = () => {
   const { newProperty } = useContext(AuthContext);
@@ -33,9 +34,7 @@ const FormUploadImages = () => {
   
   return (
     <div className='grid'>
-      <div className=''>
-        <h1 className='text-blue-500'>Vista en Miniatura</h1>
-      </div>
+      <NavBarLine handleClick={handleClick} propiedadId={newProperty.propiedadId} />
       <div className='min-h-50vh' {...getRootProps()}>
         <input {...getInputProps()} />
         <p className='text-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
