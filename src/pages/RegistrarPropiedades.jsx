@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react';
 import { registrarInmueble } from '../api/inmuebles'; // Asegúrate de tener una función para registrar la propiedad
 import ErrorPage from '../components/ErrorPage'; 
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../config/AuthContext';
 import RoundButton from '../components/Buttons/RoundButton';
 
 function RegistrarPropiedades() {
