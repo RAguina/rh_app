@@ -6,8 +6,8 @@ import { generarNombreUnico } from "../config/index.js";
 import { useParams } from 'react-router-dom';
 
 const FormUploadImages = () => {
-  const { idPropiedad } = useContext(AuthContext);
-   console.log('idPropiedad en FormUploadImages:', idPropiedad);
+  const { newProperty } = useContext(AuthContext);
+   console.log('idPropiedad en FormUploadImages:', newProperty.idPropiedad);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     multiple: true,
@@ -21,7 +21,7 @@ const FormUploadImages = () => {
         // Crea un nuevo objeto File con el nombre único
         const fileConNombreUnico = new File([file], nombreUnico, { type: file.type });
           // Llama a subirImagen para cada archivo
-          const response = await subirImagen(fileConNombreUnico, idPropiedad);
+          const response = await subirImagen(fileConNombreUnico, newProperty.idPropiedad);
           console.log('Respuesta del servidor:', response);
         } catch (error) {
           console.log("Error subiendo imagen");
