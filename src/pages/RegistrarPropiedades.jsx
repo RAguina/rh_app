@@ -122,7 +122,7 @@ function RegistrarPropiedades() {
 
   return (
     <div className="ml-5 my-10">
-            <NavBarLine handleClick={handleClick} propiedadId={newProperty.propiedad_id} />
+            <NavBarLine handleClick={handleClick} />
      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
       <div className='mt-10 w-3/5'>
