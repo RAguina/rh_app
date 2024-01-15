@@ -37,6 +37,7 @@ function RegistrarPropiedades() {
       console.log('e.target es null o undefined');
     }
   };
+  /*
   const camposRequeridos = [
     { nombre: 'nombre_propiedad', mensaje: 'Falta completar el nombre de la propiedad.' },
     { nombre: 'descripcion', mensaje: 'Falta completar la descripción.' },
@@ -45,7 +46,7 @@ function RegistrarPropiedades() {
     { nombre: 'precio_propiedad', mensaje: 'Falta completar el precio de la propiedad.' },
     { nombre: 'estado_propiedad', mensaje: 'Falta completar el estado de la propiedad.' },
   ];
-
+  */
 
       // Validaciones de handleSubmit
     /*
@@ -94,8 +95,8 @@ function RegistrarPropiedades() {
 
   return (
     <div className="ml-5 my-10">
-            <NavBarLine propiedadId={newProperty.propiedadId} />
-     {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
+      {newProperty && <NavBarLine propiedadId={newProperty.propiedadId} />}
+      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
       <div className='mt-10 w-3/5'>
         <h1 className="text-2xl font-bold mb-5">Registrar Propiedades</h1>
