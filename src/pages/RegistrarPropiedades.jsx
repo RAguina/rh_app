@@ -71,7 +71,6 @@ function RegistrarPropiedades() {
     console.log("id propietario de form:", form.propietario_id);
     try {
       const newProperty = await registrarInmueble({...form});
-      console.log("tiene que ser este, porfa",newProperty.propiedad_id);
       if (newProperty){
         console.log("este es el inmueble id numero: ",newProperty.propiedad_id);
         // Avanza al siguiente paso después de guardar los datos
