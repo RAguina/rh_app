@@ -1,8 +1,30 @@
-
+// NavBarLine.jsx
 import React from 'react';
 import RoundButton from '../components/Buttons/RoundButton'; 
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
-function NavBarLine({ handleClick, propiedadId }) {
+function NavBarLine({ propiedadId }) {
+  const navigate = useNavigate(); // Añade useNavigate
+
+  const handleClick = (value) => {
+    switch (value) {
+      case 1:
+        navigate('/registrarPropiedad');
+        break;
+      case 2:
+        navigate(`/formUploadImages/${propiedadId}`);
+        break;
+      case 3:
+        navigate('/adminPanel');
+        break;
+      case 4:
+        navigate('/queHacer');
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="flex items-center justify-between">
       <RoundButton onClick={() => handleClick(1)} className="w-full sm:w-1/4">1</RoundButton>

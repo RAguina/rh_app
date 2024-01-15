@@ -12,8 +12,6 @@ function RegistrarPropiedades() {
   const [errores, setErrores] = useState([]);
   const [step,setStep] = useState(1);
   const { newProperty, setNewProperty } = useContext(AuthContext);
-  const [userChanges, setUserChanges] = useState({});
-  const [propiedadId, setPropiedadId] = useState(null);
   const [form, setForm] = useState({
     nombre_propiedad: '',
     descripcion: '',
@@ -25,28 +23,6 @@ function RegistrarPropiedades() {
   }); 
   const navigate = useNavigate();
 
-  const handleClick = (value) => {
-    setStep(value);
-    // Aquí puedes agregar el código para guardar las modificaciones del usuario
-    setUserChanges(prevChanges => ({...prevChanges, [step]: form}));
-
-    switch (value) {
-      case 1:
-        navigate('/registrarPropiedad');
-        break;
-      case 2:
-        navigate(`/formUploadImages/${newProperty.propiedad_id}`);
-        break;
-      case 3:
-        navigate('/adminPanel');
-        break;
-      case 4:
-        navigate('/queHacer');
-        break;
-      default:
-        break;
-    }
-  };
 
   const handleChange = (e) => {
     if(e.target) {
@@ -97,13 +73,10 @@ function RegistrarPropiedades() {
       const newProperty = await registrarInmueble({...form});
       console.log("tiene que ser este, porfa",newProperty.propiedad_id);
       if (newProperty){
-        setPropiedadId(newProperty.propiedad_id);
         console.log("este es el inmueble id numero: ",newProperty.propiedad_id);
         // Avanza al siguiente paso después de guardar los datos
         setNewProperty(newProperty);
         setStep(step + 1);
-      }
-      if (newProperty){
         navigate('/formUploadImages');
       }
       console.log('Propiedad registrada:', newProperty);
