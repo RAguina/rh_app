@@ -7,8 +7,7 @@ import { useParams } from 'react-router-dom';
 import NavBarLine from './NavBarLine.jsx';
 
 const FormUploadImages = (propiedadId) => {
-  const { newProperty } = useContext(AuthContext);
-   console.log('idPropiedad en FormUploadImages:', newProperty);
+   console.log('este es el mero!!!!idPropiedad en FormUploadImages:', propiedadId);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     multiple: true,
@@ -22,7 +21,7 @@ const FormUploadImages = (propiedadId) => {
         // Crea un nuevo objeto File con el nombre único
         const fileConNombreUnico = new File([file], nombreUnico, { type: file.type });
           // Llama a subirImagen para cada archivo
-          const response = await subirImagen(fileConNombreUnico, newProperty.idPropiedad);
+          const response = await subirImagen(fileConNombreUnico, propiedadId);
           console.log('Respuesta del servidor:', response);
         } catch (error) {
           console.log("Error subiendo imagen");

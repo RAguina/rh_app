@@ -12,7 +12,7 @@ function RegistrarPropiedades() {
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const [errores, setErrores] = useState([]);
   const [step,setStep] = useState(1);
-  const { newProperty, setNewProperty } = useState({
+  const [ newProperty, setNewProperty ] = useState({
     propiedadId: null,
   });
   const [form, setForm] = useState({
