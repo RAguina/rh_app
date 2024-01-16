@@ -9,6 +9,7 @@ import NavBarLine from '../components/NavBarLine';
 
 function RegistrarPropiedades() {
   const { propiedadId, setPropiedadId } = useState(null);
+  const [newProperty, setNewProperty] = useState(null); 
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const [errores, setErrores] = useState([]);
   const [form, setForm] = useState({
@@ -109,7 +110,8 @@ function RegistrarPropiedades() {
         // Si propiedadId no existe, realizar la lógica de registro
         const newProperty = await registrarInmueble({ ...form });
         console.log('Propiedad registrada:', newProperty);
-        // Avanza al siguiente paso después de guardar los datos
+        // Avanza al siguiente paso después de guardar los datos(Recontra redundante)
+        setNewProperty(newProperty);
         setPropiedadId(newProperty.idPropiedad);
         setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
         navigate(`/formUploadImages/${propiedadId}`);
