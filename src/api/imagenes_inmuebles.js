@@ -2,7 +2,6 @@ import axios from "axios";
 import {getCookie} from '../config/cookieUtils.js'
 
 
-const API_URL = "https://rhapi-dev-kkbb.3.us-1.fl0.io"
 
 
 export const subirImagen = async (file, idPropietario) => {
@@ -29,10 +28,13 @@ export const subirImagen = async (file, idPropietario) => {
     return response.data;
   } catch (error) {
     console.log("Error subiendo imagen 25");
-    //console.error('Error subiendo la imagen', error.response ? error.response.data : error.message);
+    console.error('Error subiendo la imagen', error.response ? error.response.data : error.message);
     throw error;
   }
 };
+
+//const API_URL = "https://rhapi-dev-kkbb.3.us-1.fl0.io"
+
 
 
 
