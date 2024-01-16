@@ -1,13 +1,14 @@
 
-import React, { useState, useContext } from 'react';
-import { registrarInmueble } from '../api/inmuebles'; // Asegúrate de tener una función para registrar la propiedad
+import React, { useState, useEffect, useContext } from 'react';
+import { registrarInmueble, actualizarInmueble } from '../api/inmuebles'; // Asegúrate de tener una función para registrar la propiedad
 import ErrorPage from '../components/ErrorPage'; 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../config/AuthContext';
 import NavBarLine from '../components/NavBarLine';
 
 
 function RegistrarPropiedades() {
+  const { propiedadId } = useParams();
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const [errores, setErrores] = useState([]);
   const [step,setStep] = useState(1);
@@ -23,6 +24,35 @@ function RegistrarPropiedades() {
   }); 
   const navigate = useNavigate();
 
+
+
+  useEffect(() => {
+    const cargarDetallesPropiedad = async () => {
+      try {
+        // Llama a tu función de la API para obtener detalles de la propiedad
+        const detallesPropiedad = await obtenerInmueblePorId(propiedadId);
+
+        // Actualiza el estado del formulario con los detalles obtenidos
+        setForm({
+          nombre_propiedad: detallesPropiedad.nombre_propiedad,
+          descripcion: detallesPropiedad.descripcion,
+          tipo_propiedad: detallesPropiedad.tipo_propiedad,
+          ubicacion_propiedad: detallesPropiedad.ubicacion_propiedad,
+          precio_propiedad: detallesPropiedad.precio_propiedad,
+          estado_propiedad: detallesPropiedad.estado_propiedad,
+          propietario_id: detallesPropiedad.propietario_id,
+        });
+      } catch (error) {
+        console.error('Error obteniendo detalles de la propiedad', error);
+        // Manejar el error según tus necesidades
+      }
+    };
+
+    // Si propiedadId existe, cargar detalles de la propiedad
+    if (propiedadId) {
+      cargarDetallesPropiedad();
+    }
+  }, [propiedadId]);
 
   const handleChange = (e) => {
     if(e.target) {
@@ -69,27 +99,32 @@ function RegistrarPropiedades() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("id propietario de form:", form.propietario_id);
+    //console.log("id propietario de form:", form.propietario_id);
+
     try {
-      const newProperty = await registrarInmueble({...form});
-      if (newProperty){
-        console.log("este es el inmueble id numero: ",newProperty.propiedad_id);
+      if (propiedadId) {
+        // Si propiedadId existe, realizar la lógica de edición
+        const editedProperty = await editarInmueble(propiedadId, { ...form });
+        console.log('Propiedad editada:', editedProperty);
+        setErrorMessage({ mensaje: 'Propiedad editada con éxito', tipo: 'exito' });
+      } else {
+        // Si propiedadId no existe, realizar la lógica de registro
+        const newProperty = await registrarInmueble({ ...form });
+        console.log('Propiedad registrada:', newProperty);
         // Avanza al siguiente paso después de guardar los datos
         setNewProperty(newProperty);
         setStep(step + 1);
-        navigate('/formUploadImages');
+        navigate(`/formUploadImages/${newProperty.idPropiedad}`);
+        setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
       }
-      console.log('Propiedad registrada:', newProperty);
-      setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
     } catch (error) {
-      console.error('Error registrando la propiedad', error);
+      console.error('Error registrando/ editando la propiedad', error);
       if (error.response && error.response.data) {
         console.error('Detalles del error:', error.response.data);
       }
-      setErrorMessage({ mensaje: 'Hubo un error registrando la propiedad. Por favor, inténtalo de nuevo.', tipo: 'error' });
-      throw error;
+      setErrorMessage({ mensaje: 'Hubo un error. Por favor, inténtalo de nuevo.', tipo: 'error' });
     }
-  }
+  };
 
   
 
@@ -99,7 +134,7 @@ function RegistrarPropiedades() {
       {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
       <div className='mt-10 w-3/5'>
-        <h1 className="text-2xl font-bold mb-5">Registrar Propiedades</h1>
+        <h1 className="text-2xl font-bold mb-5">{propiedadId ? 'Editar Propiedad' : 'Registrar Propiedad'}</h1>
         <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
           <input 
           type="text" 
@@ -145,7 +180,7 @@ function RegistrarPropiedades() {
           className="w-full p-2 border border-gray-300 rounded" />
           <button 
           type="submit" 
-          className="w-full p-2 bg-blue-500 text-white rounded">Registrar</button>
+          className="w-full p-2 bg-blue-500 text-white rounded">{propiedadId ? 'Editar' : 'Registrar'}</button>
         </form>
       </div>
     </div>
