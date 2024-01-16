@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useContext } from 'react';
-import { registrarInmueble, actualizarInmueble } from '../api/inmuebles'; // Asegúrate de tener una función para registrar la propiedad
+import { registrarInmueble, actualizarInmueble, obtenerInmueblePorId } from '../api/inmuebles'; // Asegúrate de tener una función para registrar la propiedad
 import ErrorPage from '../components/ErrorPage'; 
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../config/AuthContext';
