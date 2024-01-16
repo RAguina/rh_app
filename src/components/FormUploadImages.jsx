@@ -6,7 +6,7 @@ import { generarNombreUnico } from "../config/index.js";
 import { useParams } from 'react-router-dom';
 import NavBarLine from './NavBarLine.jsx';
 
-const FormUploadImages = (propiedadId) => {
+const FormUploadImages = ({propiedadId}) => {
    console.log('este es el mero!!!!idPropiedad en FormUploadImages:', propiedadId);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
