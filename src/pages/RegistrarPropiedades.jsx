@@ -106,7 +106,7 @@ function RegistrarPropiedades() {
     try {
       if (propiedadId) {
         // Si propiedadId existe, realizar la lógica de edición
-        const editedProperty = await editarInmueble(propiedadId, { ...form });
+        const editedProperty = await actualizarInmueble(propiedadId, { ...form });
         console.log('Propiedad editada:', editedProperty);
         setErrorMessage({ mensaje: 'Propiedad editada con éxito', tipo: 'exito' });
       } else {
@@ -132,7 +132,7 @@ function RegistrarPropiedades() {
 
   return (
     <div className="ml-5 my-10">
-      {newProperty && <NavBarLine propiedadId={newProperty.propiedadId} />}
+      {newProperty && <NavBarLine propiedadId={newProperty?.propiedadId} />}
       {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
       <div className='mt-10 w-3/5'>
