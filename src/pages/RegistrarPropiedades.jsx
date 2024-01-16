@@ -8,13 +8,9 @@ import NavBarLine from '../components/NavBarLine';
 
 
 function RegistrarPropiedades() {
-  const { propiedadId } = useParams();
+  const { propiedadId, setPropiedadId } = useState(null);
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const [errores, setErrores] = useState([]);
-  const [step,setStep] = useState(1);
-  const [ newProperty, setNewProperty ] = useState({
-    propiedadId: null,
-  });
   const [form, setForm] = useState({
     nombre_propiedad: '',
     descripcion: '',
@@ -114,10 +110,9 @@ function RegistrarPropiedades() {
         const newProperty = await registrarInmueble({ ...form });
         console.log('Propiedad registrada:', newProperty);
         // Avanza al siguiente paso después de guardar los datos
-        setNewProperty(newProperty);
-        setStep(step + 1);
-        navigate(`/formUploadImages/${newProperty.idPropiedad}`);
+        setPropiedadId(newProperty.idPropiedad);
         setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
+        navigate(`/formUploadImages/${propiedadId}`);
       }
     } catch (error) {
       console.error('Error registrando/ editando la propiedad', error);
@@ -132,7 +127,7 @@ function RegistrarPropiedades() {
 
   return (
     <div className="ml-5 my-10">
-      {newProperty && <NavBarLine propiedadId={newProperty?.propiedadId} />}
+      {newProperty && <NavBarLine propiedadId={propiedadId} />}
       {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
       <div className='mt-10 w-3/5'>
