@@ -99,8 +99,8 @@ function RegistrarPropiedades() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //console.log("id propietario de form:", form.propietario_id);
-
+    console.log("id propietario de form:", form.propietario_id);
+    console.log("propiedadId sin contexto es:", propiedadId);
     try {
       if (propiedadId) {
         // Si propiedadId existe, realizar la lógica de edición
