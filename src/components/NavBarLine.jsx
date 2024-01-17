@@ -9,15 +9,15 @@ function NavBarLine({ propiedadId }) {
       <Link to="/registrarPropiedad" className="w-full sm:w-1/4">
         <RoundButton>1</RoundButton>
       </Link>
-      <hr className="flex-grow border-t-2 border-gray-300"/>
+      <hr className="flex-grow border-t-2 border-black-300"/>
       <Link to={`/formUploadImages/${propiedadId}`} className="w-full sm:w-1/4" disabled={!propiedadId}>
         <RoundButton disabled={!propiedadId}>2</RoundButton>
       </Link>
-      <hr className="flex-grow border-t-2 border-gray-300"/>
+      <hr className="flex-grow border-t-2 border-black-300"/>
       <Link to="/adminPanel" className="w-full sm:w-1/4" disabled={!propiedadId}>
         <RoundButton disabled={!propiedadId}>3</RoundButton>
       </Link>
-      <hr className="flex-grow border-t-2 border-gray-300"/>
+      <hr className="flex-grow border-t-2 border-black-300"/>
       <Link to="/queHacer" className="w-full sm:w-1/4" disabled={!propiedadId}>
         <RoundButton disabled={!propiedadId}>4</RoundButton>
       </Link>
