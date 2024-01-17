@@ -7,7 +7,7 @@ export const registrarInmueble = async (inmueble) => {
   try {
     const response = await axios.post(API_URL, inmueble)
     console.log("response.data en registrarInmuebles: ", response.data);
-    return response.data;
+    return response.data.nuevoInmueble;
   } catch (error) {
     console.error('Error registrando el inmueble en registrarInmueble', error);
     throw error;
