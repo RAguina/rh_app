@@ -108,11 +108,11 @@ function RegistrarPropiedades() {
       } else {
         // Si propiedadId no existe, realizar la lógica de registro
         const newProperty = await registrarInmueble({ ...form });
-        console.log('Propiedad registrada:', newProperty.propiedadId);
+        console.log('Propiedad registrada:', newProperty.propiedad_id);
         // Avanza al siguiente paso después de guardar los datos(Recontra redundante)
         setNewProperty(newProperty);
-        console.log("falla por aca");
         setPropiedadId(newProperty.propiedad_id);
+        console.log("falla por aca");
         setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
         navigate(`/formUploadImages/${propiedadId}`);
       }
