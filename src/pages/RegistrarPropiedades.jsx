@@ -112,7 +112,7 @@ function RegistrarPropiedades() {
         // Avanza al siguiente paso después de guardar los datos(Recontra redundante)
         setNewProperty(newProperty);
         console.log("falla por aca");
-        setPropiedadId(newProperty.idPropiedad);
+        setPropiedadId(newProperty.propiedad_id);
         setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
         navigate(`/formUploadImages/${propiedadId}`);
       }
