@@ -98,7 +98,7 @@ function RegistrarPropiedades() {
     e.preventDefault();
 
     console.log("id propietario de form:", form.propietario_id);
-    console.log("propiedadId sin contexto es:", propiedadId); 
+     
     try {
       if (propiedadId) {
         // Si propiedadId existe, realizar la lógica de edición
@@ -108,9 +108,10 @@ function RegistrarPropiedades() {
       } else {
         // Si propiedadId no existe, realizar la lógica de registro
         const newProperty = await registrarInmueble({ ...form });
-        console.log('Propiedad registrada:', newProperty);
+        console.log('Propiedad registrada:', newProperty.propiedadId);
         // Avanza al siguiente paso después de guardar los datos(Recontra redundante)
         setNewProperty(newProperty);
+        console.log("falla por aca");
         setPropiedadId(newProperty.idPropiedad);
         setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
         navigate(`/formUploadImages/${propiedadId}`);
