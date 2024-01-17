@@ -114,7 +114,7 @@ function RegistrarPropiedades() {
         setPropiedadId(newProperty.propiedad_id);
         console.log("falla por aca");
         setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
-        navigate(`/formUploadImages/${propiedadId}`);
+        navigate(`/formUploadImages/${newProperty.propiedad_id}`);
       }
     } catch (error) {
       console.error('Error registrando/ editando la propiedad', error);
