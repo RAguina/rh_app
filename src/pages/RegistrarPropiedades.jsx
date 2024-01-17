@@ -1,9 +1,8 @@
 
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { registrarInmueble, actualizarInmueble, obtenerInmueblePorId } from '../api/inmuebles'; // Asegúrate de tener una función para registrar la propiedad
 import ErrorPage from '../components/ErrorPage'; 
-import { useNavigate, useParams } from 'react-router-dom';
-import { AuthContext } from '../config/AuthContext';
+import { useNavigate} from 'react-router-dom';
 import NavBarLine from '../components/NavBarLine';
 
 

@@ -1,9 +1,7 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { useDropzone } from 'react-dropzone'; // Importa useDropzone de react-dropzone
 import { subirImagen } from '../api/imagenes_inmuebles';
-import { AuthContext } from '../config/AuthContext';
 import { generarNombreUnico } from "../config/index.js";
-import { useParams } from 'react-router-dom';
 import NavBarLine from './NavBarLine.jsx';
 
 const FormUploadImages = ({propiedadId}) => {
