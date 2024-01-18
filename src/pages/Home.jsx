@@ -18,8 +18,8 @@ const Home = () => {
           <img src="/news2.jpg" alt="Imagen artículo 2" className="w-1/2 rounded-xl ml-5"/>
         </article>
       </div>
-      <div className="w-1/2">
-        <h1>Anuncia tu propiedad aqui!</h1>
+      <div className="w-1/2 border-solid">
+        <h1 className='text-5xl text-center mt-10 mb-10 font-bold underline'>Anuncia tu propiedad aqui!</h1>
       </div>
     </div>
   )
