@@ -112,7 +112,6 @@ function RegistrarPropiedades() {
         setNewProperty(newProperty);
         console.log("falla por aca");
         setPropiedadId(newProperty.propiedad_id);
-        debugger
         setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
         try {
           navigate(`/formUploadImages/${newProperty.propiedad_id}`);
@@ -133,6 +132,7 @@ function RegistrarPropiedades() {
 
   return (
     <div className="ml-5 my-10">
+      {console.log("hola soy el return de registrarPropiedades y este es el valor de propiedadId", propiedadId)}
       {newProperty && <NavBarLine propiedadId={propiedadId} />}
       {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
