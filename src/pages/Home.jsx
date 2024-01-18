@@ -10,7 +10,7 @@ const Home = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
           </div>
         </article>
-        <article className="flex ml-5 mb-10 gap-5 w-1/2">
+        <article className="flex ml-5 mb-10 gap-5">
           <div className="w-1/2">
             <h2 className='text-4xl'>Visita las Termas del Campo en Necochae</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
