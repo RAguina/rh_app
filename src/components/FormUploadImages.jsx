@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone'; // Importa useDropzone de react-dr
 import { subirImagen } from '../api/imagenes_inmuebles';
 import { generarNombreUnico } from "../config/index.js";
 import NavBarLine from './NavBarLine.jsx';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const FormUploadImages = () => {
   const propiedadId = useParams();
