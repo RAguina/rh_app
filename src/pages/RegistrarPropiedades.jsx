@@ -7,7 +7,7 @@ import NavBarLine from '../components/NavBarLine';
 
 
 function RegistrarPropiedades() {
-  const { propiedadId, setPropiedadId } = useState(null);
+  const [ propiedadId, setPropiedadId ] = useState(null);
   const [newProperty, setNewProperty] = useState(null); 
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const [errores, setErrores] = useState([]);
@@ -45,7 +45,6 @@ function RegistrarPropiedades() {
         // Manejar el error según tus necesidades
       }
     };
-
     // Si propiedadId existe, cargar detalles de la propiedad
     if (propiedadId) {
       cargarDetallesPropiedad();
