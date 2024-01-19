@@ -38,7 +38,7 @@ const ListadoPropiedades = () => {
                 </div>
                 <div className="p-8">
                   <h2 className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{propiedad.nombre_propiedad}</h2>
-                  <p className="mt-2 text-gray-500">{propiedad.descripcion}</p>
+                  <p className="mt-2 text-gray-500 truncate-4-lines">{propiedad.descripcion}</p>
                   <p className="mt-2 text-gray-500">Tipo: {propiedad.tipo_propiedad}</p>
                   <p className="mt-2 text-gray-500">Ubicación: {propiedad.ubicacion_propiedad}</p>
                   <p className="mt-2 text-gray-500">Precio: ${propiedad.precio_propiedad}</p>

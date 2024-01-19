@@ -45,6 +45,7 @@
   font-size: 16px;
   border: none;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .dropdown {
@@ -73,3 +74,11 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/* Webkit para descripcion en ListadoPropiedades*/
+.truncate-4-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
