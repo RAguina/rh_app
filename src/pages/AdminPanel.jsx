@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { obtenerUsuarios } from '../api/user';
-import { obtenerInmuebles } from '../api/inmuebles';
+import { obtenerInmuebles, eliminarInmueble } from '../api/inmuebles';
 
 const AdminPanel = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -80,6 +80,14 @@ const AdminPanel = () => {
                 }
                 return <td key={i} className="px-4 py-2 text-center">{displayValue}</td>;
               })}
+              <td>
+                <button className="bg-blue-500 text-white rounded-md px-2 py-1 m-1">Modificar</button>
+                <button 
+                  className="bg-red-500 text-white rounded-md px-2 py-1 m-1"
+                  onClick={() => eliminarInmueble(item.id)}
+                  >Eliminar
+                </button>
+              </td>              
             </tr>
           ))}
         </tbody>
