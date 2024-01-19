@@ -12,18 +12,14 @@ const Nav2 = ({ isOpaque }) => {
   };
 
   return (
-    <nav className={`flex flex-wrap justify-center mt-10 gap-2 ${isOpaque ? 'ocultar' : ''}`}>
+    <div className="dropdown">
+  <button onClick={toggleDropdown} className="dropbtn">Menú</button>
+  {dropdownOpen && (
+    <div className="dropdown-content">
       <Link to="/" className={`navLinks ${location.pathname === '/' ? 'active' : ''}`}>Inicio</Link>
-      <div className="dropdown">
-        <button onClick={toggleDropdown} className="dropbtn">Menú</button>
-        {dropdownOpen && (
-          <div className="dropdown-content">
-            <Link to="/registrarPropiedad" className={`navLinks ${location.pathname === '/registrarPropiedad' ? 'active' : ''}`}>Registrar Propiedad</Link>
-            <Link to="/listadoPropiedades" className={`navLinks ${location.pathname === '/listadoPropiedades' ? 'active' : ''}`}>Listado Propiedades</Link>
-            <Link to="/queHacer" className={`navLinks ${location.pathname === '/queHacer' ? 'active' : ''}`}>Que hacer en Necochea?</Link>
-          </div>
-        )}
-      </div>
+      <Link to="/registrarPropiedad" className={`navLinks ${location.pathname === '/registrarPropiedad' ? 'active' : ''}`}>Registrar Propiedad</Link>
+      <Link to="/listadoPropiedades" className={`navLinks ${location.pathname === '/listadoPropiedades' ? 'active' : ''}`}>Listado Propiedades</Link>
+      <Link to="/queHacer" className={`navLinks ${location.pathname === '/queHacer' ? 'active' : ''}`}>Que hacer en Necochea?</Link>
       <Link to="/registrarUsuario" className={`navLinks ${location.pathname === '/registrarUsuario' ? 'active' : ''}`}>Registrarse</Link>
       <Link to="/contact" className={`navLinks ${location.pathname === '/contact' ? 'active' : ''}`}>Contactanos</Link>
       {isLoggedIn ? (
@@ -37,7 +33,10 @@ const Nav2 = ({ isOpaque }) => {
       {isAdmin && (
         <Link to="/adminPanel" className={`navLinks2 ${location.pathname === '/adminPanel' ? 'active' : ''}`}>Admin Panel</Link>
       )}
-    </nav>
+    </div>
+  )}
+</div>
+
   );
 };
 
