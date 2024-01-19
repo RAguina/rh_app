@@ -6,7 +6,8 @@ import NavBarLine from './NavBarLine.jsx';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const FormUploadImages = () => {
-  const propiedadId = useParams();
+  console.log('FormUploadImages se está renderizando');
+  const {propiedadId} = useParams();
   console.log('este es el mero!!!!idPropiedad en FormUploadImages:', propiedadId);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
