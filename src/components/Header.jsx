@@ -1,4 +1,5 @@
 import Nav from "./Nav";
+import Nav2 from "./Nav2";
 import logo from "../assets/logonr.svg"
 import { useState } from "react";
 
@@ -14,7 +15,7 @@ function Header() {
       </div>
       <div className="w-3/5">
         <Nav isOpaque={isNavOpaque} />
-        <button className="border-black-300" onClick={() => setIsNavOpaque(!isNavOpaque)}>Que diseño choto, lo podes cambiar?</button>      
+        <button className="bg-black text-white px-4 py-2 rounded" onClick={() => setIsNavOpaque(!isNavOpaque)}>Que diseño choto, lo podes cambiar?</button>      
       </div>
   </div>
   )
