@@ -132,8 +132,7 @@ function RegistrarPropiedades() {
 
   return (
     <div className="ml-5 my-10">
-      {console.log("hola soy el return de registrarPropiedades y este es el valor de propiedadId", newProperty.propiedad_id)}
-      {newProperty && <NavBarLine propiedadId={propiedadId} />}
+      {newProperty && <NavBarLine propiedadId={newProperty.propiedad_id} />}
       {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
       <div className='mt-10 w-3/5'>
