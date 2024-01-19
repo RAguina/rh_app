@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useDropzone } from 'react-dropzone'; // Importa useDropzone de react-dropzone
 import { subirImagen } from '../api/imagenes_inmuebles';
 import { generarNombreUnico } from "../config/index.js";
