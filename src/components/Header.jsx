@@ -23,7 +23,7 @@ function Header() {
         <h1 className="text-4xl font-bold">Necochea Rent House</h1>
         <span className="font-bold">Alquileres Temporarios</span> 
       </div>
-      <div className="w-3/5">
+      <div className="w-3/5 flex flex-col items-end">
         {navVersion === 1 ? <Nav key="nav1" isOpaque={isNavOpaque} /> : <Nav2 key="nav2" isOpaque={isNavOpaque} />}
         <button className="bg-black text-white px-4 py-2 rounded" onClick={toggleNavVersion}>Que diseño choto, lo podes cambiar?</button>      
       </div>

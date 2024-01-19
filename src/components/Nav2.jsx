@@ -12,7 +12,7 @@ const Nav2 = ({ isOpaque }) => {
   };
 
   return (
-    <div className="dropdown flex justify-end">
+    <div className="dropdown">
   <button onClick={toggleDropdown} className="dropbtn">Menú</button>
   {dropdownOpen && (
     <div className="dropdown-content">
