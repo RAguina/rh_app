@@ -32,3 +32,8 @@
 .navLinks2:hover {
   background-color: #4299e1;
 }
+
+.ocultar {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}

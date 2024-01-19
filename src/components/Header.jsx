@@ -14,7 +14,7 @@ function Header() {
       </div>
       <div className="w-3/5">
         <Nav isOpaque={isNavOpaque} />
-        <button onClick={() => setIsNavOpaque(!isNavOpaque)}>Que diseño choto, lo podes cambiar?</button>      
+        <button className="border-black-300" onClick={() => setIsNavOpaque(!isNavOpaque)}>Que diseño choto, lo podes cambiar?</button>      
       </div>
   </div>
   )
