@@ -6,6 +6,16 @@ import { useState } from "react";
 
 function Header() {
   const [isNavOpaque, setIsNavOpaque] = useState(false);
+  const [navVersion, setNavVersion] = useState(1);
+
+  const toggleNavVersion = () => {
+    setIsNavOpaque(true); // Oculta el Nav actual
+    setTimeout(() => { // Espera a que la transición de opacidad termine
+      setNavVersion(navVersion === 1 ? 2 : 1); // Cambia la versión del Nav
+      setIsNavOpaque(false); // Muestra el nuevo Nav
+    }, 500); // Ajusta este valor al tiempo de tu transición CSS
+  };
+  
   return(
       <div className="flex from-blue-200 to-blue-600 bg-gradient-to-tl">
         <div className="w-2/5 flex flex-col items-center justify-center">
@@ -14,8 +24,8 @@ function Header() {
         <span className="font-bold">Alquileres Temporarios</span> 
       </div>
       <div className="w-3/5">
-        <Nav isOpaque={isNavOpaque} />
-        <button className="bg-black text-white px-4 py-2 rounded" onClick={() => setIsNavOpaque(!isNavOpaque)}>Que diseño choto, lo podes cambiar?</button>      
+        {navVersion === 1 ? <Nav isOpaque={isNavOpaque} /> : <Nav2 isOpaque={isNavOpaque} />}
+        <button className="bg-black text-white px-4 py-2 rounded" onClick={toggleNavVersion}>Que diseño choto, lo podes cambiar?</button>      
       </div>
   </div>
   )
