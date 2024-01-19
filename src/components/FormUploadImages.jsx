@@ -32,12 +32,15 @@ const FormUploadImages = () => {
   });
   
   return (
+    <>
+    <NavBarLine propiedadId={propiedadId} />
     <div className='grid'>
       <div className='min-h-50vh' {...getRootProps()}>
         <input {...getInputProps()} />
         <p className='text-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
       </div>
     </div>
+    </>
   )
 };
 
