@@ -53,7 +53,7 @@ const AdminPanel = () => {
           TODOS
         </button>
       </div>
-      <table className="table-auto w-full">
+      <table className="table-auto w-full truncate-4-lines">
         <thead>
           {data.length > 0 && (
             <tr>

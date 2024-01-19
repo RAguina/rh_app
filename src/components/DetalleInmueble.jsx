@@ -15,6 +15,7 @@ const DetalleInmueble = () => {
       try {
         const respuesta = await axios.get(`${API_URL_INMUEBLES}/${id}`);
         setInmueble(respuesta.data);
+        console.log("inmueble.fecha",inmueble.fecha_subida);
       } catch (error) {
         console.error('Hubo un error al obtener el inmueble: ', error);
       }
