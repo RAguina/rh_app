@@ -24,7 +24,7 @@ function Header() {
         <span className="font-bold">Alquileres Temporarios</span> 
       </div>
       <div className="w-3/5">
-        {navVersion === 1 ? <Nav isOpaque={isNavOpaque} /> : <Nav2 isOpaque={isNavOpaque} />}
+        {navVersion === 1 ? <Nav key="nav1" isOpaque={isNavOpaque} /> : <Nav2 key="nav2" isOpaque={isNavOpaque} />}
         <button className="bg-black text-white px-4 py-2 rounded" onClick={toggleNavVersion}>Que diseño choto, lo podes cambiar?</button>      
       </div>
   </div>
