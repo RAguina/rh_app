@@ -17,7 +17,7 @@ const Nav = () => {
 
             <Link 
                 to="/registrarPropiedad" 
-                className={`mx-4 text-base font-black bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded ${location.pathname === '/registrarPropiedad' ? 'active' : ''}`}
+                className={`navLinks ${location.pathname === '/registrarPropiedad' ? 'active' : ''}`}
             >Registrar Propiedad</Link>
 
             <Link 
