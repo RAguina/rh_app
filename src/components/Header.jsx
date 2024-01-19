@@ -25,7 +25,7 @@ function Header() {
       </div>
       <div className="w-3/5 flex flex-col items-end">
         {navVersion === 1 ? <Nav key="nav1" isOpaque={isNavOpaque} /> : <Nav2 key="nav2" isOpaque={isNavOpaque} />}
-        <button className="bg-black text-white px-4 py-2 rounded" onClick={toggleNavVersion}>Que diseño choto, lo podes cambiar?</button>      
+        <button className="bg-black text-white px-6 py-2 rounded mb-6" onClick={toggleNavVersion}>Que diseño choto, lo podes cambiar?</button>      
       </div>
   </div>
   )
