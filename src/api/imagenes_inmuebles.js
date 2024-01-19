@@ -14,12 +14,13 @@ export const subirImagen = async (file, idPropietario) => {
 
     console.log("el valor getCookie, el token, giordano", getCookie('token'));
     // Realiza la solicitud POST al servidor
-    const response = await axios.post("https://rhapi-dev-kkbb.3.us-1.fl0.io/imagen_inmuebles/upload", formData, {
+    const response = await axios.post("https://rhapi-dev-kkbb.3.us-1.fl0.io/imagen_inmuebles/upload", formData, /*{
         headers: {
         'Content-Type': 'multipart/form-data'
         , 'Authorization': `Bearer ${getCookie('token')}`, // Token JWT
       },
-    });
+    }*/
+    );
     console.log("response.data",response.data);
     console.log("El estado de la respuesta es:", response.status)
     console.log('Respuesta del servidor:', response.data.propiedad_id); 
