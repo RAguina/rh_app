@@ -12,7 +12,7 @@ const Nav = () => {
         <nav className="flex flex-wrap justify-center mt-10 gap-2">
             <Link 
                 to="/" 
-                className={`mx-4 md:text-xl font-black bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded ${location.pathname === '/' ? 'active' : ''}`}
+                className={`navLinks ${location.pathname === '/' ? 'active' : ''}`}
             >Inicio</Link>
 
             <Link 
