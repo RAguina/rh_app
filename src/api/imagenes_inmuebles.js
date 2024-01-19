@@ -1,9 +1,6 @@
 import axios from "axios";
 import {getCookie} from '../config/cookieUtils.js'
 
-
-
-
 export const subirImagen = async (file, idPropietario) => {
   try {
     // Crea un objeto FormData
