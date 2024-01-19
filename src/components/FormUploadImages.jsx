@@ -6,14 +6,13 @@ import NavBarLine from './NavBarLine.jsx';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const FormUploadImages = () => {
-  console.log('FormUploadImages se está renderizando');
   const {propiedadId} = useParams();
-  console.log('este es el mero!!!!idPropiedad en FormUploadImages:', propiedadId);
+  const [uploadedImages, setUploadedImages] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     multiple: true,
     onDrop: async (acceptedFiles) => {
-      console.log('onDrop se ha llamado con los siguientes archivos:', acceptedFiles);
+      const newImages = []; //Guardar las nuevas imagenes
       // Itera sobre cada archivo aceptado
       for (const file of acceptedFiles) {
         try {
@@ -23,12 +22,12 @@ const FormUploadImages = () => {
         const fileConNombreUnico = new File([file], nombreUnico, { type: file.type });
           // Llama a subirImagen para cada archivo
           const response = await subirImagen(fileConNombreUnico, propiedadId);
-          console.log('Respuesta del servidor:', response);
+          newImages.push(URL.createObjectURL(file));
         } catch (error) {
-          console.log("Error subiendo imagen");
-          throw error;
+          console.error("Error subiendo imagen", error);
         }
       }
+      setUploadedImages((prevImages) => [...prevImages, ...newImages]); //Agrega nuevas imagenes al estado
     }
   });
   
@@ -40,6 +39,11 @@ const FormUploadImages = () => {
         <input {...getInputProps()} />
         <p className='text-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
       </div>
+      <div>
+          {uploadedImages.map((src, index) => ( // Muestra las imágenes cargadas
+            <img key={index} src={src} alt="" className="w-32 h-32 object-cover" />
+          ))}
+        </div>
     </div>
     </>
   )
