@@ -22,22 +22,22 @@ const Nav = () => {
 
             <Link 
                 to="/listadoPropiedades" 
-                className={`mx-4 font-black bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded ${location.pathname === '/listadoPropiedades' ? 'active' : ''}`}
+                className={`navLinks ${location.pathname === '/listadoPropiedades' ? 'active' : ''}`}
             >Listado Propiedades</Link>
 
             <Link 
                 to="/queHacer" 
-                className={`mx-4 font-black bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded ${location.pathname === '/queHacer' ? 'active' : ''}`}
+                className={`navLinks ${location.pathname === '/queHacer' ? 'active' : ''}`}
             >Que hacer en Necochea?</Link>
 
             <Link 
             to="/registrarUsuario" 
-            className={`mx-4 font-black bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded ${location.pathname === '/registrarUsuario' ? 'active' : ''}`}
+            className={`navLinks ${location.pathname === '/registrarUsuario' ? 'active' : ''}`}
             >Registrarse</Link>
 
             <Link 
             to="/contact" 
-            className={`mx-4 font-black bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded ${location.pathname === '/contact' ? 'active' : ''}`}
+            className={`navLinks ${location.pathname === '/contact' ? 'active' : ''}`}
             >Contactanos</Link>
             
             {isLoggedIn ? (
