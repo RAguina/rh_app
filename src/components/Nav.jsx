@@ -45,24 +45,24 @@ const Nav = () => {
                     <Link 
                         to="/" 
                         onClick={handleLogout}
-                        className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded`}
+                        className={`navLinks2`}
                     >Cerrar Sesión</Link>
                     <Link 
                         to="/formUploadImages" 
-                        className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${location.pathname === '/formUploadImages' ? 'active' : ''}`}
+                        className={`navLinks2 ${location.pathname === '/formUploadImages' ? 'active' : ''}`}
                     >Subir Imagenes</Link>
                 </>
             ) : (
                 <Link 
                     to="/login" 
-                    className={`mx-4 font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${location.pathname === '/login' ? 'active' : ''}`}
+                    className={`navLinks2 ${location.pathname === '/login' ? 'active' : ''}`}
                 >Iniciar Sesión</Link>
             )}
 
             {isAdmin && (
                 <Link
                 to="/adminPanel"
-                className={`mx-4 text-base font-black bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded ${
+                className={`navLinks2 ${
                     location.pathname === '/adminPanel' ? 'active' : ''
                 }`}
                 >
