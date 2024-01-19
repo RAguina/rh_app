@@ -5,11 +5,13 @@ export const subirImagen = async (file, idPropietario) => {
   try {
     // Crea un objeto FormData
     const formData = new FormData();
-
-
+  
+  
+    console.log("Hola q tal soy un clg en subirImagen y el idPropietario anda por el :", idPropietario);
     formData.append('image', file);
-
     formData.append('propietario_id', idPropietario); 
+    formData.append('is_cover', false);
+
     console.log("el valor getCookie, el token, giordano", getCookie('token'));
     // Realiza la solicitud POST al servidor
     const response = await axios.post("https://rhapi-dev-kkbb.3.us-1.fl0.io/imagen_inmuebles/upload", formData, {
