@@ -110,11 +110,11 @@ function RegistrarPropiedades() {
         console.log('Propiedad registrada:', newProperty);
         // Avanza al siguiente paso después de guardar los datos(Recontra redundante)
         setNewProperty(newProperty);
-        console.log("falla por aca");
-        setPropiedadId(newProperty.propiedad_id);
+        console.log("falla por aca", newProperty);
+        setPropiedadId(newProperty.id_propiedad);
         setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
         try {
-          navigate(`/formUploadImages/${newProperty.propiedad_id}`);
+          navigate(`/formUploadImages/${newProperty.id_propiedad}`);
         } catch (error) {
           console.error('Error al navegar:', error);
         }
@@ -132,7 +132,7 @@ function RegistrarPropiedades() {
 
   return (
     <div className="ml-5 my-10">
-      {newProperty && <NavBarLine propiedadId={newProperty.propiedad_id} />}
+      {newProperty && <NavBarLine propiedadId={newProperty.id_propiedad} />}
       {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
       
       <div className='mt-10 w-3/5'>
