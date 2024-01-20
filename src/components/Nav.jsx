@@ -47,10 +47,6 @@ const Nav = ({ isOpaque}) => {
                       onClick={handleLogout}
                       className={`navLinks2`}
                   >Cerrar Sesión</Link>
-                  <Link 
-                      to="/formUploadImages" 
-                      className={`navLinks2 ${location.pathname === '/formUploadImages' ? 'active' : ''}`}
-                  >Subir Imagenes</Link>
               </>
           ) : (
               <Link 
