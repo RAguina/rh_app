@@ -13,7 +13,7 @@ const Nav2 = ({ isOpaque }) => {
 
   return (
     <div className="dropdown">
-  <button onClick={toggleDropdown} className="dropbtn">Menú</button>
+  <button onClick={toggleDropdown} className="dropbtn mr-10">Menú</button>
   {dropdownOpen && (
     <div className="dropdown-content">
       <Link to="/" className={`navLinks ${location.pathname === '/' ? 'active' : ''}`}>Inicio</Link>
