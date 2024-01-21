@@ -5,9 +5,11 @@ import { generarNombreUnico } from "../config/index.js";
 import NavBarLine from './NavBarLine.jsx';
 import { useParams, useNavigate } from 'react-router-dom';
 
+
 const FormUploadImages = () => {
   const {propiedadId} = useParams();
   const [uploadedImages, setUploadedImages] = useState([]);
+  const [mainImage, setMainImage] = useState(null);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     multiple: true,
@@ -30,6 +32,15 @@ const FormUploadImages = () => {
       setUploadedImages((prevImages) => [...prevImages, ...newImages]); //Agrega nuevas imagenes al estado
     }
   });
+
+  const saveImages = async () => {
+    for (const src of uploadedImages) {
+      const isCover = src === mainImage;
+      // Llama a subirImagen para cada imagen
+      const response = await subirImagen(src, propiedadId, isCover);
+    }
+  };
+  
   
   return (
     <>
@@ -40,11 +51,18 @@ const FormUploadImages = () => {
         <p className='text-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
       </div>
       <div>
-          {uploadedImages.map((src, index) => ( // Muestra las imágenes cargadas
-            <img key={index} src={src} alt="" className="w-32 h-32 object-cover" />
-          ))}
-        </div>
+        {uploadedImages.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt=""
+            className={`w-32 h-32 object-cover ${mainImage === src ? 'border-2 border-blue-500' : ''}`}
+            onClick={() => setMainImage(src)}
+          />
+        ))}
+      </div>
     </div>
+     <button onClick={saveImages} disabled={mainImage === null || uploadedImages.length === 0}>Guardar imagen principal</button>
     </>
   )
 };
