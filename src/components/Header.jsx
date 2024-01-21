@@ -19,7 +19,7 @@ function Header() {
   return(
       <div className="flex from-blue-200 to-blue-600 bg-gradient-to-tl">
         <div className="w-2/5 flex flex-col items-center justify-center">
-        <img src={logo} alt="logo" className="w-36 h-36"/>
+        <img src={logo} alt="logo" className="w-72 h-72"/>
         <h1 className="text-4xl font-bold">Necochea Rent House</h1>
         <span className="font-bold">Alquileres Temporarios</span> 
       </div>
