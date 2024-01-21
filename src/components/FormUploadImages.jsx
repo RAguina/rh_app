@@ -43,7 +43,7 @@ const FormUploadImages = () => {
     }
   };
   
-  
+  console.log("Maininage y uploaded",mainImage, uploadedImages);
   return (
     <>
     <NavBarLine propiedadId={propiedadId} />
@@ -64,7 +64,8 @@ const FormUploadImages = () => {
       ))}
       </div>
     </div>
-     <button onClick={saveImages} disabled={mainImage === null || uploadedImages.length === 0}>Guardar imagen principal</button>
+     <button className="navlinks"
+     onClick={saveImages} disabled={mainImage === null || uploadedImages.length === 0}>Guardar imagen principal</button>
     </>
   )
 };
