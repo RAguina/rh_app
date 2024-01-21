@@ -38,6 +38,8 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+
+/* Seccion DropDownMenu*/
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -80,4 +82,15 @@
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;  
   overflow: hidden;
+}
+
+
+/* Spin del logo*/
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 2s linear infinite;
 }

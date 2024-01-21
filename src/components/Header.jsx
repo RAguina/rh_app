@@ -7,19 +7,21 @@ import { useState } from "react";
 function Header() {
   const [isNavOpaque, setIsNavOpaque] = useState(false);
   const [navVersion, setNavVersion] = useState(1);
+  const [isLogoSpinning, setIsLogoSpinning] = useState(false);
 
   const toggleNavVersion = () => {
-    setIsNavOpaque(true); // Oculta el Nav actual
-    setTimeout(() => { // Espera a que la transición de opacidad termine
-      setNavVersion(navVersion === 1 ? 2 : 1); // Cambia la versión del Nav
-      setIsNavOpaque(false); // Muestra el nuevo Nav
-    }, 500); // Ajusta este valor al tiempo de tu transición CSS
+    setIsNavOpaque(true);
+    setIsLogoSpinning(!isLogoSpinning);
+    setTimeout(() => { 
+      setNavVersion(navVersion === 1 ? 2 : 1); 
+      setIsNavOpaque(false); 
+    }, 500); 
   };
   
   return(
       <div className="flex from-blue-200 to-blue-600 bg-gradient-to-tl">
         <div className="w-2/5 flex flex-col items-center justify-center">
-        <img src={logo} alt="logo" className="w-72 h-72"/>
+        <img src={logo} alt="logo" className={`w-72 h-72 ${isLogoSpinning ? 'spin' : ''}`}/>
       </div>
       <div className="w-3/5 flex flex-col items-end">
         {navVersion === 1 ? <Nav key="nav1" isOpaque={isNavOpaque} /> : <Nav2 key="nav2" isOpaque={isNavOpaque} />}
