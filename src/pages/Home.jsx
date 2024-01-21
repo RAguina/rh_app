@@ -3,7 +3,7 @@ const Home = () => {
     <div className="flex flex-col sm:flex-row">
       <div className="w-full sm:w-1/2">
         <p className='text-5xl text-center mt-10 mb-10 font-bold underline'>Noticias</p>
-        <div className="flex flex-col sm:flex-row mb-10 gap-5">
+        <div className="flex flex-col sm:flex-row ml-5 mb-10 gap-5">
           <div className="w-full sm:w-1/2">
             <img src="/news1.jpg" alt="Imagen artículo 1" className="w-full h-64 object-cover rounded-xl"/>
           </div>
