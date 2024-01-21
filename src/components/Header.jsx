@@ -16,6 +16,9 @@ function Header() {
       setNavVersion(navVersion === 1 ? 2 : 1); 
       setIsNavOpaque(false); 
     }, 500); 
+    setTimeout(() => { // Detiene la animación de rotación después de 5 segundos
+      setIsLogoSpinning(false);
+    }, 5000);
   };
   
   return(
