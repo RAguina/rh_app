@@ -1,6 +1,6 @@
 const Home = () => {
   return (
-    <div className="flex">
+    <div className="flex flex-col sm:flex-row">
       <div className="w-1/2">
         <p className='text-5xl text-center mt-10 mb-10 font-bold underline'>Noticias</p>
         <article className="flex mb-10 gap-5">
