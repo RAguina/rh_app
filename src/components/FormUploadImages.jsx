@@ -48,7 +48,7 @@ const FormUploadImages = () => {
     <>
     <NavBarLine propiedadId={propiedadId} />
     <div className='grid'>
-      <div className='container-dropzone' {...getRootProps()}>
+      <div className='container-dropzone mb-10' {...getRootProps()}>
         <input {...getInputProps()} />
         <p className='text-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
       </div>
@@ -64,7 +64,7 @@ const FormUploadImages = () => {
       ))}
       </div>
     </div>
-     <button className="navlinks"
+     <button className="navLinks mt-10"
      onClick={saveImages} disabled={mainImage === null || uploadedImages.length === 0}>Guardar imagen principal</button>
     </>
   )
