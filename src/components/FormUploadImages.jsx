@@ -22,8 +22,12 @@ const FormUploadImages = () => {
         const nombreUnico = generarNombreUnico();
         // Crea un nuevo objeto File con el nombre único
         const fileConNombreUnico = new File([file], nombreUnico, { type: file.type });
-
-          newImages.push(URL.createObjectURL(file));
+          // Llama a subirImagen para cada archivo
+          //const response = await subirImagen(fileConNombreUnico, propiedadId);
+          newImages.push({
+            url: URL.createObjectURL(file),
+            file: fileConNombreUnico,
+          });
         } catch (error) {
           console.error("Error subiendo imagen", error);
         }
@@ -33,10 +37,9 @@ const FormUploadImages = () => {
   });
 
   const saveImages = async () => {
-    for (const src of uploadedImages) {
-      const isCover = src === mainImage;
-      // Llama a subirImagen para cada imagen
-      const response = await subirImagen(src, propiedadId, isCover);
+    for (const { url, file } of uploadedImages) {
+      const isCover = url === mainImage;
+      const response = await subirImagen(file, propiedadId, isCover);
     }
   };
   
