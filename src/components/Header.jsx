@@ -1,6 +1,6 @@
 import Nav from "./Nav";
 import Nav2 from "./Nav2";
-import logo from "../assets/logonr.svg"
+import logo from "../assets/logov2.svg"
 import { useState } from "react";
 
 
