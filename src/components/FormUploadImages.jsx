@@ -53,15 +53,15 @@ const FormUploadImages = () => {
         <p className='text-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
       </div>
       <div>
-        {uploadedImages.map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            alt=""
-            className={`w-32 h-32 object-cover ${mainImage === src ? 'border-2 border-blue-500' : ''}`}
-            onClick={() => setMainImage(src)}
-          />
-        ))}
+      {uploadedImages.map(({ url, file }, index) => (
+        <img
+          key={index}
+          src={url}
+          alt=""
+          className={`w-32 h-32 object-cover ${mainImage === url ? 'border-2 border-blue-500' : ''}`}
+          onClick={() => setMainImage(url)}
+        />
+      ))}
       </div>
     </div>
      <button onClick={saveImages} disabled={mainImage === null || uploadedImages.length === 0}>Guardar imagen principal</button>
