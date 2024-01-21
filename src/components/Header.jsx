@@ -20,8 +20,6 @@ function Header() {
       <div className="flex from-blue-200 to-blue-600 bg-gradient-to-tl">
         <div className="w-2/5 flex flex-col items-center justify-center">
         <img src={logo} alt="logo" className="w-72 h-72"/>
-        <h1 className="text-4xl font-bold">Necochea Rent House</h1>
-        <span className="font-bold">Alquileres Temporarios</span> 
       </div>
       <div className="w-3/5 flex flex-col items-end">
         {navVersion === 1 ? <Nav key="nav1" isOpaque={isNavOpaque} /> : <Nav2 key="nav2" isOpaque={isNavOpaque} />}
