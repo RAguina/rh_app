@@ -38,6 +38,11 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+/* FormUploadImages zona DropZone */
+.container-dropzone {
+  min-height: 75vh;
+}
+
 
 /* Seccion DropDownMenu*/
 .dropbtn {
