@@ -17,21 +17,22 @@ const FormUploadImages = () => {
       const newImages = []; //Guardar las nuevas imagenes
       // Itera sobre cada archivo aceptado
       for (const file of acceptedFiles) {
-        try {
-        // Genera un nombre único para el archivo
-        const nombreUnico = generarNombreUnico();
-        // Crea un nuevo objeto File con el nombre único
-        const fileConNombreUnico = new File([file], nombreUnico, { type: file.type });
-          // Llama a subirImagen para cada archivo
-          //const response = await subirImagen(fileConNombreUnico, propiedadId);
-          newImages.push({
-            url: URL.createObjectURL(file),
-            file: fileConNombreUnico,
-          });
-        } catch (error) {
-          console.error("Error subiendo imagen", error);
+        if (!uploadedImages.some(({ file: existingFile }) => existingFile.name === file.name)) {
+          try {
+            const nombreUnico = generarNombreUnico();
+            const fileConNombreUnico = new File([file], nombreUnico, { type: file.type });
+            newImages.push({
+              url: URL.createObjectURL(file),
+              file: fileConNombreUnico,
+            });
+          } catch (error) {
+            console.error("Error subiendo imagen", error);
+          }
+        } else {
+          console.log(`El archivo ${file.name} ya ha sido subido.`);
         }
       }
+      
       setUploadedImages((prevImages) => [...prevImages, ...newImages]); //Agrega nuevas imagenes al estado
     }
   });
@@ -50,7 +51,7 @@ const FormUploadImages = () => {
     <div className='grid'>
       <div className='container-dropzone mb-10' {...getRootProps()}>
         <input {...getInputProps()} />
-        <p className='text-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
+        <p className='bg-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
       </div>
       <div>
       {uploadedImages.map(({ url, file }, index) => (
