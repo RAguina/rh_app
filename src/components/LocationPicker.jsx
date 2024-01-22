@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StaticMap, Marker, Popup } from 'react-map-gl';
+import { StaticMap } from '@urbica/react-map-gl';
+import { Marker, Popup } from 'react-map-gl';
 
 const LocationPicker = ({ onLocationSelect }) => {
   const [viewport, setViewport] = useState({
