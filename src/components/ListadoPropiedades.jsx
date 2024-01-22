@@ -7,7 +7,31 @@ import { obtenerImagenPortada } from '../api/imagenes_inmuebles';
 const ListadoPropiedades = () => {
   const [propiedades, setPropiedades] = useState([])
   const [cargando, setCargando] = useState(true);
+  const [imagenesPortada,setImagenesPortada] = useState([])
 
+  useEffect(() => {
+    const obtenerPropiedadesEImagenes = async () => {
+      try {
+        const propiedades = await obtenerInmuebles();
+        const imagenesPortada = [];
+        for (let i = 0; i < propiedades.length; i++) {
+          const imagenPortada = await obtenerImagenPortada(propiedades[i].id_propiedad);
+          imagenesPortada.push(imagenPortada);
+        }
+        setPropiedades(propiedades);
+        setImagenesPortada(imagenesPortada);
+        setCargando(false); 
+      } catch (error) {
+        console.error('Hubo un error al obtener las propiedades o las imágenes: ', error);
+        setCargando(false);
+      }
+    }
+    
+    obtenerPropiedadesEImagenes();
+  }, []);
+  
+
+  /* Viejo haris shelman
   useEffect(() => {
     const obtenerPropiedades = async () => {
       try {
@@ -22,6 +46,7 @@ const ListadoPropiedades = () => {
   
     obtenerPropiedades();
   }, []);
+  */
 
 
   return (
