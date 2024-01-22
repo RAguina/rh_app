@@ -1,8 +1,11 @@
 import NavBarLine from '../components/NavBarLine.jsx';
 import LocationPicker from '../components/LocationPicker.jsx';
 import { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const LocationStep = () => {
+  const {propiedadId} = useParams();
+
   const [location, setLocation] = useState(null);
 
   const handleLocationSelect = (newLocation) => {

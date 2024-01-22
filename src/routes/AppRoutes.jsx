@@ -35,7 +35,7 @@ const AppRoutes = () => (
       <Route path="/adminPanel" element={<AdminPanel />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/formUploadImages/:propiedadId" element={<FormUploadImages/>} />
-      <Route path="/locationStep" element={<LocationStep/>} />
+      <Route path="/locationStep/:propiedadId" element={<LocationStep/>} />
     </Routes>
 );
 
