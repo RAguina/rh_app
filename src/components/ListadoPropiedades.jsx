@@ -66,7 +66,7 @@ const ListadoPropiedades = () => {
                     </div>
                     <div className="p-8">
                       <h2 className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{propiedad.nombre_propiedad}</h2>
-                      <img src={`/imagen_inmuebles/portada/${propiedad.id_propiedad}`} alt="Portada" className="w-full h-32 object-cover mb-4" />
+                      <img src={imagenesPortada[index]} alt="Portada" className="w-full h-32 object-cover mb-4" />
                       <p className="mt-2 text-gray-500 truncate-4-lines">{propiedad.descripcion}</p>
                       <p className="mt-2 text-gray-500">Tipo: {propiedad.tipo_propiedad}</p>
                       <p className="mt-2 text-gray-500">Ubicación: {propiedad.ubicacion_propiedad}</p>
