@@ -1,6 +1,6 @@
-import React from 'react';
 import NavBarLine from './NavBarLine.jsx';
 import LocationPicker from '../components/LocationPicker.jsx';
+import { useState } from 'react';
 
 const LocationStep = () => {
   // Aquí puedes poner cualquier estado o lógica que necesites compartir entre NavBarLine y LocationPicker
