@@ -6,7 +6,6 @@ import { obtenerImagenPortada } from '../api/imagenes_inmuebles';
 
 const ListadoPropiedades = () => {
   const [propiedades, setPropiedades] = useState([])
-  const [imagenesPortada, setImagenesPortada] = useState([]);
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
@@ -24,26 +23,6 @@ const ListadoPropiedades = () => {
     obtenerPropiedades();
   }, []);
 
-  useEffect(() => {
-    const obtenerImagenesPortada = async () => {
-      const imagenes = await Promise.all(
-        propiedades.map(async (propiedad) => {
-          try {
-            const imagenPortada = await obtenerImagenPortada(propiedad.id_propiedad);
-            return imagenPortada;
-          } catch (error) {
-            console.error('Hubo un error al obtener la imagen de portada: ', error);
-            return null;
-          }
-        })
-      );
-      setImagenesPortada(imagenes);
-    };
-
-    if (propiedades.length > 0) {
-      obtenerImagenesPortada();
-    }
-  }, [propiedades]);
 
   return (
     <div className='text-center'>
@@ -54,8 +33,6 @@ const ListadoPropiedades = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Array.isArray(propiedades) && propiedades.length > 0 ? (
             propiedades.map((propiedad, index) => {
-              const imagenPortada = imagenesPortada[index];
-
               return (
                 <div key={propiedad.id_propiedad} className="max-w-md bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-3">
                   <div className="md:flex">
@@ -64,7 +41,7 @@ const ListadoPropiedades = () => {
                     </div>
                     <div className="p-8">
                       <h2 className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{propiedad.nombre_propiedad}</h2>
-                      {imagenPortada && <img src={imagenPortada.url} alt="Portada" className="w-full h-32 object-cover mb-4" />}
+                      <img src={`/imagen_inmuebles/portada/${propiedad.id_propiedad}`} alt="Portada" className="w-full h-32 object-cover mb-4" />
                       <p className="mt-2 text-gray-500 truncate-4-lines">{propiedad.descripcion}</p>
                       <p className="mt-2 text-gray-500">Tipo: {propiedad.tipo_propiedad}</p>
                       <p className="mt-2 text-gray-500">Ubicación: {propiedad.ubicacion_propiedad}</p>
@@ -82,6 +59,7 @@ const ListadoPropiedades = () => {
       )}
     </div>
   );
+  
 }
 
 export default ListadoPropiedades
