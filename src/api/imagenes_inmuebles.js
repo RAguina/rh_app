@@ -28,6 +28,7 @@ export const subirImagen = async (file, idPropietario,isCover) => {
 export const obtenerImagenPortada = async (idInmueble) => {
   try {
     const response = await axios.get(`https://rhapi-dev-kkbb.3.us-1.fl0.io/imagen_inmuebles/portada/${idInmueble}`);
+    console.log("response:",response.data);
     return response.data;
   } catch (error) {
     console.error('Error al obtener la imagen de portada', error.response ? error.response.data : error.message);
