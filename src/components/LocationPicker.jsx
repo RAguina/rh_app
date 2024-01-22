@@ -1,26 +1,32 @@
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';  // Importar los estilos de Leaflet directamente
+import React, { useState } from 'react';
+import { StaticMap, Marker, Popup } from 'react-map-gl';
 
 const LocationPicker = ({ onLocationSelect }) => {
-  const defaultCenter = [-38.5545, -58.7396];
+  const [viewport, setViewport] = useState({
+    latitude: -38.5545,
+    longitude: -58.7396,
+    zoom: 13,
+    width: "100%",
+    height: "500px",
+  });
 
   const handleLocationSelect = (e) => {
-    onLocationSelect(e.latlng);
+    onLocationSelect({ lat: e.lngLat[1], lng: e.lngLat[0] });
   };
 
   return (
-    <MapContainer center={defaultCenter} zoom={13} style={{ height: "500px", width: "100%" }} onClick={handleLocationSelect}>
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='© <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      />
-      <Marker position={defaultCenter}>
-        <Popup>
+    <StaticMap
+      {...viewport}
+      mapStyle="mapbox://styles/mapbox/streets-v11"
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+      onClick={handleLocationSelect}
+    >
+      <Marker latitude={viewport.latitude} longitude={viewport.longitude}>
+        <Popup latitude={viewport.latitude} longitude={viewport.longitude}>
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
       </Marker>
-    </MapContainer>
+    </StaticMap>
   );
 };
 
