@@ -1,7 +1,6 @@
 import NavBarLine from '../components/NavBarLine.jsx';
 import LocationPicker from '../components/LocationPicker.jsx';
 import { useState } from 'react';
-import NavBarLine from '../components/NavBarLine.jsx';
 
 const LocationStep = () => {
   const [location, setLocation] = useState(null);
