@@ -49,17 +49,17 @@ const FormUploadImages = () => {
     <>
     <NavBarLine propiedadId={propiedadId} />
     <div className='grid'>
-      <div className='container-dropzone mb-30' {...getRootProps()}>
+      <div className='container-dropzone mb-30 bg-blue-500' {...getRootProps()}>
         <input {...getInputProps()} />
-        <p className='bg-blue-500 my-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
+        <p className='my-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
       </div>
-      <div>
+      <div className='flex flex-wrap justify-center'>
       {uploadedImages.map(({ url, file }, index) => (
         <img
           key={index}
           src={url}
           alt=""
-          className={`w-32 h-32 object-cover ${mainImage === url ? 'border-2 border-blue-500' : ''}`}
+          className={`w-32 h-32 object-cover m-2 rounded-lg shadow-lg ${mainImage === url ? 'border-2 border-blue-500' : ''}`}
           onClick={() => setMainImage(url)}
         />
       ))}
