@@ -65,7 +65,7 @@ const FormUploadImages = () => {
       ))}
       </div>
     </div>
-     <button className="navLinks mt-10"
+     <button className="navLinks2 mt-10"
      onClick={saveImages} disabled={mainImage === null || uploadedImages.length === 0}>Guardar imagen principal</button>
     </>
   )
