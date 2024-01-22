@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { StaticMap } from '@urbica/react-map-gl';
-import { Marker, Popup } from 'react-map-gl';
+import mapboxgl from 'mapbox-gl';
 
 const LocationPicker = ({ onLocationSelect }) => {
   const [viewport, setViewport] = useState({
@@ -19,18 +18,22 @@ const LocationPicker = ({ onLocationSelect }) => {
   };
 
   return (
-    <StaticMap
-      {...viewport}
-      mapStyle="mapbox://styles/mapbox/streets-v11"
-      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-      onClick={handleLocationSelect}
-    >
-      <Marker latitude={viewport.latitude} longitude={viewport.longitude}>
-        <Popup latitude={viewport.latitude} longitude={viewport.longitude}>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
-    </StaticMap>
+    <div
+      ref={el => {
+        const map = new mapboxgl.Map({
+          container: el,
+          style: 'mapbox://styles/mapbox/streets-v11',
+          center: [viewport.longitude, viewport.latitude],
+          zoom: viewport.zoom
+        });
+
+        map.on('click', handleLocationSelect);
+      }}
+      style={{
+        width: viewport.width,
+        height: viewport.height
+      }}
+    />
   );
 };
 
