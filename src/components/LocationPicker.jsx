@@ -1,8 +1,9 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
-const LocationPicker = () => {
+const LocationPicker = ({ onLocationSelect }) => {
   return (
-    <MapContainer center={[-38.5545, -58.7396]} zoom={13} style={{ height: "100vh", width: "100%" }}>
+    <MapContainer center={[-38.5545, -58.7396]} zoom={13} style={{ height: "500px", width: "100%" }} onClick={(e) => onLocationSelect(e.latlng)}>
+      <ZoomControl position="topright" />
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='© <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -15,5 +16,6 @@ const LocationPicker = () => {
     </MapContainer>
   );
 };
+
 
 export default LocationPicker;

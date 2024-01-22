@@ -46,7 +46,7 @@ const FormUploadImages = () => {
         const isCover = url === mainImage;
         const response = await subirImagen(file, propiedadId, isCover);
       }
-      setErrorMessage({ mensaje: 'Las imágenes se guardaron correctamente.', tipo: 'exito' });
+      setErrorMessage({ mensaje: 'Las imágenes se guardaron correctamente. Espera por favor, en instantes seras redireccionado', tipo: 'exito' });
       setTimeout(() => {
         navigate('/locationPicker')
       }, 5000);

@@ -14,7 +14,7 @@ function NavBarLine({ propiedadId }) {
         <RoundButton disabled={!propiedadId}>2</RoundButton>
       </Link>
       <hr className="flex-grow border-t-2 border-black-300"/>
-      <Link to="/adminPanel" className="w-full sm:w-1/4" disabled={!propiedadId}>
+      <Link to="/locationStep" className="w-full sm:w-1/4" disabled={!propiedadId}>
         <RoundButton disabled={!propiedadId}>3</RoundButton>
       </Link>
       <hr className="flex-grow border-t-2 border-black-300"/>

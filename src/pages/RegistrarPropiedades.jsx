@@ -112,7 +112,7 @@ function RegistrarPropiedades() {
         setNewProperty(newProperty);
         console.log("falla por aca", newProperty);
         setPropiedadId(newProperty.id_propiedad);
-        setErrorMessage({ mensaje: 'Propiedad registrada con éxito', tipo: 'exito' });
+        setErrorMessage({ mensaje: 'Propiedad registrada con éxito. Espera por favor, en instantes seras redireccionado', tipo: 'exito' });
         try {
           navigate(`/formUploadImages/${newProperty.id_propiedad}`);
         } catch (error) {
