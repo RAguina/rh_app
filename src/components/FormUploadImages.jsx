@@ -10,6 +10,7 @@ import ErrorPage from './ErrorPage.jsx';
 const FormUploadImages = () => {
   const {propiedadId} = useParams();
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
+  const navigate = useNavigate();
   const [uploadedImages, setUploadedImages] = useState([]);
   const [mainImage, setMainImage] = useState(null);
   const { getRootProps, getInputProps } = useDropzone({
