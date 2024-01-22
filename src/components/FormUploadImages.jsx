@@ -49,9 +49,9 @@ const FormUploadImages = () => {
     <>
     <NavBarLine propiedadId={propiedadId} />
     <div className='grid'>
-      <div className='container-dropzone mb-10' {...getRootProps()}>
+      <div className='container-dropzone mb-30' {...getRootProps()}>
         <input {...getInputProps()} />
-        <p className='bg-blue-500 mt-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
+        <p className='bg-blue-500 my-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
       </div>
       <div>
       {uploadedImages.map(({ url, file }, index) => (
