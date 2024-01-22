@@ -5,10 +5,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 const LocationStep = () => {
   const {propiedadId} = useParams();
+  console.log('Propiedad ID:', propiedadId); // Agregado
 
   const [location, setLocation] = useState(null);
 
   const handleLocationSelect = (newLocation) => {
+    console.log('Nueva ubicación seleccionada:', newLocation); // Agregado
     setLocation(newLocation);
   };
 

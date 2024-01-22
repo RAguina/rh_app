@@ -10,7 +10,10 @@ const LocationPicker = ({ onLocationSelect }) => {
     height: "500px",
   });
 
+  console.log('Viewport:', viewport); // Agregado
+
   const handleLocationSelect = (e) => {
+    console.log('Evento onClick:', e); // Agregado
     onLocationSelect({ lat: e.lngLat[1], lng: e.lngLat[0] });
   };
 
