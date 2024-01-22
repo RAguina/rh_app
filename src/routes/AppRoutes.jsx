@@ -10,6 +10,7 @@ import ListadoPropiedades from '../components/ListadoPropiedades'
 import DetalleInmueble from '../components/DetalleInmueble'
 import Login from '../pages/Login.jsx';
 import { withAuth } from '../hocs/withAuth';
+import LocationPicker from '../components/LocationPicker.jsx';
 import { AuthProvider } from '../config/AuthContext';
 /*
 const isAuthenticated = true
@@ -34,6 +35,7 @@ const AppRoutes = () => (
       <Route path="/adminPanel" element={<AdminPanel />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/formUploadImages/:propiedadId" element={<FormUploadImages/>} />
+      <Route path="/locationPicker" element={<LocationPicker/>} />
     </Routes>
 );
 

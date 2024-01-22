@@ -4,10 +4,12 @@ import { subirImagen } from '../api/imagenes_inmuebles';
 import { generarNombreUnico } from "../config/index.js";
 import NavBarLine from './NavBarLine.jsx';
 import { useParams, useNavigate } from 'react-router-dom';
+import ErrorPage from './ErrorPage.jsx';
 
 
 const FormUploadImages = () => {
   const {propiedadId} = useParams();
+  const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const [uploadedImages, setUploadedImages] = useState([]);
   const [mainImage, setMainImage] = useState(null);
   const { getRootProps, getInputProps } = useDropzone({
@@ -38,15 +40,24 @@ const FormUploadImages = () => {
   });
 
   const saveImages = async () => {
-    for (const { url, file } of uploadedImages) {
-      const isCover = url === mainImage;
-      const response = await subirImagen(file, propiedadId, isCover);
+    try{
+      for (const { url, file } of uploadedImages) {
+        const isCover = url === mainImage;
+        const response = await subirImagen(file, propiedadId, isCover);
+      }
+      setErrorMessage({ mensaje: 'Las imágenes se guardaron correctamente.', tipo: 'exito' });
+      setTimeout(() => {
+        navigate('/locationPicker')
+      }, 5000);
+    } catch (error){
+      setErrorMessage({ mensaje: 'Hubo un error al guardar las imágenes.', tipo: 'error' });
     }
+    
   };
   
-  console.log("Maininage y uploaded",mainImage, uploadedImages);
   return (
     <>
+    {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
     <NavBarLine propiedadId={propiedadId} />
     <div className='grid'>
       <div className='container-dropzone mb-30 bg-blue-500' {...getRootProps()}>
