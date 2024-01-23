@@ -39,6 +39,7 @@ const LocationPicker = ({ onLocationSelect }) => {
       map.remove();
     };
   }, [onLocationSelect, viewport]);
+  
   return <div id="map-container" style={{ width: '100%', height: '500px', border: '1px solid red' }} />;
 
   //return <div id="map-container" style={{ width: viewport.width, height: viewport.height, border: '1px solid red' }} />;

@@ -99,3 +99,9 @@
 .spin {
   animation: spin 2s linear infinite;
 }
+
+/* Mapbox */
+#map-container {
+  width: 100%;
+  height: 500px;
+}
