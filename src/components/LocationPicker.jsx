@@ -25,7 +25,8 @@ const LocationPicker = ({ onLocationSelect }) => {
         const map = new mapboxgl.Map({
           container: el,
           style: 'mapbox://styles/mapbox/streets-v11',
-          center: [viewport.longitude, viewport.latitude],
+          center: viewport.center, // Actualizado
+          //center: [viewport.longitude, viewport.latitude],
           zoom: viewport.zoom
         });
 
