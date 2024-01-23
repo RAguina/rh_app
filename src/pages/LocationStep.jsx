@@ -16,13 +16,15 @@ const LocationStep = () => {
   };
 
   return (
+    <>
+    <NavBarLine propiedadId={propiedadId} />
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <NavBarLine propiedadId={propiedadId} />
       <div className="mt-8">
         <LocationPicker onLocationSelect={handleLocationSelect} />
       </div>
       <h1>HOLA</h1>
     </div>
+    </>
   );
 };
 
