@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import 'https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css';
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
