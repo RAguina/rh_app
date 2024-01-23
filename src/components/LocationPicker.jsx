@@ -10,12 +10,12 @@ const LocationPicker = ({ onLocationSelect }) => {
     zoom: 13,
     width: "100%",
     height: "500px",
+    center: [-58.7396, -38.5545], 
   });
 
-  console.log('Viewport:', viewport); // Agregado
+  console.log('Viewport:', viewport); 
 
   const handleLocationSelect = (e) => {
-    console.log('Evento onClick:', e); // Agregado
     onLocationSelect({ lat: e.lngLat[1], lng: e.lngLat[0] });
   };
 
