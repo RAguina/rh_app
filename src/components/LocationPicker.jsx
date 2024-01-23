@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 console.log("la variable de entorno es:",  process.env.REACT_APP_MAPBOX_TOKEN);
-console.log("la variable de entorno2 es:",  import.meta.env.REACT_APP_MAPBOX_TOKEN;
+console.log("la variable de entorno2 es:",  import.meta.env.REACT_APP_MAPBOX_TOKEN);
 const LocationPicker = ({ onLocationSelect }) => {
   const [viewport, setViewport] = useState({
     latitude: -38.5545,
