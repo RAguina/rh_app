@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 
-mapboxgl.accessToken = import.meta.env.VITE_REACT_APP_MAPBOX_TOKEN;
+mapboxgl.accessToken = import.meta.env.VITE_REACT_APP_MAPBOX_TOKEN_PUBLIC;
 
 const LocationPicker = ({ onLocationSelect }) => {
   const [viewport, setViewport] = useState({
