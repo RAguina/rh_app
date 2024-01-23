@@ -48,7 +48,7 @@ const FormUploadImages = () => {
       }
       setErrorMessage({ mensaje: 'Las imágenes se guardaron correctamente. Espera por favor, en instantes seras redireccionado', tipo: 'exito' });
       setTimeout(() => {
-        navigate('/locationStep')
+        navigate(`/locationStep/${propiedadId}`);
       }, 5000);
     } catch (error){
       setErrorMessage({ mensaje: 'Hubo un error al guardar las imágenes.', tipo: 'error' });
