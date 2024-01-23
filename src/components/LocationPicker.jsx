@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+
 const LocationPicker = ({ onLocationSelect }) => {
   const [viewport, setViewport] = useState({
     latitude: -38.5545,
