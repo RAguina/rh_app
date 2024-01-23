@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const LocationStep = () => {
+  console.log('LocationStep se está renderizando.');
   const {propiedadId} = useParams();
   console.log('Propiedad ID:', propiedadId); // Agregado
 
@@ -20,7 +21,7 @@ const LocationStep = () => {
       <div className="mt-8">
         <LocationPicker onLocationSelect={handleLocationSelect} />
       </div>
-      {/* Aquí puedes poner cualquier otro componente o contenido que necesites */}
+      <h1>HOLA</h1>
     </div>
   );
 };
