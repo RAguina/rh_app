@@ -112,9 +112,12 @@ function RegistrarPropiedades() {
         setNewProperty(newProperty);
         console.log("falla por aca", newProperty);
         setPropiedadId(newProperty.id_propiedad); //Redundante quiza
-        setErrorMessage({ mensaje: 'Propiedad registrada con éxito. Espera por favor, en instantes seras redireccionado', tipo: 'exito' });
         try {
-          navigate(`/formUploadImages/${newProperty.id_propiedad}`);
+          setErrorMessage({ mensaje: 'Propiedad registrada con éxito. Espera por favor, en instantes seras redireccionado', tipo: 'exito' });
+          setTimeout(() => {
+            navigate(`/formUploadImages/${newProperty.id_propiedad}`);
+            
+          }, 5000);
         } catch (error) {
           console.error('Error al navegar:', error);
         }

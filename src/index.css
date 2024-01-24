@@ -41,6 +41,7 @@
 /* FormUploadImages zona DropZone */
 .container-dropzone {
   min-height: 50vh;
+  border: 2px dashed black;
 }
 
 
