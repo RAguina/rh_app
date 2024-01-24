@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { registrarInmueble, actualizarInmueble, obtenerInmueblePorId } from '../api/inmuebles'; // Asegúrate de tener una función para registrar la propiedad
 import ErrorPage from '../components/ErrorPage'; 
 import { useNavigate} from 'react-router-dom';
@@ -10,6 +10,7 @@ function RegistrarPropiedades() {
   const [ propiedadId, setPropiedadId ] = useState(null);
   const [newProperty, setNewProperty] = useState(null); 
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
+  const errorRef = useRef(null);
   const [errores, setErrores] = useState([]);
   const [form, setForm] = useState({
     nombre_propiedad: '',
@@ -23,7 +24,7 @@ function RegistrarPropiedades() {
   const navigate = useNavigate();
 
 
-
+/* useEffect */
   useEffect(() => {
     const cargarDetallesPropiedad = async () => {
       try {
@@ -51,6 +52,7 @@ function RegistrarPropiedades() {
     }
   }, [propiedadId]);
 
+  /* handleChange */
   const handleChange = (e) => {
     if(e.target) {
       const name = e.target.name;
@@ -64,6 +66,13 @@ function RegistrarPropiedades() {
       console.log('e.target es null o undefined');
     }
   };
+
+  /* scrollToError */
+    const scrollToError = () => {
+      if (errorRef.current) {
+        errorRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
   /*
   const camposRequeridos = [
     { nombre: 'nombre_propiedad', mensaje: 'Falta completar el nombre de la propiedad.' },
@@ -103,7 +112,8 @@ function RegistrarPropiedades() {
         // Si propiedadId existe, realizar la lógica de edición
         const editedProperty = await actualizarInmueble(propiedadId, { ...form });
         console.log('Propiedad editada:', editedProperty);
-        setErrorMessage({ mensaje: 'Propiedad editada con éxito', tipo: 'exito' });
+        setErrorMessage({ mensaje: 'Propiedad actualizada con éxito. Espera por favor, en instantes seras redireccionado', tipo: 'exito' });
+        scrollToError();
       } else {
         // Si propiedadId no existe, realizar la lógica de registro
         const newProperty = await registrarInmueble({ ...form });
@@ -114,6 +124,7 @@ function RegistrarPropiedades() {
         setPropiedadId(newProperty.id_propiedad); //Redundante quiza
         try {
           setErrorMessage({ mensaje: 'Propiedad registrada con éxito. Espera por favor, en instantes seras redireccionado', tipo: 'exito' });
+          scrollToError();
           setTimeout(() => {
             navigate(`/formUploadImages/${newProperty.id_propiedad}`);
             
@@ -128,6 +139,7 @@ function RegistrarPropiedades() {
         console.error('Detalles del error:', error.response.data);
       }
       setErrorMessage({ mensaje: 'Hubo un error. Por favor, inténtalo de nuevo.', tipo: 'error' });
+      scrollToError();
     }
   };
 
@@ -136,8 +148,11 @@ function RegistrarPropiedades() {
   return (
     <div className="ml-5 my-10">
       {newProperty && <NavBarLine propiedadId={newProperty.id_propiedad} />}
-      {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
-      <div className='mt-10 w-3/5'>
+      {errorMessage.mensaje && (
+      <div ref={errorRef}>
+        <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />
+      </div>
+    )}      <div className='mt-10 w-3/5'>
         <h1 className="text-2xl font-bold mb-5">{propiedadId ? 'Editar Propiedad' : 'Registrar Propiedad'}</h1>
         <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
           <input 
