@@ -6,7 +6,7 @@ const LocationPicker = ({ onLocationSelect }) => {
     latitude: -38.5545,
     longitude: -58.7396,
     zoom: 14,
-    width: '100%',
+    width: '500px',
     height: '500px',
     center: [-58.7396, -38.5545],
   });
@@ -19,14 +19,17 @@ const LocationPicker = ({ onLocationSelect }) => {
     [onLocationSelect]
   );
 
+  const memoizedViewport = useMemo(() => viewport, [viewport]);
+  const memoizedHandleLocationSelect = useMemo(() => handleLocationSelect, [handleLocationSelect]);
+
   useEffect(() => {
     mapboxgl.accessToken = import.meta.env.VITE_REACT_APP_MAPBOX_TOKEN;
 
     const map = new mapboxgl.Map({
       container: 'map-container',
       style: 'mapbox://styles/mapbox/streets-v12',
-      center: viewport.center,
-      zoom: viewport.zoom,
+      center: memoizedViewport.center,
+      zoom: memoizedViewport.zoom,
     });
 
     const marker = new mapboxgl.Marker();
@@ -37,14 +40,14 @@ const LocationPicker = ({ onLocationSelect }) => {
 
     map.on('click', (e) => {
       const { lng, lat } = e.lngLat;
-      handleLocationSelect({ lat, lng });
+      memoizedHandleLocationSelect({ lat, lng });
       marker.setLngLat([lng, lat]).addTo(map);
     });
 
     return () => {
       map.remove();
     };
-  }, [handleLocationSelect, viewport]);
+  }, [memoizedHandleLocationSelect, memoizedViewport]);
 
   return <div id="map-container" style={{ width: '500px', height: '500px', border: '1px solid red' }} />;
 };
