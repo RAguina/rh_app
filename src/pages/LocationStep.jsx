@@ -19,7 +19,7 @@ const LocationStep = () => {
     <>
     <NavBarLine propiedadId={propiedadId} />
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <div className="mt-8">
+      <div className="mt-8 w-500 h-500">
         <LocationPicker onLocationSelect={handleLocationSelect} />
       </div>
       <h1>HOLA</h1>
