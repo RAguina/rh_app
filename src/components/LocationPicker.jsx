@@ -2,6 +2,17 @@ import React, { useState, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 
 const LocationPicker = ({ onLocationSelect }) => {
+  /* New York*/
+  const [viewport, setViewport] = useState({
+    latitude: 40.7128, // Nueva York
+    longitude: -74.0060, // Nueva York
+    zoom: 13,
+    width: '100%',
+    height: '500px',
+    center: [-74.0060, 40.7128], // Nueva York
+  });
+  
+  /* Necochea
   const [viewport, setViewport] = useState({
     latitude: -38.5545,
     longitude: -58.7396,
@@ -10,7 +21,7 @@ const LocationPicker = ({ onLocationSelect }) => {
     height: '500px',
     center: [-58.7396, -38.5545],
   });
-
+  */
   useEffect(() => {
     mapboxgl.accessToken = import.meta.env.VITE_REACT_APP_MAPBOX_TOKEN;
 
@@ -22,7 +33,7 @@ const LocationPicker = ({ onLocationSelect }) => {
 
     const map = new mapboxgl.Map({
       container: 'map-container',
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/mapbox/light-v10',
       center: viewport.center,
       zoom: viewport.zoom,
     });
