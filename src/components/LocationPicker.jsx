@@ -17,7 +17,7 @@ const LocationPicker = ({ onLocationSelect }) => {
   const [viewport, setViewport] = useState({
     latitude: -38.5545,
     longitude: -58.7396,
-    zoom: 13,
+    zoom: 14,
     width: '100%',
     height: '500px',
     center: [-58.7396, -38.5545],
@@ -52,7 +52,7 @@ const LocationPicker = ({ onLocationSelect }) => {
     };
   }, [onLocationSelect, viewport]);
   
-  return <div id="map-container" style={{ width: '100%', height: '500px', border: '1px solid red' }} />;
+  return <div id="map-container" style={{ width: '500px', height: '500px', border: '1px solid red' }} />;
 
   //return <div id="map-container" style={{ width: viewport.width, height: viewport.height, border: '1px solid red' }} />;
 };
