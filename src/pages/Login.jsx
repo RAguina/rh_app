@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import ErrorPage from '../components/ErrorPage';
-import { AuthContext, AuthProvider } from '../config/AuthContext';
+import { AuthContext } from '../config/AuthContext';
 
 function Login() {
   const [username, setUsername] = useState('');
