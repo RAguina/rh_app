@@ -36,7 +36,7 @@ const LocationPicker = ({ onLocationSelect }) => {
 
     map.on('load', () => {
       console.log('Mapa cargado exitosamente.');
-    });e
+    });
 
     map.on('click', (e) => {
       const { lng, lat } = e.lngLat;
