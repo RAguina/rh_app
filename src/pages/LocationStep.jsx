@@ -2,6 +2,7 @@ import NavBarLine from '../components/NavBarLine.jsx';
 import LocationPicker from '../components/LocationPicker.jsx';
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { agregarCoordenadas } from '../api/inmuebles.js';
 
 const LocationStep = () => {
   console.log('LocationStep se está renderizando.');
@@ -10,9 +11,17 @@ const LocationStep = () => {
 
   const [location, setLocation] = useState(null);
 
-  const handleLocationSelect = (newLocation) => {
+  const handleLocationSelect = async (newLocation) => {
     console.log('Nueva ubicación seleccionada:', newLocation); // Agregado
     setLocation(newLocation);
+
+    // Actualiza las coordenadas en la base de datos
+    try {
+      await agregarCoordenadas(propiedadId, newLocation);
+      console.log('Coordenadas actualizadas exitosamente.');
+    } catch (error) {
+      console.error('Error actualizando las coordenadas:', error);
+    }
   };
 
   return (
