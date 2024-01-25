@@ -57,8 +57,14 @@ const ListadoPropiedades = () => {
         <p>Cargando propiedades...</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Array.isArray(propiedades) && propiedades.length > 0 ? (
+                    {Array.isArray(propiedades) && propiedades.length > 0 ? (
             propiedades.map((propiedad, index) => {
+              const urlImagenPortada = imagenesPortada[index];
+
+              if (!urlImagenPortada) {
+                // Omitir propiedades sin imágenes
+                return null;
+              }
               return (
                 <div key={propiedad.id_propiedad} className="max-w-md bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-3">
                   <div className="md:flex">
@@ -77,7 +83,7 @@ const ListadoPropiedades = () => {
                   </div>
                 </div>
               );
-            })
+            }).filter(Boolean) // Filtra para eliminar elementos nulos
           ) : (
             <p>No hay propiedades para mostrar</p>
           )}
