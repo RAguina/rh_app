@@ -45,12 +45,16 @@ const FormUploadImages = () => {
       for (const { url, file } of uploadedImages) {
         const isCover = url === mainImage;
         const response = await subirImagen(file, propiedadId, isCover);
+        if(response.error){
+          throw new Error(response.error);
+        }
       }
       setErrorMessage({ mensaje: 'Las imágenes se guardaron correctamente. Espera por favor, en instantes seras redireccionado', tipo: 'exito' });
       setTimeout(() => {
         navigate(`/locationStep/${propiedadId}`);
       }, 5000);
     } catch (error){
+      console.error('Hubo un error al guardar las imágenes:', error);
       setErrorMessage({ mensaje: 'Hubo un error al guardar las imágenes.', tipo: 'error' });
     }
     
