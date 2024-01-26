@@ -88,7 +88,7 @@
               onChange={(e) => handleChange({ target: { name: e.target.name, value: e.target.checked } })} />
             <span>Propietario</span>
           </label>
-          <button type="submit" className="w-full navlinks">Registrar</button>
+          <button type="submit" className="w-full navLinks">Registrar</button>
         </form>
       </div>
     );
