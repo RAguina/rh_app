@@ -12,10 +12,10 @@ const Nav2 = ({ isOpaque }) => {
   };
 
   return (
-    <div className="dropdown relative">
+    <div className="dropdown relative bg-transparent">
   <button onClick={toggleDropdown} className="dropbtn mr-10">Menú</button>
   {dropdownOpen && (
-    <div className="dropdown-content absolute right-0 bg-transparent">
+    <div className="dropdown-content absolute right-0 ">
       <Link to="/" className={`navLinks ${location.pathname === '/' ? 'active' : ''}`}>Inicio</Link>
       <Link to="/registrarPropiedad" className={`navLinks ${location.pathname === '/registrarPropiedad' ? 'active' : ''}`}>Registrar Propiedad</Link>
       <Link to="/listadoPropiedades" className={`navLinks ${location.pathname === '/listadoPropiedades' ? 'active' : ''}`}>Listado Propiedades</Link>
