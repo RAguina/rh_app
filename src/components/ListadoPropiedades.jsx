@@ -52,7 +52,7 @@ const ListadoPropiedades = () => {
 
   return (
     <div className='text-center'>
-      <h1 className='text-3xl mt-10 md:mb-10 lg:mb-20 font-bold'>ListadoPropiedades</h1>
+      <h1 className='text-3xl md:mb-10 lg:mb-20 font-bold'>ListadoPropiedades</h1>
       {cargando ? (
         <p>Cargando propiedades...</p>
       ) : (
