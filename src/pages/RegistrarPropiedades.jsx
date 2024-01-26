@@ -146,7 +146,7 @@ function RegistrarPropiedades() {
   
 
   return (
-    <div className="ml-5 mw-2/5 md:w-1/4">
+    <div className="ml-5 mw-2/5 md:w-1/3">
       {newProperty && <NavBarLine propiedadId={newProperty.id_propiedad} />}
       {errorMessage.mensaje && (
       <div ref={errorRef}>
