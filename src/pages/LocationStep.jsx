@@ -17,7 +17,7 @@ const LocationStep = () => {
 
     // Actualiza las coordenadas en la base de datos
     try {
-      await agregarCoordenadas(propiedadId, newLocation);
+      await agregarCoordenadas(propiedadId, newLocation.lat,newLocation.lng);
       console.log('Coordenadas actualizadas exitosamente.');
     } catch (error) {
       console.error('Error actualizando las coordenadas:', error);
