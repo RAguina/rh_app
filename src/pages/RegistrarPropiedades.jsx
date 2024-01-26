@@ -146,14 +146,14 @@ function RegistrarPropiedades() {
   
 
   return (
-    <div className="ml-5">
+    <div className="ml-5 mw-2/5 md:w-1/4">
       {newProperty && <NavBarLine propiedadId={newProperty.id_propiedad} />}
       {errorMessage.mensaje && (
       <div ref={errorRef}>
         <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />
       </div>
-    )}      <div className='mt-10 w-3/5'>
-        <h1 className="text-2xl font-bold mb-5">{propiedadId ? 'Editar Propiedad' : 'Registrar Propiedad'}</h1>
+    )}      <div className='w-3/5'>
+        <h1 className="text-2xl font-bold mb-5 text-center">{propiedadId ? 'Editar Propiedad' : 'Registrar Propiedad'}</h1>
         <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
           <input 
           type="text" 
