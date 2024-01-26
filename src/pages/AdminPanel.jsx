@@ -27,7 +27,7 @@ const AdminPanel = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mt-10 bg-gray-100">
+    <div className="flex flex-col items-center justify-center bg-gray-100">
       <h1 className="text-2xl font-bold mb-4">Panel de Administrador</h1>
       <div className="flex items-center space-x-2 mb-4">
         <select 

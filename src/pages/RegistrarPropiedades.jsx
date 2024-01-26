@@ -199,7 +199,7 @@ function RegistrarPropiedades() {
           className="w-full p-2 border border-gray-300 rounded" />
           <button 
           type="submit" 
-          className="w-full navLinks">{propiedadId ? 'Editar' : 'Registrar'}</button>
+          className="w-full mb-10 navLinks">{propiedadId ? 'Editar' : 'Registrar'}</button>
         </form>
       </div>
     </div>
