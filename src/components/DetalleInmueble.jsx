@@ -50,7 +50,7 @@ const DetalleInmueble = () => {
       <p className="mb-2">Fecha de subida: <span className='font-bold'>{inmueble && inmueble.createdat ? new Date(inmueble.createdat).toLocaleDateString() : 'N/A'}</span></p>
       <div className="flex justify-center gap-4">
       {imagenes.map((imagen, index) => (
-        <img key={index} src={imagen.url_imagen} alt={`Imagen ${index + 1}`} className="w-full object-cover h-64 border-spacing-1" />
+        <img key={index} src={imagen.url_imagen} alt={`Imagen ${index + 1}`} className="w-full object-cover h-64 border-black" />
       ))}
       </div>
     </div>
