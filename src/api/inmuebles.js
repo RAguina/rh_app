@@ -59,7 +59,7 @@ export const obtenerInmueblePorId = async (id) => {
 
 export const agregarCoordenadas = async (id, latitud,longitud) => {
   try {
-    const response = await axios.put(`${API_URL}/${id}/agregarCoordenadas`, { latitud, longitud });
+    const response = await axios.put(`${API_URL}/agregarCoordenadas/${id}`, { latitud, longitud });
     return response.data;
   } catch (error) {
     console.error(`Error agregando las coordenadas al inmueble con id ${id}`, error);
