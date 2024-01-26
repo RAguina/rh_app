@@ -42,7 +42,7 @@
     };
 
     return (
-      <div className="ml-5 mt-10 w-2/5 md:w-1/4">
+      <div className="ml-5 mw-2/5 md:w-1/4">
         {mensajeError && <ErrorPage mensaje={mensajeError.texto} tipo={mensajeError.tipo} />}        
         <h1 className="text-2xl font-bold mb-5 text-center">Registro de usuario</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -88,7 +88,7 @@
               onChange={(e) => handleChange({ target: { name: e.target.name, value: e.target.checked } })} />
             <span>Propietario</span>
           </label>
-          <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded">Registrar</button>
+          <button type="submit" className="w-full navlinks">Registrar</button>
         </form>
       </div>
     );

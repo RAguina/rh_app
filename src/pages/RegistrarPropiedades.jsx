@@ -146,7 +146,7 @@ function RegistrarPropiedades() {
   
 
   return (
-    <div className="ml-5 my-10">
+    <div className="ml-5">
       {newProperty && <NavBarLine propiedadId={newProperty.id_propiedad} />}
       {errorMessage.mensaje && (
       <div ref={errorRef}>
@@ -199,7 +199,7 @@ function RegistrarPropiedades() {
           className="w-full p-2 border border-gray-300 rounded" />
           <button 
           type="submit" 
-          className="w-full p-2 bg-blue-500 text-white rounded">{propiedadId ? 'Editar' : 'Registrar'}</button>
+          className="w-full navlinks">{propiedadId ? 'Editar' : 'Registrar'}</button>
         </form>
       </div>
     </div>
