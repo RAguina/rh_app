@@ -39,8 +39,8 @@ const DetalleInmueble = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <Link to="/listadoPropiedades" className="text-blue-500 text-3xl mb-20 mt-10">&lt; Volver a la página anterior</Link>
-      <h1 className="text-2xl font-bold mb-4 text-center">{inmueble.nombre_propiedad}</h1>
+      <Link to="/listadoPropiedades" className="font-bold text-2xl mb-20 mt-10">&lt; Volver a la página anterior</Link>
+      <h1 className="text-3xl font-bold mb-4 text-center">{inmueble.nombre_propiedad}</h1>
       <p className="mb-2">Descripcion: <span className='font-bold'>{inmueble.descripcion}</span></p>
       <p className="mb-2">Tipo de propiedad: <span className='font-bold'>{inmueble.tipo_propiedad}</span></p>
       <p className="mb-2">Ubicación: <span className='font-bold'>{inmueble.ubicacion_propiedad}</span></p>
