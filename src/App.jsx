@@ -9,7 +9,9 @@ function App() {
       <div>
         <AuthProvider>
           <Layout/>
-          <AppRoutes/>
+            <div className="from-blue-600 to-blue-200 bg-gradient-to-tr">
+              <AppRoutes/>
+            </div>
           <Footer/>
           </AuthProvider>
       </div>

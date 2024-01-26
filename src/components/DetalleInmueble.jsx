@@ -38,7 +38,7 @@ const DetalleInmueble = () => {
   }
 
   return (
-    <div className="flex flex-col items-center  from-blue-600 to-blue-200 bg-gradient-to-tr">
+    <div className="flex flex-col items-center">
       <Link to="/listadoPropiedades" className="text-blue-500 text-3xl mb-20 mt-10">&lt; Volver a la página anterior</Link>
       <h1 className="text-2xl font-bold mb-4 text-center">{inmueble.nombre_propiedad}</h1>
       <p className="mb-2">Descripcion: <span className='font-bold'>{inmueble.descripcion}</span></p>
