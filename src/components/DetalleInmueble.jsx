@@ -48,7 +48,7 @@ const DetalleInmueble = () => {
       <p className="mb-2">Estado: <span className='font-bold'>{inmueble.estado_propiedad}</span></p>
       <p className="mb-2">ID del propietario: <span className='font-bold'>{inmueble.propietario_id}</span></p>
       <p className="mb-2">Fecha de subida: <span className='font-bold'>{inmueble && inmueble.createdat ? new Date(inmueble.createdat).toLocaleDateString() : 'N/A'}</span></p>
-      <div className="grid grid-cols-2 gap-4 items-center">
+      <div className="flex justify-center gap-4">
       {imagenes.map((imagen, index) => (
         <img key={index} src={imagen.url_imagen} alt={`Imagen ${index + 1}`} className="w-full object-cover h-64 border-spacing-1" />
       ))}
