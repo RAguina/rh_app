@@ -6,8 +6,8 @@ import { agregarCoordenadas } from '../api/inmuebles.js';
 
 const LocationStep = () => {
   console.log('LocationStep se está renderizando.');
-  const {propiedadId} = useParams();
-  console.log('Propiedad ID:', propiedadId); // Agregado
+  const {id_propiedad} = useParams();
+  console.log('Propiedad ID:', id_propiedad); // Agregado
 
   const [location, setLocation] = useState(null);
 
@@ -19,7 +19,7 @@ const LocationStep = () => {
 
     // Actualiza las coordenadas en la base de datos
     try {
-      await agregarCoordenadas(propiedadId, latitud, longitud);
+      await agregarCoordenadas(id_propiedad, latitud, longitud);
       console.log('Coordenadas actualizadas exitosamente.');
     } catch (error) {
       console.error('Error actualizando las coordenadas:', error);
@@ -28,7 +28,7 @@ const LocationStep = () => {
 
   return (
     <>
-    <NavBarLine propiedadId={propiedadId} />
+    <NavBarLine id_propiedad={id_propiedad} />
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <div className="mt-8 w-500 h-500">
         <LocationPicker onLocationSelect={handleLocationSelect} />

@@ -47,22 +47,22 @@ export const obtenerInmuebles = async () => {
 };
 
 
-export const obtenerInmueblePorId = async (id) => {
+export const obtenerInmueblePorId = async (id_propiedad) => {
   try {
-    const response = await axios.get(`${API_URL}/${id}`);
+    const response = await axios.get(`${API_URL}/${id_propiedad}`);
     return response.data;
   } catch (error) {
-    console.error(`Error obteniendo el inmueble con id ${id}`, error);
+    console.error(`Error obteniendo el inmueble con id ${id_propiedad}`, error);
     throw error;
   }
 };
 
-export const agregarCoordenadas = async (propiedadId, latitud,longitud) => {
+export const agregarCoordenadas = async (id_propiedad, latitud,longitud) => {
   try {
-    const response = await axios.put(`${API_URL}/agregarCoordenadas/${propiedadId}`, { latitud, longitud });
+    const response = await axios.put(`${API_URL}/agregarCoordenadas/${id_propiedad}`, { latitud, longitud });
     return response.data;
   } catch (error) {
-    console.error(`Error agregando las coordenadas al inmueble con id ${propiedadId}`, error);
+    console.error(`Error agregando las coordenadas al inmueble con id ${id_propiedad}`, error);
     throw error;
   }
 };
