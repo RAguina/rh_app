@@ -14,10 +14,12 @@ const LocationStep = () => {
   const handleLocationSelect = async (newLocation) => {
     console.log('Nueva ubicación seleccionada:', newLocation); // Agregado
     setLocation(newLocation);
+    const latitud = newLocation.lat;
+    const longitud = newLocation.lng;
 
     // Actualiza las coordenadas en la base de datos
     try {
-      await agregarCoordenadas(propiedadId, newLocation.lat,newLocation.lng);
+      await agregarCoordenadas(propiedadId, latitud, longitud);
       console.log('Coordenadas actualizadas exitosamente.');
     } catch (error) {
       console.error('Error actualizando las coordenadas:', error);
