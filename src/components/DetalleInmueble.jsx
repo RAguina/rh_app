@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { obtenerComodidadesPorPropiedadId } from '../api/amenities';
 import axios from 'axios';
 
 const API_URL_INMUEBLES = "https://rhapi-dev-kkbb.3.us-1.fl0.io/inmuebles"
 const API_URL_IMAGENES = "https://rhapi-dev-kkbb.3.us-1.fl0.io/imagen_inmuebles"
+const API_URL_AMENITIES = import.meta.env.VITE_REACT_APP_URL_AMENITIES
 
 const DetalleInmueble = () => {
   const { id } = useParams();
   const [inmueble, setInmueble] = useState(null);
   const [imagenes, setImagenes] = useState([]);
+  const [comodidades, setComodidades] = useState([]);
 
   useEffect(() => {
     const obtenerInmueble = async () => {
@@ -29,11 +32,21 @@ const DetalleInmueble = () => {
       }
     };
 
+    const obtenerComodidades = async () => {
+      try {
+        const comodidadesRespuesta = await obtenerComodidadesPorPropiedadId(id);
+        setComodidades(comodidadesRespuesta);
+      } catch (error) {
+        console.error('Hubo un error al obtener las comodidades: ', error);
+      }
+    };
+
     obtenerInmueble();
     obtenerImagenes();
+    obtenerComodidades();
   }, [id]);
 
-  if (!inmueble || !imagenes) {
+  if (!inmueble || !imagenes || !comodidades) {
     return <div>Cargando...</div>;
   }
 
@@ -48,6 +61,18 @@ const DetalleInmueble = () => {
       <p className="mb-2">Estado: <span className='font-bold'>{inmueble.estado_propiedad}</span></p>
       <p className="mb-2">ID del propietario: <span className='font-bold'>{inmueble.propietario_id}</span></p>
       <p className="mb-2">Fecha de subida: <span className='font-bold'>{inmueble && inmueble.createdat ? new Date(inmueble.createdat).toLocaleDateString() : 'N/A'}</span></p>
+      
+      <div className="mt-8">
+        <h2 className="text-2xl font-bold mb-4">Comodidades</h2>
+        <ul>
+          {Object.entries(comodidades).map(([comodidad, valor]) => (
+            <li key={comodidad}>
+              <strong>{comodidad}:</strong> {valor ? 'Sí' : 'No'}
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <div className="flex justify-center gap-4">
       {imagenes.map((imagen, index) => (
         <img key={index} src={imagen.url_imagen} alt={`Imagen ${index + 1}`} className="w-full object-cover h-64 border-black" />
