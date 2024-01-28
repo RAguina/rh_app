@@ -1,9 +1,10 @@
 import NavBarLine from '../components/NavBarLine.jsx';
 import LocationPicker from '../components/LocationPicker.jsx';
 import { useState } from 'react';
-import { useParams, useNavigate, useEffect } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import { agregarCoordenadas } from '../api/inmuebles.js';
 import ErrorPage from '../components/ErrorPage.jsx';
+import { useEffect } from 'react';
 
 const LocationStep = () => {
   console.log('LocationStep se está renderizando.');
