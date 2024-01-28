@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import NavBarLine from '../components/NavBarLine';
 import ErrorPage from '../components/ErrorPage';
+import { crearComodidades } from '../api/amenities';
 
 const AmenitiesStep = () => {
   const { propiedadId } = useParams();
@@ -40,15 +41,19 @@ const AmenitiesStep = () => {
     }
   }, [errorMessage, navigate, propiedadId]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(amenities);
-    // Aquí puedes manejar la lógica para guardar las comodidades seleccionadas
 
-    // Ejemplo: Lógica para guardar las comodidades en la base de datos
-    // saveAmenities(propiedadId, amenities).then(() => {
-    //   setErrorMessage({ mensaje: 'Comodidades guardadas con éxito.', tipo: 'exito' });
-    // });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      // Utiliza la función de cliente API para crear comodidades
+      await crearComodidades(propiedadId, amenities);
+      // Actualiza el estado de éxito
+      setErrorMessage({ mensaje: 'Comodidades guardadas con éxito.', tipo: 'exito' });
+    } catch (error) {
+      console.error('Error al guardar comodidades:', error);
+      setErrorMessage({ mensaje: 'Hubo un problema al guardar las comodidades.', tipo: 'error' });
+    }
   };
 
   return (
