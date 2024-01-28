@@ -29,7 +29,7 @@ const LocationStep = () => {
   useEffect(() => {
     if (errorMessage && errorMessage.tipo === 'exito') {
       const timer = setTimeout(() => {
-        navigate('/ruta-a-la-que-quieres-redirigir');
+        navigate('/amenitiesStep');
       }, 5000);
       return () => clearTimeout(timer);
     }
