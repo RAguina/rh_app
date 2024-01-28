@@ -57,13 +57,13 @@ export const obtenerInmueblePorId = async (id_propiedad) => {
   }
 };
 
-export const agregarCoordenadas = async (id_propiedad, latitud,longitud) => {
+export const agregarCoordenadas = async (propiedadId, latitud,longitud) => {
   try {
-    console.log('por favor tirame un numero, un faso:', id_propiedad);
-    const response = await axios.put(`${API_URL}/agregarCoordenadas/${id_propiedad}`, { latitud, longitud });
+    console.log('por favor tirame un numero, un faso:', propiedadId);
+    const response = await axios.put(`${API_URL}/agregarCoordenadas/${propiedadId}`, { latitud, longitud });
     return response.data;
   } catch (error) {
-    console.error(`Error agregando las coordenadas al inmueble con id ${id_propiedad}`, error);
+    console.error(`Error agregando las coordenadas al inmueble con id ${propiedadId}`, error);
     throw error;
   }
 };
