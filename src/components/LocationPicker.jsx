@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 
 const LocationPicker = ({ onLocationSelect }) => {
+  const [selectedLocation, setSelectedLocation] = useState(null);
   const [viewport, setViewport] = useState({
     latitude: -38.5545,
     longitude: -58.7396,
@@ -10,6 +11,7 @@ const LocationPicker = ({ onLocationSelect }) => {
     height: '500px',
     center: [-58.7396, -38.5545],
   });
+  const markerRef = useRef();
 
   const handleLocationSelect = useCallback(
     (newLocation) => {
@@ -32,7 +34,8 @@ const LocationPicker = ({ onLocationSelect }) => {
       zoom: memoizedViewport.zoom,
     });
 
-    const marker = new mapboxgl.Marker();
+    markerRef.current = new mapboxgl.Marker();
+    //const marker = new mapboxgl.Marker();
 
     map.on('load', () => {
       console.log('Mapa cargado exitosamente.');
@@ -40,8 +43,10 @@ const LocationPicker = ({ onLocationSelect }) => {
 
     map.on('click', (e) => {
       const { lng, lat } = e.lngLat;
-      memoizedHandleLocationSelect({ lat, lng });
-      marker.setLngLat([lng, lat]).addTo(map);
+      setSelectedLocation({ lat, lng });
+      //memoizedHandleLocationSelect({ lat, lng });
+      //marker.setLngLat([lng, lat]).addTo(map);
+      markerRef.current.setLngLat([lng, lat]).addTo(map);
     });
 
     return () => {
@@ -49,7 +54,18 @@ const LocationPicker = ({ onLocationSelect }) => {
     };
   }, [memoizedHandleLocationSelect, memoizedViewport]);
 
-  return <div id="map-container" style={{ width: '500px', height: '500px', border: '1px solid red' }} />;
+  return(
+    <div>
+      <div id="map-container" style={{ width: '500px', height: '500px', border: '2px solid red' }} />;
+      {selectedLocation && (
+      <button 
+      className='navLinks'
+      onClick={() => handleLocationSelect(selectedLocation)}>
+        Confirmar ubicación
+      </button> 
+      )}
+    </div>
+  ) 
 };
 
 export default React.memo(LocationPicker);
