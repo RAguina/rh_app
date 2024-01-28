@@ -30,7 +30,7 @@ const LocationStep = () => {
   useEffect(() => {
     if (errorMessage && errorMessage.tipo === 'exito') {
       const timer = setTimeout(() => {
-        navigate('/amenitiesStep');
+        navigate(`/amenitiesStep/${propiedadId}`);
       }, 5000);
       return () => clearTimeout(timer);
     }
