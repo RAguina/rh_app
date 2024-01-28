@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useEffect, useCallback, useMemo, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 
 const LocationPicker = ({ onLocationSelect }) => {
-  const [selectedLocation, setSelectedLocation] = useState(null);
   const [viewport, setViewport] = useState({
     latitude: -38.5545,
     longitude: -58.7396,
@@ -13,16 +12,7 @@ const LocationPicker = ({ onLocationSelect }) => {
   });
   const markerRef = useRef();
 
-  const handleLocationSelect = useCallback(
-    (newLocation) => {
-      console.log('Nueva ubicación seleccionada:', newLocation);
-      onLocationSelect(newLocation);
-    },
-    [onLocationSelect]
-  );
-
   const memoizedViewport = useMemo(() => viewport, [viewport]);
-  const memoizedHandleLocationSelect = useMemo(() => handleLocationSelect, [handleLocationSelect]);
 
   useEffect(() => {
     mapboxgl.accessToken = import.meta.env.VITE_REACT_APP_MAPBOX_TOKEN;
@@ -35,7 +25,6 @@ const LocationPicker = ({ onLocationSelect }) => {
     });
 
     markerRef.current = new mapboxgl.Marker();
-    //const marker = new mapboxgl.Marker();
 
     map.on('load', () => {
       console.log('Mapa cargado exitosamente.');
@@ -43,29 +32,20 @@ const LocationPicker = ({ onLocationSelect }) => {
 
     map.on('click', (e) => {
       const { lng, lat } = e.lngLat;
-      setSelectedLocation({ lat, lng });
-      //memoizedHandleLocationSelect({ lat, lng });
-      //marker.setLngLat([lng, lat]).addTo(map);
+      onLocationSelect({ lat, lng });
       markerRef.current.setLngLat([lng, lat]).addTo(map);
     });
 
     return () => {
       map.remove();
     };
-  }, [memoizedHandleLocationSelect, memoizedViewport]);
+  }, [onLocationSelect, memoizedViewport]);
 
-  return(
+  return (
     <div>
-      <div id="map-container" style={{ width: '500px', height: '500px', border: '2px solid red' }} />;
-      {selectedLocation && (
-      <button 
-      className='navLinks'
-      onClick={() => handleLocationSelect(selectedLocation)}>
-        Confirmar ubicación
-      </button> 
-      )}
+      <div id="map-container" style={{ width: '500px', height: '500px', border: '2px solid red' }} />
     </div>
-  ) 
+  );
 };
 
 export default React.memo(LocationPicker);
