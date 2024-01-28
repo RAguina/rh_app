@@ -12,6 +12,7 @@ import Login from '../pages/Login.jsx';
 import { withAuth } from '../hocs/withAuth';
 import LocationStep from '../pages/LocationStep.jsx';
 import { AuthProvider } from '../config/AuthContext';
+import AmenitiesStep from '../pages/AmenitiesStep.jsx';
 /*
 const isAuthenticated = true
 const hasRequiredRoles = true
@@ -36,6 +37,7 @@ const AppRoutes = () => (
       <Route path="/login" element={<Login/>} />
       <Route path="/formUploadImages/:propiedadId" element={<FormUploadImages/>} />
       <Route path="/locationStep/:propiedadId" element={<LocationStep/>} />
+      <Route path="/amenitiesStep/:propiedadId" element={<AmenitiesStep/>} />
     </Routes>
 );
 
