@@ -21,14 +21,20 @@ export const AuthProvider = ({ children }) => {
   }, []);
   
   const handleLoginSuccess = (newToken, expiry) => {
-    setCookie('token', JSON.stringify({ token: newToken, expiry }), 1);
-    const decodedToken = jwtDecode(newToken); // Usa jwt-decode para decodificar el token
-    if (decodedToken) {
-      console.log("idPropietario en context es:",decodedToken.idPropietario);
-      setIdPropietario(decodedToken.idPropietario);
+    try {
+      setCookie('token', JSON.stringify({ token: newToken, expiry }), 1);
+      const decodedToken = jwtDecode(newToken); // Usa jwt-decode para decodificar el token
+      if (decodedToken && decodedToken.idPropietario) {
+        console.log("idPropietario en context es:", decodedToken.idPropietario);
+        setIdPropietario(decodedToken.idPropietario);
+      }
+      setIsLoggedIn(true);
+      return newToken;
+    } catch (error) {
+      console.error("Error al decodificar el token:", error);
+      // Manejar el error según tus necesidades
+      return null; // Otra opción es lanzar el error para que sea manejado en otro lugar
     }
-    setIsLoggedIn(true);
-    return newToken;
   };
 
   const handleLogout = () => {
