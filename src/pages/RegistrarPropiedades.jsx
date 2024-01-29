@@ -1,9 +1,10 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { registrarInmueble, actualizarInmueble, obtenerInmueblePorId } from '../api/inmuebles'; // Asegúrate de tener una función para registrar la propiedad
 import ErrorPage from '../components/ErrorPage'; 
 import { useNavigate} from 'react-router-dom';
 import NavBarLine from '../components/NavBarLine';
+import { AuthContext } from '../config/AuthContext';
 
 
 function RegistrarPropiedades() {
@@ -11,6 +12,7 @@ function RegistrarPropiedades() {
   const [newProperty, setNewProperty] = useState(null); 
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const errorRef = useRef(null);
+  const { idPropietario } = useContext(AuthContext);
   const [errores, setErrores] = useState([]);
   const [form, setForm] = useState({
     nombre_propiedad: '',
@@ -39,7 +41,6 @@ function RegistrarPropiedades() {
           ubicacion_propiedad: detallesPropiedad.ubicacion_propiedad,
           precio_propiedad: detallesPropiedad.precio_propiedad,
           estado_propiedad: detallesPropiedad.estado_propiedad,
-          propietario_id: detallesPropiedad.propietario_id,
         });
       } catch (error) {
         console.error('Error obteniendo detalles de la propiedad', error);
@@ -105,22 +106,21 @@ function RegistrarPropiedades() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("id propietario de form:", form.propietario_id);
+    console.log("id propietario de form:", idPropietario);
      
     try {
       if (propiedadId) {
         // Si propiedadId existe, realizar la lógica de edición
-        const editedProperty = await actualizarInmueble(propiedadId, { ...form });
+        const editedProperty = await actualizarInmueble(propiedadId, { ...form, propietario_id: idPropietario });
         console.log('Propiedad editada:', editedProperty);
         setErrorMessage({ mensaje: 'Propiedad actualizada con éxito. Espera por favor, en instantes seras redireccionado', tipo: 'exito' });
         scrollToError();
       } else {
         // Si propiedadId no existe, realizar la lógica de registro
-        const newProperty = await registrarInmueble({ ...form });
+        const newProperty = await registrarInmueble({ ...form, propietario_id: idPropietario });
         console.log('Propiedad registrada:', newProperty);
         // Avanza al siguiente paso después de guardar los datos(Recontra redundante)
         setNewProperty(newProperty);
-        console.log("falla por aca", newProperty);
         setPropiedadId(newProperty.id_propiedad); //Redundante quiza
         try {
           setErrorMessage({ mensaje: 'Propiedad registrada con éxito. Espera por favor, en instantes seras redireccionado', tipo: 'exito' });
@@ -189,12 +189,6 @@ function RegistrarPropiedades() {
           type="text" 
           name="estado_propiedad" 
           placeholder="Estado de la propiedad" 
-          onChange={handleChange} 
-          className="w-full p-2 border border-gray-300 rounded" />
-          <input 
-          type="number" 
-          name="propietario_id" 
-          placeholder="ID del propietario" 
           onChange={handleChange} 
           className="w-full p-2 border border-gray-300 rounded" />
           <button 
