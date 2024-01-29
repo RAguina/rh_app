@@ -9,27 +9,31 @@ const ListadoPropiedades = () => {
   const [propiedades, setPropiedades] = useState([])
   const [cargando, setCargando] = useState(true);
   const [imagenesPortada,setImagenesPortada] = useState([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const propertiesPerPage = 20;
 
   useEffect(() => {
     const obtenerPropiedadesEImagenes = async () => {
       try {
         const propiedades = await obtenerInmuebles();
-        const imagenesPortada = [];
-        for (let i = 0; i < propiedades.length; i++) {
-          const imagenPortada = await obtenerImagenPortada(propiedades[i].id_propiedad);
-          imagenesPortada.push(imagenPortada);
-        }
+        const imagenesPortada = await Promise.all(propiedades.map(propiedad => obtenerImagenPortada(propiedad.id_propiedad)));
         setPropiedades(propiedades);
         setImagenesPortada(imagenesPortada);
-        setCargando(false); 
+        setCargando(false);
       } catch (error) {
         console.error('Hubo un error al obtener las propiedades o las imágenes: ', error);
         setCargando(false);
       }
     }
-    
+
     obtenerPropiedadesEImagenes();
   }, []);
+
+  const indexOfLastProperty = currentPage * propertiesPerPage;
+  const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
+  const currentProperties = propiedades.slice(indexOfFirstProperty, indexOfLastProperty);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
   
 
   return (
