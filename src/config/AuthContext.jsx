@@ -15,16 +15,16 @@ export const AuthProvider = ({ children }) => {
       setIsLoggedIn(true);
       const decodedToken = jwtDecode(token); // Usa jwt-decode para decodificar el token
       if (decodedToken) {
-        console.log("idPropietario en context es:",decodedToken.idPropietario);
         setIdPropietario(decodedToken.idPropietario);
       }
     }
   }, []);
-
+  
   const handleLoginSuccess = (newToken, expiry) => {
     setCookie('token', JSON.stringify({ token: newToken, expiry }), 1);
     const decodedToken = jwtDecode(newToken); // Usa jwt-decode para decodificar el token
     if (decodedToken) {
+      console.log("idPropietario en context es:",decodedToken.idPropietario);
       setIdPropietario(decodedToken.idPropietario);
     }
     setIsLoggedIn(true);
