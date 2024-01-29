@@ -25,7 +25,7 @@ function Login() {
     try {
       const response = await axios.post('https://rhapi-dev-kkbb.3.us-1.fl0.io/usuarios/login', { email: username, password });
       setMensaje({ texto: 'Inicio de sesión exitoso', tipo: 'exito' });
-      console.log(response.data);
+      console.log("lo que va al context es:",response.data);
       handleLoginSuccess(response.data.token);
       
       // Establece un temporizador para eliminar el token después de una hora
