@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }) => {
     try {
       setCookie('token', JSON.stringify({ token: newToken, expiry }), 1);
       const decodedToken = jwtDecode(newToken); // Usa jwt-decode para decodificar el token
+      console.log("decodedToken es:",decodedToken);
       if (decodedToken && decodedToken.idPropietario) {
         console.log("idPropietario en context es:", decodedToken.idPropietario);
         setIdPropietario(decodedToken.idPropietario);
