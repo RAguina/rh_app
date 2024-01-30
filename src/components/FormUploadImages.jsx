@@ -13,7 +13,7 @@ const FormUploadImages = () => {
   const navigate = useNavigate();
   const [uploadedImages, setUploadedImages] = useState([]);
   const [mainImage, setMainImage] = useState(null);
-  const { getRootProps, getInputProps } = useDropzone({
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: 'image/*',
     multiple: true,
     onDrop: async (acceptedFiles) => {
@@ -67,7 +67,10 @@ const FormUploadImages = () => {
     <div className='grid'>
       <div className='container-dropzone mb-30 bg-blue-500' {...getRootProps()}>
         <input {...getInputProps()} />
+      {
+        isDragActive ? <p className='my-10 text-2xl text-center font-bold'>Suelta el archivo</p> :
         <p className='my-10 text-2xl text-center font-bold'>Arrastra y suelta algunas imágenes aquí, o haz clic para seleccionar imágenes</p>
+      }
       </div>
       <div className='flex flex-wrap justify-center'>
       {uploadedImages.map(({ url, file }, index) => (
