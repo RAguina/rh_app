@@ -25,7 +25,6 @@ const Nav2 = ({ isOpaque }) => {
       {isLoggedIn ? (
         <>
           <Link to="/" onClick={handleLogout} className={`navLinks2`}>Cerrar Sesión</Link>
-          <Link to="/formUploadImages" className={`navLinks2 ${location.pathname === '/formUploadImages' ? 'active' : ''}`}>Subir Imagenes</Link>
         </>
       ) : (
         <Link to="/login" className={`navLinks2 ${location.pathname === '/login' ? 'active' : ''}`}>Iniciar Sesión</Link>

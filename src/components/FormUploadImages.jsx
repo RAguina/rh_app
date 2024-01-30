@@ -13,6 +13,7 @@ const FormUploadImages = () => {
   const navigate = useNavigate();
   const [uploadedImages, setUploadedImages] = useState([]);
   const [mainImage, setMainImage] = useState(null);
+  
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: 'image/*',
     multiple: true,
@@ -62,8 +63,8 @@ const FormUploadImages = () => {
   
   return (
     <>
-    {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
     <NavBarLine propiedadId={propiedadId} />
+    {errorMessage.mensaje && <ErrorPage mensaje={errorMessage.mensaje} tipo={errorMessage.tipo} />}
     <div className='grid'>
       <div className='container-dropzone mb-30 bg-blue-500' {...getRootProps()}>
         <input {...getInputProps()} />
