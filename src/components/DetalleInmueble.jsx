@@ -77,7 +77,7 @@ const DetalleInmueble = () => {
           {Object.entries(comodidades).map(([comodidad, valor]) => (
             <li key={comodidad} className="mb-2">
               <strong className="text-gray-700">{comodidad}:</strong> 
-              <span className={valor ? 'text-green-500' : 'text-red-500'}>{valor ? 'Sí' : 'No'}</span>
+              <span className={`${valor ? 'text-green-500' : 'text-red-500'} fontbold`}>{valor ? 'Sí' : 'No'}</span>
             </li>
           ))}
         </ul>
