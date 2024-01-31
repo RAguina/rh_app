@@ -13,6 +13,14 @@ const DetalleInmueble = () => {
   const [imagenes, setImagenes] = useState([]);
   const [comodidades, setComodidades] = useState([]);
 
+  function filtrarComodidades(comodidades) {
+    const camposIgnorados = ['id_amenities', 'createdat', 'updatedat', 'propiedad_id'];
+    return Object.fromEntries(
+      Object.entries(comodidades).filter(([campo, valor]) => !camposIgnorados.includes(campo))
+    );
+  }
+  
+
   useEffect(() => {
     const obtenerInmueble = async () => {
       try {
@@ -35,7 +43,8 @@ const DetalleInmueble = () => {
     const obtenerComodidades = async () => {
       try {
         const comodidadesRespuesta = await obtenerComodidadesPorPropiedadId(id);
-        setComodidades(comodidadesRespuesta);
+        const comodidadesFiltradas = filtrarComodidades(comodidadesRespuesta);
+        setComodidades(comodidadesFiltradas);
       } catch (error) {
         console.error('Hubo un error al obtener las comodidades: ', error);
       }
