@@ -71,16 +71,18 @@ const DetalleInmueble = () => {
       <p className="mb-2">ID del propietario: <span className='font-bold'>{inmueble.propietario_id}</span></p>
       <p className="mb-2">Fecha de subida: <span className='font-bold'>{inmueble && inmueble.createdat ? new Date(inmueble.createdat).toLocaleDateString() : 'N/A'}</span></p>
       
-      <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-4">Comodidades</h2>
-        <ul>
+      <div className="mt-8 font-sans">
+        <h2 className="text-2xl font-bold mb-4 text-gray-800">Comodidades</h2>
+        <ul className="list-none pl-0">
           {Object.entries(comodidades).map(([comodidad, valor]) => (
-            <li key={comodidad}>
-              <strong>{comodidad}:</strong> {valor ? 'Sí' : 'No'}
+            <li key={comodidad} className="mb-2">
+              <strong className="text-gray-700">{comodidad}:</strong> 
+              <span className={valor ? 'text-green-500' : 'text-red-500'}>{valor ? 'Sí' : 'No'}</span>
             </li>
           ))}
         </ul>
       </div>
+
 
       <div className="flex justify-center gap-4">
       {imagenes.map((imagen, index) => (
