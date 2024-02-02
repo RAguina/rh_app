@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { obtenerComodidadesPorPropiedadId } from '../api/amenities';
 import axios from 'axios';
 
 const API_URL_INMUEBLES = "https://rhapi-dev-kkbb.3.us-1.fl0.io/inmuebles"
 const API_URL_IMAGENES = "https://rhapi-dev-kkbb.3.us-1.fl0.io/imagen_inmuebles"
-const API_URL_AMENITIES = import.meta.env.VITE_REACT_APP_URL_AMENITIES
 
 const DetalleInmueble = () => {
   const { id } = useParams();
@@ -16,7 +15,7 @@ const DetalleInmueble = () => {
   function filtrarComodidades(comodidades) {
     const camposIgnorados = ['id_amenities', 'createdat', 'updatedat', 'propiedad_id'];
     return Object.fromEntries(
-      Object.entries(comodidades).filter(([campo, valor]) => !camposIgnorados.includes(campo))
+      Object.entries(comodidades).filter(([campo]) => !camposIgnorados.includes(campo))
     );
   }
   
