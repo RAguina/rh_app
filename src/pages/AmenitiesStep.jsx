@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import NavBarLine from '../components/NavBarLine';
 import ErrorPage from '../components/ErrorPage';
@@ -35,7 +35,7 @@ const AmenitiesStep = () => {
   useEffect(() => {
     if (errorMessage && errorMessage.tipo === 'exito') {
       const timer = setTimeout(() => {
-        navigate(`/detalleInmueble/${propiedadId}`);
+        navigate(`/inmuebles/${propiedadId}`);
       }, 5000);
       return () => clearTimeout(timer);
     }

@@ -34,7 +34,7 @@ const LocationStep = () => {
       }, 5000);
       return () => clearTimeout(timer);
     }
-  }, [errorMessage, navigate]);
+  }, [errorMessage, navigate,propiedadId]);
 
   return (
     <>

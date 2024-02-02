@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {obtenerInmuebles} from '../api/inmuebles';
 import { obtenerImagenPortada } from '../api/imagenes_inmuebles';
-import logo from "../assets/logov2.svg"
 
 const ListadoPropiedades = () => {
   const [propiedades, setPropiedades] = useState([])

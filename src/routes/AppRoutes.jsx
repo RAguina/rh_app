@@ -11,7 +11,6 @@ import DetalleInmueble from '../components/DetalleInmueble'
 import Login from '../pages/Login.jsx';
 import { withAuth } from '../hocs/withAuth';
 import LocationStep from '../pages/LocationStep.jsx';
-import { AuthProvider } from '../config/AuthContext';
 import AmenitiesStep from '../pages/AmenitiesStep.jsx';
 /*
 const isAuthenticated = true

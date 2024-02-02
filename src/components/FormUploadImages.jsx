@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import { useDropzone } from 'react-dropzone'; // Importa useDropzone de react-dropzone
 import { subirImagen } from '../api/imagenes_inmuebles';
 import { generarNombreUnico } from "../config/index.js";
@@ -74,7 +74,7 @@ const FormUploadImages = () => {
       }
       </div>
       <div className='flex flex-wrap justify-center'>
-      {uploadedImages.map(({ url, file }, index) => (
+      {uploadedImages.map(({ url }, index) => (
         <img
           key={index}
           src={url}
