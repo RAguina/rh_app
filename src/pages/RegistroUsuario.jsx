@@ -1,4 +1,4 @@
-  import React, { useState } from 'react';
+  import { useState } from 'react';
   import { registerUser, resetFormUsuario } from '../api/user';
   import ErrorPage from '../components/ErrorPage';
 
@@ -10,7 +10,6 @@
       ciudad: '',
       email: '',
       password: '',
-      es_propietario: false,
     });
     const [mensajeError, setMensajeError] = useState(null);
 
@@ -26,14 +25,7 @@
       try {
         await registerUser(form);
         console.log('Usuario registrado con exito');
-        setForm({
-          nombre: '',
-          apellido: '',
-          ciudad: '',
-          email: '',
-          password: '',
-          es_propietario: false,
-        });
+        resetFormUsuario(setForm);
         setMensajeError({ texto: 'Usuario registrado con exito', tipo: 'exito' });
       } catch (error) {
         console.error('Error registrando al usuario: ', error.response.data.message);
@@ -81,13 +73,6 @@
             value={form.password}
             onChange={handleChange} 
             className="w-full p-2 border border-gray-300 rounded" />
-          <label className="flex items-center space-x-2">
-            <input 
-              type="checkbox" name="es_propietario" 
-              value={form.es_propietario}
-              onChange={(e) => handleChange({ target: { name: e.target.name, value: e.target.checked } })} />
-            <span>Propietario</span>
-          </label>
           <button type="submit" className="w-full mb-10 navLinks">Registrar</button>
         </form>
       </div>
