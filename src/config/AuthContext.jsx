@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import {jwtDecode} from 'jwt-decode'; // Importa jwt-decode
 import { getCookie, setCookie, eraseCookie } from './cookieUtils';
 
@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!getCookie('token'));
   const [idPropietario, setIdPropietario] = useState(null);
+  const [rolId, setRolId] = useState(null);
   const [newProperty, setNewProperty] = useState(null)
 
   useEffect(() => {
@@ -24,6 +25,8 @@ export const AuthProvider = ({ children }) => {
     try {
       setCookie('token', JSON.stringify({ token: newToken, expiry }), 1);
       const decodedToken = jwtDecode(newToken); // Usa jwt-decode para decodificar el token
+      const { rol_id } = decodedToken
+      setRolId(rol_id)
       console.log("decodedToken es:",decodedToken);
       if (decodedToken && decodedToken.idPropietario) {
         console.log("idPropietario en context es:", decodedToken.idPropietario);
@@ -48,7 +51,8 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider value={{ 
       isLoggedIn, setIsLoggedIn, 
-      idPropietario, newProperty, setNewProperty,
+      idPropietario, newProperty, setNewProperty, 
+      rolId, setRolId,
       handleLoginSuccess, handleLogout }}>
       {children}
     </AuthContext.Provider>

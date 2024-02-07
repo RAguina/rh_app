@@ -13,7 +13,7 @@ function RegistrarPropiedades() {
   const [errorMessage, setErrorMessage] = useState({ mensaje: null, tipo: null });
   const errorRef = useRef(null);
   const { idPropietario } = useContext(AuthContext);
-  const [errores, setErrores] = useState([]);
+  //const [errores, setErrores] = useState([]);
   const [form, setForm] = useState({
     nombre_propiedad: '',
     descripcion: '',
