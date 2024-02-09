@@ -67,17 +67,15 @@ const AdminPanel = () => {
           {data.map((item, index) => (
             <tr key={item.id || index} className="border-t border-gray-200">
               {Object.entries(item).map(([key, value], i) => {
-                let displayValue = value;
-                if (key === 'es_propietario') {
-                  displayValue = value ? 'Sí' : 'No';
-                } else if (key === 'createdat' || key === 'updatedat') {
-                  const date = new Date(value);
-                  displayValue = date.toLocaleDateString('es-AR', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit'
-                  });
-                }
+                  let displayValue = value;
+                  if (key === 'createdat' || key === 'updatedat') {
+                    const date = new Date(value);
+                    displayValue = date.toLocaleDateString('es-AR', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit'
+                    });
+                  }
                 return <td key={i} className="px-4 py-2 text-center">{displayValue}</td>;
               })}
               <td>

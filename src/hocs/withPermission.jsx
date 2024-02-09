@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux';
+
+/*import { useSelector } from 'react-redux';
 import ErrorPage from '../components/ErrorPage';
 
 export function withAuthorization(Component, roles) {
@@ -12,3 +13,4 @@ export function withAuthorization(Component, roles) {
     return <Component {...props} />;
   };
 }
+*/

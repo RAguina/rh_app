@@ -61,6 +61,5 @@ export const resetFormUsuario = (setForm) => {
     ciudad: '',
     email: '',
     password: '',
-    es_propietario: false,
   });
 };

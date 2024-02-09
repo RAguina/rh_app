@@ -1,7 +1,7 @@
 // ProtectedRoute.jsx
-import React from 'react';
 import { Route, Navigate } from 'react-router-dom';
 import ErrorPage from '../components/ErrorPage';
+import { useEffect, useState } from 'react';
 
 const ProtectedRoute = ({ element, roles }) => {
   // Simulación del estado de autenticación y roles (ajusta según tu implementación real)
